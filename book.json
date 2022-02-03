@@ -2,7 +2,7 @@
     "title": "認識音檔（公開版本）",
     "description": "一份專門講解音檔格式的小冊子",
     "author": "Weizhong Yang a.k.a zonble <zonble@gmail.com>",
-    "bookRoot": "https://github.com/zonble/understanding_audio_files/",
+    "bookRoot": "https://zonble.github.io/understanding_audio_files/",
     "pdf": {
         "fontSize": 12,
         "paperSize": "a5"

@@ -24,13 +24,21 @@ jobs:
       - name: Gitbook Build
         run: gitbook build
       - name: Gitbook Epub
-        run: gitbook epub .
+        run: |
+          gitbook epub .
+          ls
       - name: Gitbook PDF
-        run: gitbook pdf .
+        run: |
+          gitbook pdf .
+          ls
       - name: Move File
-        run: mv book.epub ./_book/.
+        run: |
+          mv book.epub ./_book/.
+          ls ./_book/.
       - name: Move File
-        run: mv book.pdf ./_book/.
+        run: |
+          mv book.pdf ./_book/.
+          ls ./_book/.
       - name: Build and Deploy
         uses: crazy-max/ghaction-github-pages@v2
         with:
