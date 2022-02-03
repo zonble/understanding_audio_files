@@ -26,6 +26,8 @@
 
 - 這本手冊位在 https://zonble.github.io/understanding_audio_files/
 - GitHub 專案位置在 https://github.com/zonble/understanding_audio_files
+- [PDF 版本](https://zonble.github.io/understanding_audio_files/understanding_audio_files.pdf)
+- [EPUB 版本](https://zonble.github.io/understanding_audio_files/understanding_audio_files.epub)
 
 ## 我工作上曾經遇過的音檔
 
