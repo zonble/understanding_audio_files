@@ -20,6 +20,11 @@
 
 當中有什麼錯漏之處，也祈請大家指正。
 
+## 連結
+
+- 這本手冊位在 https://zonble.github.io/understanding_audio_files/
+- GitHub 專案位置在 https://github.com/zonble/understanding_audio_files
+
 ## 我工作上曾經遇過的音檔
 
 我在工作上曾經遇過
