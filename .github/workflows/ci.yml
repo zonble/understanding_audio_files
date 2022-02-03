@@ -24,9 +24,9 @@ jobs:
       - name: Gitbook Build
         run: gitbook build
       - name: Gitbook Epub
-        run: gitbook epub
+        run: gitbook epub .
       - name: Gitbook PDF
-        run: gitbook pdf
+        run: gitbook pdf .
       - name: Move File
         run: mv book.epub ./_book/.
       - name: Move File
