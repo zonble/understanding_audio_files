@@ -33,11 +33,11 @@ jobs:
           ls
       - name: Move File
         run: |
-          mv book.epub ./_book/.
+          mv book.epub ./_book/understanding_audio_files.epub
           ls ./_book/.
       - name: Move File
         run: |
-          mv book.pdf ./_book/.
+          mv book.pdf ./_book/understanding_audio_files.pdf
           ls ./_book/.
       - name: Build and Deploy
         uses: crazy-max/ghaction-github-pages@v2
