@@ -20,7 +20,7 @@
 - 知道音檔分成 codec 以及 container，而且知道這些名詞的意義
 - 知道 FairPlay 與 Widevine 這些商用 DRM 所保護的是什麼格式
 
-當中有什麼錯漏之處，也祈請大家指正。
+當中有什麼錯漏之處，也祈請大家指正。大家可以直接 fork 這本手冊然後發 pull request
 
 ## 連結
 
@@ -28,6 +28,13 @@
 - GitHub 專案位置在 https://github.com/zonble/understanding_audio_files
 - [PDF 版本](https://zonble.github.io/understanding_audio_files/understanding_audio_files.pdf)
 - [EPUB 版本](https://zonble.github.io/understanding_audio_files/understanding_audio_files.epub)
+
+## 感謝
+
+在發布之後，感謝以下朋友的指正
+
+- [iXerol](https://github.com/iXerol)
+- [kojirou1994](https://github.com/kojirou1994)
 
 ## 我工作上曾經遇過的音檔
 
