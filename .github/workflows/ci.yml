@@ -19,6 +19,8 @@ jobs:
         run: |
           apt update
           apt install git -y
+      - name: Udpate Date Information
+        run: sh date.sh >> README.md
       - name: Gitbook Install
         run: gitbook install
       - name: Gitbook Build

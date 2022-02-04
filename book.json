@@ -17,7 +17,8 @@
         "code",
         "-lunr", 
         "-search", 
-        "search-pro"
+        "search-pro",
+        "splitter"
     ],
     "pluginsConfig": {
         "toc": {
