@@ -13,22 +13,24 @@
         "toc",
         "tree",
         "-sharing",
-        "extra-html",
         "code",
         "-lunr", 
         "-search", 
         "search-pro",
-        "splitter"
+        "splitter",
+        "extra-html"
     ],
     "pluginsConfig": {
         "toc": {
             "addClass": true,
             "className": "toc"
         },
-        "footer": {
-            "files": [
-                "ga.html"
-            ]
+        "extra-html": {
+            "footer": {
+                "files": [
+                    "./ga.html"
+                ]
+            }
         }
     },
     "styles": {

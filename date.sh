@@ -2,4 +2,4 @@
 
 DATE=$(TZ='Asia/Taipei' date +"%Y/%m/%d %H:%M %Z")
 
-echo "\n文件更新時間：${DATE}\n"
+echo "<p>文件更新時間：${DATE}</p>"
