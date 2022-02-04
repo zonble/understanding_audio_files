@@ -184,7 +184,7 @@ Google 提供的流程圖如下，再知道一些專有名詞的意義後，會�
 
 ![Widevine 加上 HLS 串流的流程](widevine_hls.png)
 
-Web 上，這整套取得 license 的流程，被包在 EME 裡頭，Google 有一篇文件專門介紹 EXE：[What is EME?](https://developers.google.com/web/fundamentals/media/eme)。至於播放軟體方面，Google 也一樣推薦用 Shaka Player 播放 Winevine 保護的 Dash 串流。
+Web 上，這整套取得 license 的流程，被包在 EME 裡頭，Google 有一篇文件專門介紹 EME：[What is EME?](https://developers.google.com/web/fundamentals/media/eme)。至於播放軟體方面，Google 也一樣推薦用 Shaka Player 播放 Winevine 保護的 Dash 串流。
 
 ### 離線下載
 
