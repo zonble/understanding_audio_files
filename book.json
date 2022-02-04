@@ -12,16 +12,22 @@
         "japanese-support",
         "toc",
         "tree",
-        "ga",
-        "-sharing"
+        "-sharing",
+        "extra-html",
+        "code",
+        "-lunr", 
+        "-search", 
+        "search-pro"
     ],
     "pluginsConfig": {
         "toc": {
             "addClass": true,
             "className": "toc"
         },
-        "ga": {
-            "token": "G-HDVV7L35X0"
+        "footer": {
+            "files": [
+                "ga.html"
+            ]
         }
     },
     "styles": {
