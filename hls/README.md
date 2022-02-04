@@ -8,6 +8,8 @@ HLS 在 21 世紀第一個十年快要結束的時候推出，最大的意義就
 
 HLS 改變 client/server 之間建立 socket 連線的架構，從 HLS 的名稱就可以看出，利用 HTTP 技術解決人數上限問題。在直播訊源與眾多觀看直播的 client 之間，多了幾個步驟：首先直播訊源會將資料編碼成 fMP4 （我們在下一章討論）格式之後，送到一台主機上，這台主機會把每隔一段時間（比方說，每隔 5 秒、10 秒…）的影片，轉成一個小檔案—這種將連續的資料變成一個個資料切片的程式，我們叫做 segmenter，每個被切出來的小檔案叫做 ts（[MPEG Transport Stream](https://zh.wikipedia.org/wiki/MPEG2-TS)，也是一種封裝格式，因為我們不太會去解析這套格式，就不解釋了），這些被切出來的小檔案會被佈署到 **[CDN](https://zh.wikipedia.org/wiki/%E5%85%A7%E5%AE%B9%E5%82%B3%E9%81%9E%E7%B6%B2%E8%B7%AF)** 上，另外產生一個文字檔，附檔名是 `.m3u8`，是這些小檔案的 playlist，指示 client 如何播放這些 ts，而當有新的 ts 被產生、佈署，這個 `.m3u8` 檔案也會隨之更新。
 
+在 HLS 規格中，除了 TS 之外，[HLS 的切片也支援使用 fMP4 封裝](https://datatracker.ietf.org/doc/html/rfc8216#section-3.3)。但使用 fMP4 檔案封裝的 HLS 流，在多數平台都不被支援，[蘋果平台也僅在 macOS 10.12, iOS 10, tvOS 10 之後的版本才支援播放](https://developer.apple.com/documentation/http_live_streaming/about_the_ext-x-version_tag)。本章節後續均基於 TS 切片描述，[fMP4 檔將在 MPEG-DASH 章節介紹](../dash/#fmp4)。
+
 以下圖片來自蘋果的 [HLS 技術官方頁面](https://developer.apple.com/documentation/http_live_streaming)：
 
 ![HLS](hls.png)
