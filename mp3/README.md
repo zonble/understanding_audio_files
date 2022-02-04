@@ -58,10 +58,10 @@ ID3 metadata 也是一連串的 binary data，目前比較通行的是第二版�
 
 從第 11 個 byte 開始，我們就可以讀出一個個的 ID3 frame，每個 ID3 frame 也是由 header 與 body 組成，在 header 中可以讀出這個 frame 代表什麼、以及 body 的長度，body 則是實際的內容，像是歌名、歌手…等：
 
-- 每次先讀 10 個 byes
+- 每次先讀 10 個 bytes
   - 前 4 個 bytes 是 Tag ID，像 `TALB` 就是專輯名稱、`TCOM` 是作曲者…
   - 5-8 這 4 個 bytes 是 frame body 的長度，也是 28 位元無正負號整數
-  - 2 個 byes 的 padding
+  - 2 個 bytes 的 padding
 - 然後根據 header 中的 frame body 長度，往下讀取
   - frame body 的第一個 byte，代表的是這個資訊使用的字元編碼方式
     - 0：ASCII
