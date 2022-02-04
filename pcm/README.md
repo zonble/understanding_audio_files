@@ -41,7 +41,7 @@
 
 ## PCM 格式—所謂的原始音檔
 
-這種以一連串數字描述聲音的格式，我們往往叫做原始音檔，而術語叫做 **[PCM 格式](https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A)**（**Pulse-code modulation**，中文叫做「脈衝編碼調變」，但是很少人可以記住這個中文名稱，通常就慣稱 PCM）。像微軟 Windows 上的 [WAV 檔案](https://zh.wikipedia.org/wiki/WAV)（用「錄音機」軟體錄製出來的聲音檔案）、蘋果平台上的 [CAF 檔案](https://en.wikipedia.org/wiki/Core_Audio_Format)，都屬於這種格式，只是通常都還會在最前方加個檔頭。而從上面的描述，我們也可以知道，雖然同樣叫做 PCM 格式，但是可能會有不同的 Sample Rate、或是用不同的數字格式描述波型，而 WAV、CAF 檔案的檔頭，用是用來告訴播放軟體應該怎麼解析檔頭之後的資料。
+這種以一連串數字描述聲音的格式，我們往往叫做原始音檔，而術語叫做 **[PCM 格式](https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A)**（**Pulse-code modulation**，中文叫做「脈衝編碼調變」，但是很少人可以記住這個中文名稱，通常就慣稱 PCM）。像微軟 Windows 上的 [WAV 檔案](https://zh.wikipedia.org/wiki/WAV)（用「錄音機」軟體錄製出來的聲音檔案）、蘋果平台上的 [AIFF 檔案](https://en.wikipedia.org/wiki/Audio_Interchange_File_Format)，都屬於這種格式，只是通常都還會在最前方加個檔頭。而從上面的描述，我們也可以知道，雖然同樣叫做 PCM 格式，但是可能會有不同的 Sample Rate、或是用不同的數字格式描述波型，而 WAV、AIFF 檔案的檔頭，用是用來告訴播放軟體應該怎麼解析檔頭之後的資料。
 
 現在用戶通常很少會直接播放 PCM 檔案，在網路上流通的音檔，也很少會是 PCM 格式，但無論是哪種格式，在 client 端最後都得要轉換成 PCM 格式，才能夠再交給 client 端的硬體播放：有可能是透過平台本身已經包好的播放器元件，像 iOS/macOS 平台上有高階的播放器 AVPlayer，也可能是要使用更低階的 Audio API，自己想辦法呼叫 codec，將各種格式轉換成 PCM 格式。
 
