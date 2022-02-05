@@ -35,7 +35,9 @@
 
 ## 聯絡方式
 
+- [g.dev/zonble](https://g.dev/zonble)
 - Twitter [@zonble](https://twitter.com/zonble)
+- GitHub [@zonble](https://github.com/zonble/)
 
 ## 感謝
 
