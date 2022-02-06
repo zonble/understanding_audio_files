@@ -1,0 +1,51 @@
+.gitbook-link {
+    color: #ccc !important;
+}
+.book .book-summary ul.summary {
+    -webkit-user-select: none;
+    user-select: none;
+    outline: none;
+}
+.book .book-summary ul.summary li {
+    outline: none;
+}
+.book .book-summary ul.summary li span {
+    opacity: 0.9;
+    cursor: pointer;
+    outline: none;
+}
+.book .book-summary ul.summary li .tree-btn {
+    display: inline-block;
+    zoom: 1;
+    margin: 0px 3px 2px 0px;
+    padding: 0px;
+    font-weight: bold;
+    vertical-align: middle;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    line-height: 14px;
+    font-size: 14px;
+    height: 16px;
+    width: 16px;
+    text-align: center;
+}
+.book .book-summary ul.summary li .tree-btn span {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+}
+.book .book-summary ul.summary li.close>a>.tree-btn>.t2,
+.book .book-summary ul.summary li.close>span>.tree-btn>.t2,
+.book .book-summary ul.summary li.open>a>.tree-btn>.t1,
+.book .book-summary ul.summary li.open>span>.tree-btn>.t1,
+.book .book-summary ul.summary li.no-child>a>.tree-btn>.t2,
+.book .book-summary ul.summary li.no-child>span>.tree-btn>.t2,
+.book .book-summary ul.summary li.no-child>a>.tree-btn>.t1,
+.book .book-summary ul.summary li.no-child>span>.tree-btn>.t1,
+.book .book-summary ul.summary li.close>ul {
+    display: none;
+}
+.book .book-summary ul.summary li.no-child>a>.tree-btn,
+.book .book-summary ul.summary li.no-child>span>.tree-btn {
+    border: solid 1px #eee;
+}

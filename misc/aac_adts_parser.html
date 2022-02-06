@@ -1,0 +1,587 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AAC-ADTS Parser 範例 · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="id3_parser.html" />
+    
+    
+    <link rel="prev" href="mp3_parser.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pcm/">
+            
+                <a href="../pcm/">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mp3/">
+            
+                <a href="../mp3/">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../hls/">
+            
+                <a href="../hls/">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../dash/">
+            
+                <a href="../dash/">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="mp3_parser.html">
+            
+                <a href="mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.2" data-path="aac_adts_parser.html">
+            
+                <a href="aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="id3_parser.html">
+            
+                <a href="id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="flac_streaminfo.html">
+            
+                <a href="flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="version.html">
+            
+                <a href="version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AAC-ADTS Parser 範例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="aac-adts-parser-&#x7BC4;&#x4F8B;">AAC-ADTS Parser &#x7BC4;&#x4F8B;</h1>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4F7F;&#x7528; Pyhton 2 &#x64B0;&#x5BEB;&#x7684; ID3 Parser &#x7BC4;&#x4F8B;&#x3002;&#x4F5C;&#x8005;&#x70BA; Oliver Huang&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env python</span>
+<span class="hljs-comment"># encoding: utf-8</span>
+
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ADTSParser</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    Parse AAC-ADTS file to find first frame offset and check if there is invalid frame.
+    &apos;&apos;&apos;</span>
+    ADTS_MINIMUM_HEADER_SIZE = <span class="hljs-number">7</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ADTSHeader</span>:</span>
+        <span class="hljs-comment"># AAAAAAAA AAAABCCD EEFFFFGH HHIJKLMM MMMMMMMM MMMOOOOO OOOOOOPP (QQQQQQQQ QQQQQQQQ)</span>
+        <span class="hljs-comment"># AAAAAAAA AAAA: syncword</span>
+        <span class="hljs-comment"># B: MPEG version</span>
+        <span class="hljs-comment"># CC: Layer</span>
+        <span class="hljs-comment"># FFFF: Sample rate</span>
+        <span class="hljs-comment"># HHH: Channel configuration</span>
+        <span class="hljs-comment"># MM MMMMMMMM MMM: Frame length</span>
+        SampleRateTable = (<span class="hljs-number">96000</span>, <span class="hljs-number">88200</span>, <span class="hljs-number">64000</span>, <span class="hljs-number">48000</span>, <span class="hljs-number">44100</span>, <span class="hljs-number">32000</span>, <span class="hljs-number">24000</span>, <span class="hljs-number">22050</span>, <span class="hljs-number">16000</span>, <span class="hljs-number">12000</span>, <span class="hljs-number">11025</span>, <span class="hljs-number">8000</span>, <span class="hljs-number">7350</span>)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data)</span>:</span>
+            <span class="hljs-keyword">assert</span> type(data) <span class="hljs-keyword">is</span> bytearray
+            self.data = data
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValid</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">if</span> len(self.data) &lt; ADTSParser.ADTS_MINIMUM_HEADER_SIZE:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">if</span> self.syncword() != <span class="hljs-number">0xfff0</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">if</span> self.MPEGVersion() != <span class="hljs-number">4</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">if</span> self.layer() != <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">if</span> self.sampleRate() != <span class="hljs-number">44100</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">if</span> self.channelConfig() != <span class="hljs-number">2</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">syncword</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> (self.data[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-number">8</span>) | (self.data[<span class="hljs-number">1</span>] &amp; <span class="hljs-number">0xf0</span>)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">MPEGVersion</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> <span class="hljs-keyword">if</span> (self.data[<span class="hljs-number">1</span>] &amp; <span class="hljs-number">0x08</span>) == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">2</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layer</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> (self.data[<span class="hljs-number">1</span>] &amp; <span class="hljs-number">0x06</span>) &gt;&gt; <span class="hljs-number">1</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sampleRate</span><span class="hljs-params">(self)</span>:</span>
+            index = (self.data[<span class="hljs-number">2</span>] &amp; <span class="hljs-number">0x3c</span>) &gt;&gt; <span class="hljs-number">2</span>
+            <span class="hljs-keyword">if</span> index &gt;= len(self.SampleRateTable):
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+            <span class="hljs-keyword">return</span> self.SampleRateTable[index]
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">channelConfig</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> ((self.data[<span class="hljs-number">2</span>] &amp; <span class="hljs-number">0x01</span>) &lt;&lt; <span class="hljs-number">2</span>) | ((self.data[<span class="hljs-number">3</span>] &amp; <span class="hljs-number">0xc0</span>) &gt;&gt; <span class="hljs-number">6</span>)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">frameLength</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.isValid():
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+            <span class="hljs-keyword">return</span> ((self.data[<span class="hljs-number">3</span>] &amp; <span class="hljs-number">0x03</span>) &lt;&lt; <span class="hljs-number">11</span>) | (self.data[<span class="hljs-number">4</span>] &lt;&lt; <span class="hljs-number">3</span>) | ((self.data[<span class="hljs-number">5</span>] &amp; <span class="hljs-number">0xe0</span>) &gt;&gt; <span class="hljs-number">5</span>)
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parseAACFile</span><span class="hljs-params">(self, inInputFilePath)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Check if all frames are valid and get offset of first frame.
+
+        A valid frame will be MPEG-4, 2-channels and sample rate 44.1 KHz.
+
+        This function will find first two valid frames without bytes between it.
+
+        If we encounter frame that is not valid after first frame, we return False.
+
+        Otherwise, this function will return True.
+
+        :param inInputFilePath: the aac file path to check.
+        :type inInputFilePath: str
+        :returns: A tuple (first ADTS frame offset, whether all frames after offset are valid)
+        :rtype: 2-tuple
+
+        &apos;&apos;&apos;</span>
+        inputFile = open(inInputFilePath, <span class="hljs-string">&apos;rb&apos;</span>)
+        content = bytearray(inputFile.read())
+        inputFile.close()
+
+        <span class="hljs-keyword">return</span> self.isAllFramesInDataValid(content)
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isAllFramesInDataValid</span><span class="hljs-params">(self, content)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Check if all frames are valid in bytes.
+
+        :param content: audio content to check.
+        :type content: bytearray
+        :returns: A tuple (first ADTS frame offset, whether all frames after offset are valid)
+        :rtype: 2-tuple
+
+        &apos;&apos;&apos;</span>
+        offset = <span class="hljs-number">0</span>
+        firstOffset = <span class="hljs-number">-1</span>
+        length = len(content)
+        tStart = time.time()
+        tLast = tStart
+
+        <span class="hljs-keyword">while</span> offset + self.ADTS_MINIMUM_HEADER_SIZE &lt; length:
+            tCurrect = time.time()
+            <span class="hljs-keyword">if</span> tCurrect - tLast &gt; <span class="hljs-number">1</span>:
+                <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Total file length: %d, current offset: %d, time elapsed: %.3f&apos;</span> % (length, offset, tCurrect - tStart)
+                tLast = tCurrect
+
+            frame = self.ADTSHeader(content[offset:offset + self.ADTS_MINIMUM_HEADER_SIZE])
+            <span class="hljs-keyword">if</span> firstOffset == <span class="hljs-number">-1</span>:
+                <span class="hljs-keyword">if</span> frame.isValid() <span class="hljs-keyword">and</span> frame.frameLength() &gt; <span class="hljs-number">0</span>:
+                    secondOffset = offset + frame.frameLength()
+                    <span class="hljs-keyword">if</span> secondOffset + self.ADTS_MINIMUM_HEADER_SIZE &gt; length:
+                        <span class="hljs-keyword">return</span> (<span class="hljs-number">-1</span>, <span class="hljs-keyword">False</span>)
+                    second = self.ADTSHeader(content[secondOffset:secondOffset + self.ADTS_MINIMUM_HEADER_SIZE])
+                    <span class="hljs-keyword">if</span> second.isValid() <span class="hljs-keyword">and</span> second.frameLength() &gt; <span class="hljs-number">0</span>:
+                        firstOffset = offset
+                        offset = secondOffset + second.frameLength()
+                        <span class="hljs-keyword">continue</span>
+                offset += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">elif</span> <span class="hljs-keyword">not</span> frame.isValid():
+                <span class="hljs-keyword">return</span> (<span class="hljs-number">-1</span>, <span class="hljs-keyword">False</span>)
+            <span class="hljs-keyword">else</span>:
+                offset += frame.frameLength()
+
+        <span class="hljs-keyword">return</span> (firstOffset, firstOffset &gt;= <span class="hljs-number">0</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printUsage</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;&apos;&apos;Usage: python %s [AAC file]
+Example: python %s 24023614.aac
+It will find first ADTS frame offset and parse all frames in aac file and return parse result as bool.&apos;&apos;&apos;</span> % (sys.argv[<span class="hljs-number">0</span>], sys.argv[<span class="hljs-number">0</span>])
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">if</span> len(sys.argv) != <span class="hljs-number">2</span>:
+        printUsage()
+        exit()
+    filename = sys.argv[<span class="hljs-number">1</span>]
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(filename):
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;File not found: %s&apos;</span> % (filename)
+        printUsage()
+        exit()
+    offset, isValid = ADTSParser.parseAACFile(filename)
+    <span class="hljs-keyword">print</span> isValid
+    <span class="hljs-keyword">if</span> isValid:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;First frame offset: %d&quot;</span> % offset
+</code></pre>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mp3_parser.html" class="navigation navigation-prev " aria-label="Previous page: MP3 Parser 範例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="id3_parser.html" class="navigation navigation-next " aria-label="Next page: ID3 Parser 範例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AAC-ADTS Parser 範例","level":"1.9.2","depth":2,"next":{"title":"ID3 Parser 範例","level":"1.9.3","depth":2,"path":"misc/id3_parser.md","ref":"misc/id3_parser.md","articles":[]},"previous":{"title":"MP3 Parser 範例","level":"1.9.1","depth":2,"path":"misc/mp3_parser.md","ref":"misc/mp3_parser.md","articles":[]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"misc/aac_adts_parser.md","mtime":"2022-02-06T19:23:06.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

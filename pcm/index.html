@@ -1,0 +1,477 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PCM 格式 · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../mp3/" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mp3/">
+            
+                <a href="../mp3/">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../hls/">
+            
+                <a href="../hls/">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../dash/">
+            
+                <a href="../dash/">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../misc/mp3_parser.html">
+            
+                <a href="../misc/mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../misc/aac_adts_parser.html">
+            
+                <a href="../misc/aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../misc/id3_parser.html">
+            
+                <a href="../misc/id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../misc/flac_streaminfo.html">
+            
+                <a href="../misc/flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../misc/version.html">
+            
+                <a href="../misc/version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PCM 格式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="pcm-&#x683C;&#x5F0F;">PCM &#x683C;&#x5F0F;</h1>
+<h2 id="&#x6578;&#x4F4D;&#x8207;&#x985E;&#x6BD4;">&#x6578;&#x4F4D;&#x8207;&#x985E;&#x6BD4;</h2>
+<p>&#x8072;&#x97F3;&#x662F;&#x4EBA;&#x8033;&#x53EF;&#x4EE5;&#x611F;&#x53D7;&#x5230;&#x7684;&#x3001;&#x7A7A;&#x6C23;&#x4E2D;&#x8207;&#x6C34;&#x4E2D;&#x7684;&#x9707;&#x52D5;&#xFF0C;&#x662F;&#x4E00;&#x7A2E;&#x985E;&#x6BD4;&#xFF08;Analog&#xFF09;&#x8A0A;&#x865F;&#xFF0C;&#x97F3;&#x6A94;&#x5247;&#x662F;&#x7528;&#x6578;&#x4F4D;&#xFF08;Digital&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#x5C07;&#x9019;&#x4E9B;&#x9707;&#x52D5;&#x8A18;&#x9304;&#x4E0B;&#x4F86;&#x3002;</p>
+<p>&#x4EBA;&#x9AD4;&#x53EF;&#x4EE5;&#x5F9E;&#x5927;&#x81EA;&#x7136;&#x4E2D;&#x611F;&#x53D7;&#x5230;&#x7684;&#x8A0A;&#x865F;&#xFF0C;&#x90FD;&#x662F;&#x985E;&#x6BD4;&#x8A0A;&#x865F;&#x2014;&#x6240;&#x8B02;&#x985E;&#x6BD4;&#x8A0A;&#x865F;&#xFF0C;&#x662F;&#x5728;&#x8A0A;&#x865F;&#x4E2D;&#x5B58;&#x5728;&#x8457;&#x76F8;&#x5C0D;&#x7684;&#x5F37;&#x5F31;&#x7684;&#x4F4D;&#x6BD4;&#xFF0C;&#x800C;&#x6578;&#x4F4D;&#x8A0A;&#x865F;&#x5247;&#x662F;&#x7531;&#x4F4D;&#x5143;&#x7D44;&#x6210;&#xFF0C;&#x662F;&#x7D55;&#x5C0D;&#x7684; 0 &#x8207; 1&#xFF0C;&#x7528; 0 &#x8207; 1 &#x6240;&#x7D44;&#x6210;&#x7684;&#x6578;&#x5B57;&#xFF0C;&#x76E1;&#x53EF;&#x80FD;&#x5730;&#x63CF;&#x8FF0;&#x8207;&#x9084;&#x539F;&#x66FE;&#x7D93;&#x767C;&#x751F;&#x5728;&#x5927;&#x81EA;&#x7136;&#x4E2D;&#x7684;&#x985E;&#x6BD4;&#x8A0A;&#x865F;&#x3002;</p>
+<p>&#x4EE5;&#x984F;&#x8272;&#x4F86;&#x8AAA;&#xFF0C;&#x5927;&#x81EA;&#x7136;&#x4E2D;&#x4E26;&#x4E0D;&#x6703;&#x6709;&#x7D55;&#x5C0D;&#x7684;&#x767D;&#x3001;&#x4E5F;&#x4E0D;&#x6703;&#x6709;&#x7D55;&#x5C0D;&#x7684;&#x9ED1;&#xFF0C;&#x4E0D;&#x6703;&#x6709;&#x5B8C;&#x5168;&#x7121;&#x5149;&#x6216;&#x662F;&#x5149;&#x7DDA;&#x6578;&#x91CF;&#x7684;&#x6975;&#x9650;&#x72C0;&#x614B;&#xFF0C;&#x4EE5;&#x8072;&#x97F3;&#x4F86;&#x8AAA;&#xFF0C;&#x4E5F;&#x4E0D;&#x6703;&#x6709;&#x5B8C;&#x5168;&#x7684;&#x7121;&#x8072;&#xFF0C;&#x6216;&#x662F;&#x8072;&#x97F3;&#x7684;&#x6975;&#x9650;&#x72C0;&#x614B;&#x3002;</p>
+<p>&#x4F46;&#x56E0;&#x70BA;&#x96FB;&#x8166;&#x7684;&#x5BB9;&#x91CF;&#x8207;&#x7B97;&#x529B;&#x7684;&#x95DC;&#x4FC2;&#xFF0C;&#x5728;&#x96FB;&#x8166;&#x4E0A;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9808;&#x8A02;&#x51FA;&#x4E00;&#x500B;&#x6578;&#x503C;&#x7684;&#x4E0A;&#x9650;&#x8207;&#x4E0B;&#x9650;&#x3002;&#x5728;&#x5927;&#x81EA;&#x7136;&#x7576;&#x4E2D;&#x6709;&#x7121;&#x6578;&#x7A2E;&#x8272;&#x5F69;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x5728;&#x96FB;&#x8166;&#x4E0A;&#xFF0C;&#x4EE5; RGB &#x4F86;&#x8AAA;&#xFF0C;&#x5C31;&#x662F; 256 * 256 * 256 &#x6240;&#x7D44;&#x6210;&#x7684;&#x3001;&#x5C07;&#x8FD1;&#x4E00;&#x516D;&#x4E03;&#x4E03;&#x842C;&#x7A2E;&#x984F;&#x8272;&#x3002;</p>
+<p>&#x7576;&#x6211;&#x5011;&#x60F3;&#x8981;&#x628A;&#x5927;&#x81EA;&#x7136;&#x7576;&#x4E2D;&#x7684;&#x985E;&#x6BD4;&#x8A0A;&#x865F;&#x8F49;&#x63DB;&#x6210;&#x6578;&#x4F4D;&#x8A0A;&#x865F;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EA;&#x80FD;&#x5920;&#x8A18;&#x9304;&#x5BE6;&#x969B;&#x767C;&#x751F;&#x5728;&#x5927;&#x81EA;&#x7136;&#x7576;&#x4E2D;&#x7684;&#x90E8;&#x4EFD;&#x8A0A;&#x865F;&#xFF0C;&#x800C;&#x6211;&#x5011;&#x8A18;&#x9304;&#x7684;&#x662F;&#x4EBA;&#x9AD4;&#x7684;&#x611F;&#x5B98;&#x6240;&#x80FD;&#x5920;&#x611F;&#x53D7;&#x5230;&#x7684;&#x7BC4;&#x570D;&#x3002;</p>
+<p>&#x985E;&#x6BD4;&#x4FE1;&#x865F;&#x624D;&#x662F;&#x4EBA;&#x985E;&#x6700;&#x5F8C;&#x53EF;&#x4EE5;&#x611F;&#x53D7;&#x5230;&#x7684;&#x4FE1;&#x865F;&#xFF0C;&#x5373;&#x4F7F;&#x6211;&#x5011;&#x8F49;&#x63DB;&#x4E86;&#x6578;&#x4F4D;&#x97F3;&#x6A94;&#xFF0C;&#x9084;&#x662F;&#x5FC5;&#x9808;&#x900F;&#x904E;&#x8033;&#x6A5F;&#x6216;&#x662F;&#x5587;&#x53ED;&#x7B49;&#x786C;&#x9AD4;&#x64AD;&#x653E;&#x51FA;&#x4F86;&#x3002;&#x6211;&#x5011;&#x9700;&#x8981;&#x6578;&#x4F4D;&#x97F3;&#x6A94;&#x7684;&#x539F;&#x56E0;&#x662F;&#x2014;&#x985E;&#x6BD4;&#x8A0A;&#x865F;&#x5F80;&#x5F80;&#x7121;&#x6CD5;&#x50B3;&#x905E;&#x5230;&#x9060;&#x65B9;&#xFF0C;&#x4EBA;&#x8072;&#x5F80;&#x5F80;&#x50B3;&#x905E;&#x4E0D;&#x904E;&#x5E7E;&#x5341;&#x5230;&#x5E7E;&#x767E;&#x516C;&#x5C3A;&#xFF0C;&#x4F46;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x53EF;&#x4EE5;&#x5C07;&#x8072;&#x97F3;&#x50B3;&#x9001;&#x5230;&#x66F4;&#x9060;&#x7684;&#x5730;&#x65B9;&#xFF1B;&#x8072;&#x97F3;&#x6703;&#x7D93;&#x904E;&#x4E00;&#x6BB5;&#x6642;&#x9593;&#x4E4B;&#x5F8C;&#x6D88;&#x5931;&#xFF0C;&#x4F46;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x53EF;&#x4EE5;&#x5728;&#x4E8B;&#x4EF6;&#x767C;&#x751F;&#x4E4B;&#x5F8C;&#xFF0C;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x91CD;&#x73FE;&#x7576;&#x6642;&#x7684;&#x8A0A;&#x865F;&#x3002;&#x4F46;&#xFF0C;&#x8A18;&#x9304;&#x7684;&#x904E;&#x7A0B;&#xFF0C;&#x4E5F;&#x540C;&#x6642;&#x662F;&#x5931;&#x771F;&#x7684;&#x904E;&#x7A0B;&#x2014;&#x4E00;&#x5B9A;&#x6703;&#x6709;&#x4E9B;&#x7247;&#x6BB5;&#x6216;&#x4E8B;&#x7269;&#xFF0C;&#x5728;&#x8F49;&#x63DB;&#x3001;&#x50B3;&#x905E;&#x7684;&#x904E;&#x7A0B;&#x7576;&#x4E2D;&#x907A;&#x5931;&#x3002;</p>
+<h2 id="&#x63A1;&#x6A23;">&#x63A1;&#x6A23;</h2>
+<p>&#x7528;&#x4F86;&#x5075;&#x6E2C;&#x7A7A;&#x6C23;&#x4E2D;&#x7684;&#x9707;&#x52D5;&#x7684;&#x88DD;&#x7F6E;&#xFF0C;&#x6211;&#x5011;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x9EA5;&#x514B;&#x98A8;&#x3002;&#x90A3;&#x9EBC;&#xFF0C;&#x5728;&#x96FB;&#x8166;&#x4E0A;&#xFF0C;&#x6703;&#x88AB;&#x4EE5;&#x4EC0;&#x9EBC;&#x65B9;&#x5F0F;&#x8A18;&#x9304;&#xFF1F;</p>
+<p>&#x8072;&#x97F3;&#x662F;&#x6CE2;&#xFF0C;&#x5728;&#x6578;&#x5B78;&#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x63CF;&#x8FF0;&#x4E00;&#x500B;&#x6CE2;&#xFF0C;&#x6703;&#x4F7F;&#x7528;&#x4E8C;&#x5143;&#x65B9;&#x7A0B;&#x5F0F;&#x8868;&#x9054;&#xFF0C;&#x4EE5; X &#x8EF8;&#x4EE3;&#x8868;&#x6642;&#x9593;&#xFF0C;&#x4EE5; Y &#x8EF8;&#x4EE3;&#x8868;&#x8072;&#x6CE2;&#x7684;&#x9707;&#x52D5;&#xFF0C;&#x7406;&#x8AD6;&#x4E0A;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C07;&#x6642;&#x9593;&#x5206;&#x5272;&#x6210;&#x7121;&#x9650;&#x5C0F;&#xFF0C;&#x800C;&#x73FE;&#x5BE6;&#x4E2D;&#xFF0C;&#x7269;&#x7406;&#x4E0A;&#x6642;&#x9593;&#x9084;&#x662F;&#x6703;&#x6709;&#x4E00;&#x500B;&#x6700;&#x5C0F;&#x7684;&#x55AE;&#x4F4D;&#xFF0C;&#x800C;&#x6211;&#x5011;&#x5728;&#x96FB;&#x8166;&#x4E0A;&#xFF0C;&#x4E5F;&#x6C92;&#x8FA6;&#x6CD5;&#x5C07;&#x6642;&#x9593;&#x5206;&#x5272;&#x5230;&#x975E;&#x5E38;&#x5C0F;&#x7684;&#x55AE;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x6578;&#x4F4D;&#x97F3;&#x6A94;&#x52E2;&#x5FC5;&#x8981;&#x5C07;&#x9019;&#x500B;&#x9023;&#x7E8C;&#x7684;&#x6CE2;&#x578B;&#xFF0C;&#x6839;&#x64DA;&#x4E00;&#x500B;&#x5408;&#x7406;&#x7684;&#x6642;&#x9593;&#x523B;&#x5EA6;&#xFF0C;&#x5728;&#x9019;&#x500B;&#x6642;&#x9593;&#x523B;&#x5EA6;&#x4E0A;&#xFF0C;&#x6A19;&#x4E0A;&#x4E00;&#x9023;&#x4E32;&#x3001;&#x4E00;&#x500B;&#x53C8;&#x4E00;&#x500B;&#x7684;&#x6578;&#x5B57;&#x3002;</p>
+<p><img src="sampling.png" alt="&#x63A1;&#x6A23;&#xFF0C;&#x5716;&#x7247;&#x4F86;&#x81EA; Wikipedia"></p>
+<p>&#x5C07;&#x9023;&#x7E8C;&#x7684;&#x6CE2;&#x578B;&#x8B8A;&#x6210;&#x4E00;&#x9023;&#x4E32;&#x7684;&#x6578;&#x5B57;&#xFF0C;&#x9019;&#x500B;&#x904E;&#x7A0B;&#x53EB;&#x505A;<strong>&#x63A1;&#x6A23;</strong>&#xFF08;Sampling&#xFF0C;&#x4E5F;&#x7A31;&#x4F5C;&#x53D6;&#x6A23;&#xFF0C;&#x53EF;&#x4EE5;&#x53C3;&#x898B; <a href="https://zh.wikipedia.org/wiki/&#x53D6;&#x6A23;" target="_blank">Wikipedia &#x4E0A;&#x7684;&#x8AAA;&#x660E;</a>&#xFF09;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x88AB;&#x63A1;&#x96C6;&#x51FA;&#x4F86;&#x7684;&#x6578;&#x5B57;&#xFF0C;&#x5728;&#x4E2D;&#x6587;&#x4E5F;&#x53EB;&#x505A;&#x63A1;&#x6A23;&#xFF08;Sample&#xFF09;&#x2014;&#x82F1;&#x6587;&#x4E2D;&#x5F88;&#x591A;&#x55AE;&#x5B57;&#x7684;&#x52D5;&#x8A5E;&#x8207;&#x540D;&#x8A5E;&#x662F;&#x5169;&#x500B;&#x5B57;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E2D;&#x6587;&#x5F80;&#x5F80;&#x6703;&#x8B8A;&#x6210;&#x540C;&#x4E00;&#x500B;&#x8A5E;&#xFF0C;&#x5728;&#x53F0;&#x7063;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F03;&#x5E38;&#x76F4;&#x63A5;&#x8B1B;&#x82F1;&#x6587;&#x3002;</p>
+<p>&#x4E00;&#x500B;&#x6CE2;&#x578B;&#xFF0C;&#x6709;&#x632F;&#x5E45;&#x8207;&#x983B;&#x7387;&#x9019;&#x5169;&#x7A2E;&#x6027;&#x8CEA;&#xFF0C;&#x5728;&#x63A1;&#x6A23;&#x7684;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x64F7;&#x53D6;&#x4E00;&#x5B9A;&#x7BC4;&#x570D;&#x7684;&#x632F;&#x5E45;&#x8207;&#x983B;&#x7387;&#x4E4B;&#x9593;&#x7684;&#x8072;&#x97F3;&#x3002;&#x63A1;&#x6A23;&#x7684;&#x904E;&#x7A0B;&#xFF0C;&#x5176;&#x5BE6;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x7A2E;&#x6368;&#x68C4;&#x7684;&#x904E;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x500B;&#x8072;&#x6CE2;&#x7684;&#x4E0A;&#x4E0B;&#x8D77;&#x4F0F;&#xFF0C;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x8072;&#x97F3;&#x7684;&#x97F3;&#x91CF;&#x5927;&#x5C0F;&#xFF0C;&#x6CE2;&#x578B;&#x7684;&#x5BC6;&#x96C6;&#x7A0B;&#x5EA6;&#xFF0C;&#x5247;&#x4EE3;&#x8868;&#x8072;&#x97F3;&#x7684;&#x97F3;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x6CE2;&#x578B;&#x8D8A;&#x5BC6;&#x96C6;&#x5C31;&#x4EE3;&#x8868;&#x9019;&#x500B;&#x8072;&#x97F3;&#x6108;&#x9AD8;&#xFF0C;&#x53CD;&#x4E4B;&#x5247;&#x6108;&#x4F4E;&#x3002;&#x97F3;&#x91CF;&#x7684;&#x55AE;&#x4F4D;&#x662F;<strong>&#x5206;&#x8C9D;&#xFF08;dB&#xFF09;</strong>&#xFF0C;&#x4EBA;&#x8033;&#x53EF;&#x4EE5;&#x807D;&#x5230;&#x7684;&#x97F3;&#x91CF;&#x5728;&#x65BC; 0 &#x5230; 100 &#x5206;&#x8C9D;&#x4E4B;&#x9593;&#xFF0C;&#x8D85;&#x904E; 100 &#x5206;&#x8C9D;&#xFF0C;&#x5C31;&#x6703;&#x8D85;&#x904E;&#x4EBA;&#x8033;&#x53EF;&#x4EE5;&#x5FCD;&#x53D7;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x8D85;&#x904E; 100 &#x5206;&#x8C9D;&#x7684;&#x8072;&#x97F3;&#xFF0C;&#x5728;&#x63A1;&#x6A23;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x5C31;&#x6703;&#x88AB;&#x7576;&#x6210; 100 &#x5206;&#x8C9D;&#x8655;&#x7406;&#x3002;</li>
+<li>&#x4EBA;&#x8033;&#x5927;&#x6982;&#x53EF;&#x4EE5;&#x807D;&#x5230;&#x983B;&#x7387;&#x70BA; 22050 Hz &#xFF08;&#x610F;&#x601D;&#x662F;&#x5728; 1/22050 &#x79D2;&#x4E2D;&#x7522;&#x751F;&#x7684;&#x6CE2;&#x578B;&#xFF09;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x5C07;&#x983B;&#x7387;&#x4E58;&#x4E0A;&#x5169;&#x500D;&#xFF0C;&#x8B8A;&#x6210; 44100&#xFF0C;&#x6839;&#x64DA;<a href="https://zh.wikipedia.org/wiki/%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86" target="_blank">&#x63A1;&#x6A23;&#x5B9A;&#x7406;</a>&#xFF0C;&#x4EBA;&#x8033;&#x5C31;&#x807D;&#x4E0D;&#x51FA;&#x5DEE;&#x7570;&#x3002;&#x4E0D;&#x904E;&#xFF0C;&#x8FD1;&#x5E7E;&#x5E74;&#x7684;&#x9AD8;&#x97F3;&#x8CEA;&#x97F3;&#x6A94;&#x3001;&#x4EE5;&#x53CA;&#x6240;&#x8B02;&#x7684; DVD &#x97F3;&#x8CEA;&#xFF0C;&#x4E5F;&#x7528;&#x5230;&#x4E86;&#x50CF;&#x662F; 48000&#x3001;96000 &#x9019;&#x6A23;&#x7684;&#x983B;&#x7387;&#x3002;</li>
+</ul>
+<p>&#x6211;&#x5011;&#x6240;&#x8B02;&#x7684; <strong><a href="https://zh.wikipedia.org/wiki/%E9%87%87%E6%A0%B7%E7%8E%87" target="_blank">&#x63A1;&#x6A23;&#x7387;</a></strong>&#xFF08;Sample Rate&#xFF0C;&#x4E5F;&#x7A31;&#x63A1;&#x6A23;&#x6BD4;&#x3001;&#x53D6;&#x6A23;&#x7387;&#x2026;&#x7B49;&#xFF09;&#xFF1A;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x79D2;&#x9418;&#x7576;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x63A1;&#x96C6;&#x4E86;&#x591A;&#x5C11;&#x500B;&#x6578;&#x5B57;&#xFF0C;&#x6240;&#x8B02; 44100 &#x7684;&#x63A1;&#x6A23;&#x7387;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x79D2;&#x9418;&#x63A1;&#x96C6; 44100 &#x500B;&#x6578;&#x5B57;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5F80;&#x5F80;&#x6703;&#x63A1;&#x96C6;&#x5DE6;&#x53F3;&#x5169;&#x500B;<strong>&#x8072;&#x9053;</strong>&#xFF08;Channel&#xFF09;&#xFF0C;&#x4EE5;&#x5275;&#x9020;&#x7ACB;&#x9AD4;&#x8072;&#x7684;&#x6548;&#x679C;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x4E00;&#x7D44;&#x7ACB;&#x9AD4;&#x8072;&#x7684;&#x63A1;&#x6A23;&#x4E2D;&#xFF0C;&#x6703;&#x6709;&#x5169;&#x500B;&#x6578;&#x5B57;&#xFF0C;&#x5169;&#x500B;&#x8072;&#x9053;&#x7684;&#x6578;&#x5B57;&#x6703;&#x7528; LRLR&#x2026;&#x9019;&#x6A23;&#x7684;&#x5DE6;&#x53F3;&#x4E26;&#x6392;&#x65B9;&#x5F0F;&#x6392;&#x5217;&#xFF0C;&#x9019;&#x7A2E;&#x4E00;&#x5DE6;&#x4E00;&#x53F3;&#x6392;&#x5217;&#x63A1;&#x6A23;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x5011;&#x53EB;&#x505A; Interleave&#x3002;&#x7576;&#x6211;&#x5011;&#x5728;&#x8A08;&#x7B97;&#x6A94;&#x6848;&#x5927;&#x5C0F;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x9084;&#x9700;&#x8981;&#x5F9E; Sample Rate &#x518D;&#x4E58;&#x4E0A; 2&#xFF0C;&#x628A;&#x5DE6;&#x53F3;&#x8072;&#x9053;&#x5169;&#x500B; Sample &#x5408;&#x4F75;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x500B; frame&#x3002;</p>
+<p>&#x5728;&#x67D0;&#x4E9B;&#x683C;&#x5F0F;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x5141;&#x8A31;&#x66F4;&#x591A;&#x7684;&#x8072;&#x9053;&#xFF0C;&#x50CF; FLAC &#x5C31;&#x652F;&#x63F4;&#x5230;&#x516B;&#x8072;&#x9053;&#xFF0C;&#x800C;&#x50CF;&#x6240;&#x8B02; 5.1 &#x8072;&#x9053;&#x3001;7.1 &#x8072;&#x9053;&#x2026;&#x90FD;&#x4E0D;&#x53EA; 2 &#x8072;&#x9053;&#x3002;</p>
+<p>&#x96FB;&#x8166;&#x6709;&#x5404;&#x7A2E;&#x8868;&#x9054;&#x6578;&#x5B57;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x800C;&#x7531;&#x65BC;&#x8072;&#x6CE2;&#x6703;&#x4E0A;&#x4E0B;&#x9707;&#x76EA;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x9700;&#x8981;&#x7528;&#x5E36;&#x6B63;&#x8CA0;&#x865F;&#x7684;&#x6578;&#x5B57;&#x4F86;&#x8868;&#x9054;&#x5F80;&#x4E0A;&#x8207;&#x5F80;&#x4E0B;&#x7684;&#x8D77;&#x4F0F;&#xFF0C;&#x5E38;&#x7528;&#x5230;&#x7684;&#x6578;&#x5B57;&#x683C;&#x5F0F;&#x5305;&#x62EC; 16 &#x4F4D;&#x5143;&#x6574;&#x6578;&#xFF08;singed int 16&#xFF09;&#x3001;32 &#x4F4D;&#x5143;&#x6574;&#x6578;&#xFF08;signed int 32&#xFF09;&#x3001;32 &#x4F4D;&#x5143;&#x6D6E;&#x9EDE;&#x6578;&#xFF08;float 32&#xFF09;&#x2026;&#x7B49;&#x3002;&#x5C0D;&#x8A31;&#x591A;&#x81EA;&#x5DF2;&#x900F;&#x904E;&#x6578;&#x5B78;&#x7522;&#x751F;&#x96FB;&#x8166;&#x6CE2;&#x578B;&#x7684;&#x5DE5;&#x7A0B;&#x5E2B;&#x4F86;&#x8AAA;&#xFF0C;&#x5F80;&#x5F80;&#x6703;&#x4F7F;&#x7528; 32 &#x4F4D;&#x5143;&#x6D6E;&#x9EDE;&#x6578;&#xFF08;&#x63A1;&#x6A23;&#x6578;&#x5B57;&#x4ECB;&#x65BC; 1.0 &#x5230; -1.0&#xFF09;&#xFF0C;&#x64B0;&#x5BEB;&#x5404;&#x7A2E;&#x8072;&#x97F3;&#x8655;&#x7406;&#x7684;&#x6F14;&#x7B97;&#x6CD5;&#xFF0C;&#x5728; CD &#x4E0A;&#x662F;&#x4F7F;&#x7528; 16 &#x4F4D;&#x5143;&#x6574;&#x6578;&#xFF08;&#x63A1;&#x6A23;&#x6578;&#x5B57;&#x4ECB;&#x65BC;&#x6B63;&#x8CA0; 2 &#x7684; 15 &#x6B21;&#x65B9;&#xFF09;&#xFF0C;&#x7528;&#x5169;&#x500B; byte &#x5132;&#x5B58;&#x4E00;&#x500B;&#x63A1;&#x6A23;&#x3002;</p>
+<p>&#x81F3;&#x65BC;&#x76EE;&#x524D;&#x8A31;&#x591A;&#x9AD8;&#x97F3;&#x8CEA;&#x683C;&#x5F0F;&#x7528;&#x7684;&#x662F; 24 bit&#xFF0C;&#x4EE3;&#x8868;&#x7528; 3 &#x500B; bytes &#x5132;&#x5B58;&#x4E00;&#x500B;&#x6578;&#x5B57;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x4E00;&#x822C;&#x5BEB;&#x7A0B;&#x5F0F;&#x901A;&#x5E38;&#x4E0D;&#x6703;&#x7528;&#x5230;&#x9019;&#x7A2E;&#x6578;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x5BE6;&#x969B;&#x4F7F;&#x7528;&#x4E0A;&#xFF0C;&#x6703;&#x628A; 24 bit &#x6574;&#x6578;&#x518D;&#x8F49;&#x63DB;&#x6210; 32 bit &#x6574;&#x6578;&#x6216;&#x662F;&#x6D6E;&#x9EDE;&#x6578;&#x3002;</p>
+<h2 id="pcm-&#x683C;&#x5F0F;&#x2014;&#x6240;&#x8B02;&#x7684;&#x539F;&#x59CB;&#x97F3;&#x6A94;">PCM &#x683C;&#x5F0F;&#x2014;&#x6240;&#x8B02;&#x7684;&#x539F;&#x59CB;&#x97F3;&#x6A94;</h2>
+<p>&#x9019;&#x7A2E;&#x4EE5;&#x4E00;&#x9023;&#x4E32;&#x6578;&#x5B57;&#x63CF;&#x8FF0;&#x8072;&#x97F3;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6211;&#x5011;&#x5F80;&#x5F80;&#x53EB;&#x505A;&#x539F;&#x59CB;&#x97F3;&#x6A94;&#xFF0C;&#x800C;&#x8853;&#x8A9E;&#x53EB;&#x505A; <strong><a href="https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A" target="_blank">PCM &#x683C;&#x5F0F;</a></strong>&#xFF08;<strong>Pulse-code modulation</strong>&#xFF0C;&#x4E2D;&#x6587;&#x53EB;&#x505A;&#x300C;&#x8108;&#x885D;&#x7DE8;&#x78BC;&#x8ABF;&#x8B8A;&#x300D;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x5C11;&#x4EBA;&#x53EF;&#x4EE5;&#x8A18;&#x4F4F;&#x9019;&#x500B;&#x4E2D;&#x6587;&#x540D;&#x7A31;&#xFF0C;&#x901A;&#x5E38;&#x5C31;&#x6163;&#x7A31; PCM&#xFF09;&#x3002;&#x50CF;&#x5FAE;&#x8EDF; Windows &#x4E0A;&#x7684; <a href="https://zh.wikipedia.org/wiki/WAV" target="_blank">WAV &#x6A94;&#x6848;</a>&#xFF08;&#x7528;&#x300C;&#x9304;&#x97F3;&#x6A5F;&#x300D;&#x8EDF;&#x9AD4;&#x9304;&#x88FD;&#x51FA;&#x4F86;&#x7684;&#x8072;&#x97F3;&#x6A94;&#x6848;&#xFF09;&#x3001;&#x860B;&#x679C;&#x5E73;&#x53F0;&#x4E0A;&#x7684; <a href="https://en.wikipedia.org/wiki/Audio_Interchange_File_Format" target="_blank">AIFF &#x6A94;&#x6848;</a>&#xFF0C;&#x90FD;&#x5C6C;&#x65BC;&#x9019;&#x7A2E;&#x683C;&#x5F0F;&#xFF0C;&#x53EA;&#x662F;&#x901A;&#x5E38;&#x90FD;&#x9084;&#x6703;&#x5728;&#x6700;&#x524D;&#x65B9;&#x52A0;&#x500B;&#x6A94;&#x982D;&#x3002;&#x800C;&#x5F9E;&#x4E0A;&#x9762;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x96D6;&#x7136;&#x540C;&#x6A23;&#x53EB;&#x505A; PCM &#x683C;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x80FD;&#x6703;&#x6709;&#x4E0D;&#x540C;&#x7684; Sample Rate&#x3001;&#x6216;&#x662F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x6578;&#x5B57;&#x683C;&#x5F0F;&#x63CF;&#x8FF0;&#x6CE2;&#x578B;&#xFF0C;&#x800C; WAV&#x3001;AIFF &#x6A94;&#x6848;&#x7684;&#x6A94;&#x982D;&#xFF0C;&#x7528;&#x662F;&#x7528;&#x4F86;&#x544A;&#x8A34;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x61C9;&#x8A72;&#x600E;&#x9EBC;&#x89E3;&#x6790;&#x6A94;&#x982D;&#x4E4B;&#x5F8C;&#x7684;&#x8CC7;&#x6599;&#x3002;</p>
+<p>&#x73FE;&#x5728;&#x7528;&#x6236;&#x901A;&#x5E38;&#x5F88;&#x5C11;&#x6703;&#x76F4;&#x63A5;&#x64AD;&#x653E; PCM &#x6A94;&#x6848;&#xFF0C;&#x5728;&#x7DB2;&#x8DEF;&#x4E0A;&#x6D41;&#x901A;&#x7684;&#x97F3;&#x6A94;&#xFF0C;&#x4E5F;&#x5F88;&#x5C11;&#x6703;&#x662F; PCM &#x683C;&#x5F0F;&#xFF0C;&#x4F46;&#x7121;&#x8AD6;&#x662F;&#x54EA;&#x7A2E;&#x683C;&#x5F0F;&#xFF0C;&#x5728; client &#x7AEF;&#x6700;&#x5F8C;&#x90FD;&#x5F97;&#x8981;&#x8F49;&#x63DB;&#x6210; PCM &#x683C;&#x5F0F;&#xFF0C;&#x624D;&#x80FD;&#x5920;&#x518D;&#x4EA4;&#x7D66; client &#x7AEF;&#x7684;&#x786C;&#x9AD4;&#x64AD;&#x653E;&#xFF1A;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x900F;&#x904E;&#x5E73;&#x53F0;&#x672C;&#x8EAB;&#x5DF2;&#x7D93;&#x5305;&#x597D;&#x7684;&#x64AD;&#x653E;&#x5668;&#x5143;&#x4EF6;&#xFF0C;&#x50CF; iOS/macOS &#x5E73;&#x53F0;&#x4E0A;&#x6709;&#x9AD8;&#x968E;&#x7684;&#x64AD;&#x653E;&#x5668; AVPlayer&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x8981;&#x4F7F;&#x7528;&#x66F4;&#x4F4E;&#x968E;&#x7684; Audio API&#xFF0C;&#x81EA;&#x5DF1;&#x60F3;&#x8FA6;&#x6CD5;&#x547C;&#x53EB; codec&#xFF0C;&#x5C07;&#x5404;&#x7A2E;&#x683C;&#x5F0F;&#x8F49;&#x63DB;&#x6210; PCM &#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x800C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x7528;&#x4E00;&#x4E9B;&#x8072;&#x97F3;&#x526A;&#x8F2F;&#x6216;&#x7DE8;&#x8F2F;&#x8EDF;&#x9AD4;&#xFF0C;&#x50CF; <a href="https://www.audacityteam.org/" target="_blank">Audacity</a>&#xFF0C;&#x8655;&#x7406;&#x4E00;&#x6BB5;&#x9304;&#x597D;&#x7684;&#x8072;&#x97F3;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x8F49;&#x63DB;&#x6210; PCM&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x7DE8;&#x8F2F;&#x4E00;&#x500B; MP3 &#x6A94;&#x6848;&#xFF0C;Audacity &#x6703;&#x5148;&#x8F49;&#x6210; PCM &#x683C;&#x5F0F;&#x8B93;&#x6211;&#x5011;&#x7DE8;&#x8F2F;&#xFF0C;&#x5728;&#x5B58;&#x6A94;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x518D;&#x628A; PCM &#x8F49;&#x56DE; MP3&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x4F7F;&#x7528; Audacity &#x7684;&#x6642;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x6CE8;&#x610F;&#x5230;&#x6709;&#x4E00;&#x9805; &quot;Import-&gt;Raw Data&quot; &#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x4F86;&#x532F;&#x5165;&#x6C92;&#x6709;&#x6A94;&#x982D;&#x7684; PCM &#x8CC7;&#x6599;&#xFF0C;&#x800C;&#x7531;&#x65BC;&#x6C92;&#x6709;&#x6A94;&#x982D;&#xFF0C;&#x5C31;&#x5FC5;&#x9808;&#x624B;&#x52D5;&#x586B;&#x5165;&#x8072;&#x9053;&#x6578;&#x91CF;&#x3001;sample rate &#x7B49;&#x2026;&#x3002;</p>
+<h2 id="&#x97F3;&#x8A0A;&#x8655;&#x7406;">&#x97F3;&#x8A0A;&#x8655;&#x7406;</h2>
+<p>&#x4E00;&#x822C;&#x5728;&#x8B1B;&#x6578;&#x4F4D;&#x97F3;&#x8A0A;&#x8655;&#x7406;&#x7684;&#x66F8;&#x7C4D;&#x6216;&#x6587;&#x4EF6;&#xFF0C;&#x63A5;&#x4E0B;&#x4F86;&#x5F80;&#x5F80;&#x6703;&#x8B1B;&#x600E;&#x6A23;&#x88FD;&#x4F5C;&#x5404;&#x7A2E;&#x8072;&#x97F3;&#x6548;&#x679C;&#xFF0C;&#x50CF;&#x662F;&#x600E;&#x6A23;&#x5C0D;&#x8072;&#x97F3;&#x8A0A;&#x865F;&#x505A;<a href="https://zh.wikipedia.org/wiki/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2" target="_blank">&#x5085;&#x7ACB;&#x8449;&#x8F49;&#x63DB;</a>&#xFF08;Fourier Transform&#xFF09;&#xFF0C;&#x4EE5;&#x53CA;&#x600E;&#x6A23;&#x7528;&#x7A0B;&#x5F0F;&#x7522;&#x751F;&#x6CE2;&#x578B;&#xFF0C;&#x50CF;&#x662F; sine wave&#x3001;sawtooth wave&#x2026;&#x9032;&#x800C;&#x6253;&#x9020;&#x5C6C;&#x65BC;&#x81EA;&#x5DF1;&#x7684;&#x6578;&#x4F4D;&#x6A02;&#x5668;&#xFF0C;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x5728;&#x9019;&#x908A;&#xFF0C;&#x6211;&#x5011;&#x4E3B;&#x8981;&#x8B1B;&#x89E3;&#x5404;&#x7A2E;&#x683C;&#x5F0F;&#x7684;&#x6A94;&#x6848;&#xFF0C;&#x6240;&#x4EE5;&#x4E26;&#x4E0D;&#x8A0E;&#x8AD6;&#x9019;&#x90E8;&#x4EFD;&#xFF08;&#x5176;&#x5BE6;&#x6211;&#x81EA;&#x5DF1;&#x5C0D;&#x9019;&#x65B9;&#x9762;&#x4E5F;&#x4E0D;&#x600E;&#x9EBC;&#x4E86;&#x89E3;&#xFF09;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x77E5;&#x9053;&#xFF1A;&#x5982;&#x679C;&#x8981;&#x7522;&#x751F;&#x6539;&#x8B8A;&#x8072;&#x97F3;&#x672C;&#x8EAB;&#x7684;&#x5404;&#x7A2E;&#x6548;&#x679C;&#xFF0C;&#x50CF;&#x662F; <a href="https://zh.wikipedia.org/wiki/%E7%AD%89%E5%8C%96%E5%99%A8" target="_blank">EQ &#x7B49;&#x5316;&#x5668;</a>&#x3001;&#x8FF4;&#x97F3;&#x3001;<a href="https://en.wikipedia.org/wiki/Reverberation" target="_blank">&#x6B98;&#x97FF;</a>&#x6216;&#x7ACB;&#x9AD4;&#x8072;&#x6548;&#x679C;&#x7B49;&#xFF0C;&#x90FD;&#x662F;&#x900F;&#x904E;&#x6539;&#x8B8A;&#x6CE2;&#x578B;&#x9054;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5728; UI &#x4E0A;&#x986F;&#x793A;<a href="https://zh.wikipedia.org/wiki/%E9%A2%91%E8%B0%B1" target="_blank">&#x983B;&#x8B5C;&#x5716;</a>&#xFF0C;&#x4E5F;&#x662F;&#x5148;&#x8B80;&#x53D6; PCM &#x8A0A;&#x865F;&#xFF0C;&#x7136;&#x5F8C;&#x7E6A;&#x88FD;&#x51FA;&#x8F49;&#x63DB;&#x5F8C;&#x7684;&#x7D50;&#x679C;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x9078;&#x64C7;&#x4E86;&#x67D0;&#x7A2E;&#x97F3;&#x6A94;&#x683C;&#x5F0F;&#xFF0C;&#x9019;&#x7A2E;&#x683C;&#x5F0F;&#x53EA;&#x80FD;&#x5920;&#x7528;&#x7279;&#x5B9A;&#x7684;&#x64AD;&#x653E;&#x5668;&#x64AD;&#x653E;&#xFF0C;&#x8B93;&#x6211;&#x5011;&#x7121;&#x6CD5;&#x76F4;&#x63A5;&#x78B0;&#x89F8;&#x5230; PCM &#x683C;&#x5F0F;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x7121;&#x6CD5;&#x9054;&#x5230;&#x4E0A;&#x8FF0;&#x7684;&#x9019;&#x4E9B;&#x6548;&#x679C;&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x6253;&#x7B97;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7D93;&#x904E;&#x5546;&#x7528; DRM &#x4FDD;&#x8B77;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x50CF;&#x662F;&#x7D93;&#x904E;&#x860B;&#x679C; FairPlay &#x4FDD;&#x8B77;&#x7684; HLS&#x3001;&#x6216;&#x662F; Google &#x7684; Widevine &#x4FDD;&#x8B77;&#x7684; Dash &#x4E32;&#x6D41;&#xFF0C;&#x9019;&#x4E9B;&#x4E32;&#x6D41;&#x683C;&#x5F0F;&#x5C31;&#x53EA;&#x80FD;&#x5920;&#x7528;&#x7279;&#x5B9A;&#x64AD;&#x653E;&#x5668;&#x64AD;&#x653E;&#xFF0C;&#x5982;&#x679C;&#x9084;&#x60F3;&#x8981;&#x52A0;&#x4E0A; DTS &#x7ACB;&#x9AD4;&#x8072;&#x6548;&#x679C;&#xFF0C;&#x5C31;&#x662F;&#x5B8C;&#x5168;&#x885D;&#x7A81;&#x7684;&#x3002;&#x6216;&#x8A31;&#x67D0;&#x4E9B;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#x63D0;&#x4F9B;&#x7D66;&#x6211;&#x5011;&#x4E00;&#x4E9B;&#x9078;&#x9805;&#xFF0C;&#x4F46;&#x53EA;&#x8981;&#x4E0D;&#x80FD;&#x5920;&#x78B0;&#x5230; PCM &#x683C;&#x5F0F;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x6211;&#x5011;&#x80FD;&#x5920;&#x5C0D;&#x8072;&#x97F3;&#x6548;&#x679C;&#x7684;&#x5BA2;&#x88FD;&#x90FD;&#x662F;&#x6709;&#x9650;&#x7684;&#x3002;</p>
+<h2 id="cd-&#x97F3;&#x8CEA;&#x3001;hi-res-audio">CD &#x97F3;&#x8CEA;&#x3001;Hi-Res Audio</h2>
+<p>&#x6211;&#x5011;&#x6240;&#x8B02;&#x7684; <strong>CD &#x97F3;&#x8CEA;&#xFF0C;&#x5C31;&#x662F;&#x7528; 44100 &#x7684;&#x63A1;&#x6A23;&#x7387;&#x3001;&#x6709;&#x5DE6;&#x53F3;&#x8072;&#x9053;&#x7684; 16 &#x4F4D;&#x5143;&#x6574;&#x6578;&#xFF08;Sint16&#xFF09;</strong>&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9810;&#x4F30;&#xFF0C;&#x4E00;&#x79D2;&#x9418;&#x7684;&#x8CC7;&#x6599;&#x91CF;&#x5C31;&#x662F; 44100 * 2 * 2 = 176400 &#xFF0C;&#x4E00;&#x5206;&#x9418;&#x5C31;&#x9700;&#x8981; 10mb &#x5DE6;&#x53F3;&#xFF0C;&#x4E00;&#x5F35; CD &#x6709; 640mb &#x7684;&#x5BB9;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x4E00;&#x5F35; CD &#x53EF;&#x4EE5;&#x5BB9;&#x7D0D;&#x5927;&#x7D04; 63 &#x5206;&#x9418;&#x7684;&#x8072;&#x97F3;&#x8CC7;&#x6599;&#xFF08;640 * 1024 * 1024) / (44100 * 2 * 2 * 60) &#xFF0C;&#x5927;&#x7D04; 63.4&#xFF09;&#x3002;&#x9019;&#x4E5F;&#x662F;&#x9577;&#x4E45;&#x4EE5;&#x4F86;&#x6578;&#x4F4D;&#x97F3;&#x6A02;&#x7684;&#x6A19;&#x6E96;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5E38;&#x5E38;&#x8AAA;&#x665A;&#x8FD1;&#x4E00;&#x4E9B;&#x8A02;&#x95B1;&#x5236;&#x97F3;&#x6A02;&#x670D;&#x52D9;&#x662F;&#x300C;&#x6578;&#x4F4D;&#x97F3;&#x6A02;&#x300D;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;CD &#x5C31;&#x5DF2;&#x7D93;&#x662F;&#x6578;&#x4F4D;&#x97F3;&#x6A02;&#x4E86;&#xFF0C;CD &#x4E5F;&#x5275;&#x9020;&#x4E86;&#x4E00;&#x500B;&#x8F1D;&#x714C;&#x7684;&#x5531;&#x7247;&#x92B7;&#x552E;&#x6642;&#x4EE3;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#x9084;&#x6709;&#x4EE5;&#x4E0B;&#x5E38;&#x898B;&#x7684;&#x97F3;&#x8CEA;&#x6A19;&#x6E96;</p>
+<ul>
+<li>&#x96FB;&#x8A71;&#x97F3;&#x8CEA;&#xFF1A;11,025 Hz, 8bits, &#x55AE;&#x8072;&#x9053;</li>
+<li>&#x6536;&#x97F3;&#x6A5F;&#x97F3;&#x8CEA;&#xFF1A;22,050 Hz, 8bits, &#x55AE;&#x8072;&#x9053;</li>
+<li>DVD &#x97F3;&#x8CEA;&#xFF1A;96,000 Hz, 24bits &#x96D9;&#x8072;&#x9053;</li>
+</ul>
+<p>&#x81F3;&#x65BC;&#x6240;&#x8B02;&#x7684; <a href="https://en.wikipedia.org/wiki/High-resolution_audio" target="_blank">Hi Res Audio</a>&#xFF0C;&#x5176;&#x5BE6;&#x5B9A;&#x7FA9;&#x5F88;&#x6DF7;&#x4E82;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x610F;&#x7FA9;&#x5C31;&#x662F; CD &#x97F3;&#x8CEA;&#x4EE5;&#x4E0A;&#x7684;&#x6A94;&#x6848;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x6307; 96k &#x6216; 192k Hz &#x63A1;&#x6A23;&#x6BD4;&#x7684;&#x97F3;&#x6A94;&#x3002;</p>
+<p>&#x66F4;&#x9AD8;&#x7684;&#x63A1;&#x6A23;&#x6BD4;&#x610F;&#x5473;&#x8457;&#x97F3;&#x8CEA;&#x7684;&#x63D0;&#x5347;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x4F46;&#x5C0D;&#x65BC;&#x5F88;&#x591A;&#x7528;&#x6236;&#x4F86;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x662F;&#x4F7F;&#x7528;&#x4E00;&#x822C;&#x7684;&#x8033;&#x6A5F;&#x8A2D;&#x5099;&#xFF0C;&#x5176;&#x5BE6;&#x807D;&#x4E0D;&#x51FA;&#x66F4;&#x9AD8;&#x63A1;&#x6A23;&#x6BD4;&#x6709;&#x4EC0;&#x9EBC;&#x5DEE;&#x5225;&#xFF0C;&#x800C;&#x4E14;&#x5F88;&#x591A;&#x73FE;&#x5728;&#x6D41;&#x884C;&#x7684;&#x85CD;&#x82BD;&#x7121;&#x7DDA;&#x8033;&#x6A5F;&#xFF08;&#x5982;&#x860B;&#x679C;&#x7684; Air Pod&#xFF09;&#xFF0C;&#x5728;&#x900F;&#x904E;&#x85CD;&#x82BD;&#x50B3;&#x905E;&#x97F3;&#x8A0A;&#x6642;&#xFF0C;&#x70BA;&#x4E86;&#x8B93;&#x85CD;&#x82BD;&#x50B3;&#x8F38;&#x9806;&#x66A2;&#xFF0C;&#x9084;&#x6703;&#x505A;&#x904E;&#x8F49;&#x6A94;&#x3001;&#x91CD;&#x65B0;&#x8F49;&#x6210;&#x7279;&#x5B9A;&#x63A1;&#x6A23;&#x6BD4;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x628A;&#x9AD8;&#x97F3;&#x8CEA;&#x7684;&#x6A94;&#x6848;&#x8F49;&#x6210;&#x666E;&#x901A;&#x7684;&#x97F3;&#x8CEA;&#x64AD;&#x653E;&#x3002;</p>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 關於《認識音檔》">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../mp3/" class="navigation navigation-next " aria-label="Next page: MP3 與 ID3 格式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PCM 格式","level":"1.2","depth":1,"next":{"title":"MP3 與 ID3 格式","level":"1.3","depth":1,"path":"mp3/README.md","ref":"mp3/README.md","articles":[]},"previous":{"title":"關於《認識音檔》","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"pcm/README.md","mtime":"2022-02-06T19:23:06.427Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

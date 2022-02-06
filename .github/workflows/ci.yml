@@ -1,0 +1,50 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: zonble/gitbook_tools:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install git
+        run: |
+          apt update
+          apt install git -y
+      - name: Udpate Date Information
+        run: sh date.sh >> ga.html
+      - name: Gitbook Install
+        run: gitbook install
+      - name: Gitbook Build
+        run: gitbook build
+      - name: Gitbook Epub
+        run: |
+          gitbook epub .
+          ls
+      - name: Gitbook PDF
+        run: |
+          gitbook pdf .
+          ls
+      - name: Move File
+        run: |
+          mv book.epub ./_book/understanding_audio_files.epub
+          ls ./_book/.
+      - name: Move File
+        run: |
+          mv book.pdf ./_book/understanding_audio_files.pdf
+          ls ./_book/.
+      - name: Build and Deploy
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: _book
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}

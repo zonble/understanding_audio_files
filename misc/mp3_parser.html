@@ -1,0 +1,611 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MP3 Parser 範例 · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="aac_adts_parser.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pcm/">
+            
+                <a href="../pcm/">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mp3/">
+            
+                <a href="../mp3/">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../hls/">
+            
+                <a href="../hls/">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../dash/">
+            
+                <a href="../dash/">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.9.1" data-path="mp3_parser.html">
+            
+                <a href="mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="aac_adts_parser.html">
+            
+                <a href="aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="id3_parser.html">
+            
+                <a href="id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="flac_streaminfo.html">
+            
+                <a href="flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="version.html">
+            
+                <a href="version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >MP3 Parser 範例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="mp3-parser-&#x7BC4;&#x4F8B;">MP3 Parser &#x7BC4;&#x4F8B;</h1>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4F7F;&#x7528; Pyhton 2 &#x64B0;&#x5BEB;&#x7684; MP3 &#x4EE5;&#x53CA; ID3 Parser &#x7BC4;&#x4F8B;&#x3002;&#x4F5C;&#x8005;&#x70BA; zonble&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env python</span>
+<span class="hljs-comment"># encoding: utf-8</span>
+
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> struct
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MP3Parser</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    Parse mp3 file to check if there is invalid frame.
+    &apos;&apos;&apos;</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_Header</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Represent the ID3 header in a tag.
+        &apos;&apos;&apos;</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+            self.majorVersion = <span class="hljs-number">0</span>
+            self.revision = <span class="hljs-number">0</span>
+            self.flags = <span class="hljs-number">0</span>
+            self.size = <span class="hljs-number">0</span>
+            self.bUnsynchronized = <span class="hljs-keyword">False</span>
+            self.bExperimental = <span class="hljs-keyword">False</span>
+            self.bFooter = <span class="hljs-keyword">False</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> str(self.__dict__)
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_getSyncSafeInt</span><span class="hljs-params">(self, bytes)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Get integer from 4 bytes
+        &apos;&apos;&apos;</span>
+        <span class="hljs-keyword">assert</span> len(bytes) == <span class="hljs-number">4</span>
+        <span class="hljs-keyword">if</span> type(bytes) == type(<span class="hljs-string">&apos;&apos;</span>):
+            bytes = [ ord(c) <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bytes ]
+        <span class="hljs-keyword">return</span> (bytes[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-number">21</span>) + (bytes[<span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-number">14</span>) + (bytes[<span class="hljs-number">2</span>] &lt;&lt; <span class="hljs-number">7</span>) + bytes[<span class="hljs-number">3</span>]
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isAllFramesValid</span><span class="hljs-params">(self, inInputFilePath)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Check if all frames are valid.
+
+        If we encounter frame that is not MPEG version 1, layer 3,
+        sample rate 44.1 KHz, we return False.
+
+        Because MP3 File should be frame after frame, if we skip any
+        byte between frames, we return False.
+
+        Otherwise, this function will return True.
+
+        :param inInputFilePath: the mp3 file path to check.
+        :type inInputFilePath: str
+        :returns: whether all frames are valid.
+        :rtype: bool
+
+        &apos;&apos;&apos;</span>
+        content = self.loadFile(inInputFilePath)
+        <span class="hljs-keyword">return</span> self.isAllFramesInDataValid(content)
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isAllFramesInDataValid</span><span class="hljs-params">(self, content, offset = <span class="hljs-number">0</span>, shouldCheckID3Tag = True)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Check if all frames are valid in bytes.
+
+        :param offset: offset into content.
+        :type offset: integer
+        :param shouldCheckID3Tag: whether we should check for id3 tag
+            or not.
+        :type shouldCheckID3Tag: bool
+
+        &apos;&apos;&apos;</span>
+        <span class="hljs-keyword">if</span> offset &gt; len(content):
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+        MP3BitrateLookup = [<span class="hljs-number">0</span>, <span class="hljs-number">32000</span>, <span class="hljs-number">40000</span>, <span class="hljs-number">48000</span>, <span class="hljs-number">56000</span>, <span class="hljs-number">64000</span>, <span class="hljs-number">80000</span>, <span class="hljs-number">96000</span>, <span class="hljs-number">112000</span>, <span class="hljs-number">128000</span>, <span class="hljs-number">160000</span>, <span class="hljs-number">192000</span>, <span class="hljs-number">224000</span>, <span class="hljs-number">256000</span>, <span class="hljs-number">320000</span>, <span class="hljs-number">0</span>]
+
+        <span class="hljs-comment"># The first 512 bytes are Internal Header, so we can skip them.</span>
+        <span class="hljs-comment"># Based on mac&apos;s code, it seems that we always will get ID3</span>
+        <span class="hljs-comment"># tag, so we can also just scan for ID3 tag.</span>
+        i = offset
+        foundFirstFrame = <span class="hljs-keyword">False</span>
+
+        <span class="hljs-comment"># skip id3 tag</span>
+        <span class="hljs-keyword">while</span> i + <span class="hljs-number">10</span> &lt; len(content) <span class="hljs-keyword">and</span> shouldCheckID3Tag:
+            header = content[i:i+<span class="hljs-number">10</span>]
+            hstuff = struct.unpack(<span class="hljs-string">&quot;!3sBBBBBBB&quot;</span>, str(header))
+            <span class="hljs-keyword">if</span> hstuff[<span class="hljs-number">0</span>] == <span class="hljs-string">&quot;ID3&quot;</span>:
+                header = self._Header()
+                header.majorVersion = hstuff[<span class="hljs-number">1</span>]
+                header.revision = hstuff[<span class="hljs-number">2</span>]
+                header.flags = hstuff[<span class="hljs-number">3</span>]
+                header.size = self._getSyncSafeInt(hstuff[<span class="hljs-number">4</span>:<span class="hljs-number">8</span>])
+                hasFooter = <span class="hljs-keyword">not</span> <span class="hljs-keyword">not</span> (header.flags &amp; <span class="hljs-number">0x40</span>)
+                headerBodylength = header.size
+                headerLength = headerBodylength + (<span class="hljs-number">20</span> <span class="hljs-keyword">if</span> hasFooter <span class="hljs-keyword">else</span> <span class="hljs-number">10</span>)
+                i += headerLength
+                <span class="hljs-keyword">break</span>
+            <span class="hljs-keyword">else</span>:
+                i += <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">while</span> i + <span class="hljs-number">2</span> &lt; len(content):
+            frameSync = (content[i] &lt;&lt; <span class="hljs-number">8</span>) | (content[i + <span class="hljs-number">1</span>] &amp; (<span class="hljs-number">0x80</span> | <span class="hljs-number">0x40</span> | <span class="hljs-number">0x20</span>))
+            <span class="hljs-keyword">if</span> frameSync != <span class="hljs-number">0xffe0</span>:
+                <span class="hljs-keyword">if</span> foundFirstFrame:
+                    <span class="hljs-comment"># After founding first frame, we shouldn&apos;t skip</span>
+                    <span class="hljs-comment"># any byte, so if we execute to here, there is an</span>
+                    <span class="hljs-comment"># error.</span>
+                    <span class="hljs-comment"># print &apos;skipping byte at:&apos; + repr(i)</span>
+                    <span class="hljs-keyword">pass</span>
+                i += <span class="hljs-number">1</span>
+                <span class="hljs-keyword">continue</span>
+
+
+            <span class="hljs-comment"># frame start</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> foundFirstFrame:
+                foundFirstFrame = <span class="hljs-keyword">True</span>
+            <span class="hljs-comment"># print i</span>
+            <span class="hljs-comment"># AAAAAAAA AAABBCCD EEEEFFGH IIJJKLMM</span>
+            audioVersion = (content[i + <span class="hljs-number">1</span>] &gt;&gt; <span class="hljs-number">3</span>) &amp; <span class="hljs-number">0x03</span>;
+            layer = (content[i + <span class="hljs-number">1</span>] &gt;&gt; <span class="hljs-number">1</span>) &amp; <span class="hljs-number">0x03</span>
+            hasCRC = <span class="hljs-keyword">not</span>(content[i + <span class="hljs-number">1</span>] &amp; <span class="hljs-number">0x01</span>)
+            bitrateIndex = content[i + <span class="hljs-number">2</span>] &gt;&gt; <span class="hljs-number">4</span>;
+            sampleRateIndex = content[i + <span class="hljs-number">2</span>] &gt;&gt; <span class="hljs-number">2</span> &amp; <span class="hljs-number">0x03</span>;
+            <span class="hljs-comment"># print &apos;audioVersion:%d, layer:%d, sampleRateIndex:%d&apos; % (audioVersion, layer, sampleRateIndex)</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(audioVersion == <span class="hljs-number">0x03</span> <span class="hljs-keyword">and</span>
+                   layer == <span class="hljs-number">0x01</span> <span class="hljs-keyword">and</span>
+                   sampleRateIndex == <span class="hljs-number">0x00</span>):
+                <span class="hljs-comment"># we only support MPEG version 1, layer 3, sample rate</span>
+                <span class="hljs-comment"># 44.1 KHz--and we ignore the error altogether</span>
+                <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;Unsupported MPEG audio version.&quot;</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+            bitrate = MP3BitrateLookup[bitrateIndex];
+            hasPadding = <span class="hljs-keyword">not</span>(<span class="hljs-keyword">not</span>((content[i + <span class="hljs-number">2</span>] &gt;&gt; <span class="hljs-number">1</span>) &amp; <span class="hljs-number">0x01</span>))
+            <span class="hljs-comment"># print &apos;hasCRC:%d, hasPadding:%d&apos; % (hasCRC, hasPadding)</span>
+
+            frameLength = <span class="hljs-number">144</span> * bitrate / <span class="hljs-number">44100</span> + \
+                          (<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> hasPadding <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>) + \
+                          (<span class="hljs-number">2</span> <span class="hljs-keyword">if</span> hasCRC <span class="hljs-keyword">else</span>  <span class="hljs-number">0</span>)
+            i += frameLength
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> foundFirstFrame:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loadFile</span><span class="hljs-params">(self, inInputFilePath)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        Load file into bytearray
+
+        :param inInputFilePath: path of the input file.
+        :type inInputFilePath: str
+        &apos;&apos;&apos;</span>
+        inputFile = open(inInputFilePath, <span class="hljs-string">&apos;rb&apos;</span>)
+        data = bytearray(inputFile.read())
+        inputFile.close()
+        <span class="hljs-keyword">return</span> data
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printUsage</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;&apos;&apos;Usage: python %s [MP3 file]
+Example: python %s 1311434.mp3
+It will parse all frames in mp3 file and return parse result as bool.&apos;&apos;&apos;</span> % (sys.argv[<span class="hljs-number">0</span>], sys.argv[<span class="hljs-number">0</span>])
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">if</span> len(sys.argv) != <span class="hljs-number">2</span>:
+        printUsage()
+        exit()
+    filename = str(sys.argv[<span class="hljs-number">1</span>])
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(os.path.exists(filename)):
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;File not found: %s&apos;</span> % (filename)
+        printUsage()
+        exit()
+    result = MP3Parser.isAllFramesValid(filename)
+    <span class="hljs-keyword">print</span> result
+</code></pre>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 附註">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="aac_adts_parser.html" class="navigation navigation-next " aria-label="Next page: AAC-ADTS Parser 範例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MP3 Parser 範例","level":"1.9.1","depth":2,"next":{"title":"AAC-ADTS Parser 範例","level":"1.9.2","depth":2,"path":"misc/aac_adts_parser.md","ref":"misc/aac_adts_parser.md","articles":[]},"previous":{"title":"附註","level":"1.9","depth":1,"path":"misc/README.md","ref":"misc/README.md","articles":[{"title":"MP3 Parser 範例","level":"1.9.1","depth":2,"path":"misc/mp3_parser.md","ref":"misc/mp3_parser.md","articles":[]},{"title":"AAC-ADTS Parser 範例","level":"1.9.2","depth":2,"path":"misc/aac_adts_parser.md","ref":"misc/aac_adts_parser.md","articles":[]},{"title":"ID3 Parser 範例","level":"1.9.3","depth":2,"path":"misc/id3_parser.md","ref":"misc/id3_parser.md","articles":[]},{"title":"FLAC Stream Info Encoder 範例","level":"1.9.4","depth":2,"path":"misc/flac_streaminfo.md","ref":"misc/flac_streaminfo.md","articles":[]},{"title":"文件版本","level":"1.9.5","depth":2,"path":"misc/version.md","ref":"misc/version.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"misc/mp3_parser.md","mtime":"2022-02-06T19:23:06.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

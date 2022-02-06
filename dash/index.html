@@ -1,0 +1,559 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MPEG-DASH 與 Widevine DRM · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tools/" />
+    
+    
+    <link rel="prev" href="../hls/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pcm/">
+            
+                <a href="../pcm/">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mp3/">
+            
+                <a href="../mp3/">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../hls/">
+            
+                <a href="../hls/">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../misc/mp3_parser.html">
+            
+                <a href="../misc/mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../misc/aac_adts_parser.html">
+            
+                <a href="../misc/aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../misc/id3_parser.html">
+            
+                <a href="../misc/id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../misc/flac_streaminfo.html">
+            
+                <a href="../misc/flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../misc/version.html">
+            
+                <a href="../misc/version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >MPEG-DASH 與 Widevine DRM</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="mpeg-dash-&#x8207;-widevine-drm">MPEG-DASH &#x8207; Widevine DRM</h1>
+<p>HLS &#x8207;&#x860B;&#x679C;&#x751F;&#x614B;&#x7CFB;&#x7D81;&#x5F97;&#x975E;&#x5E38;&#x7DCA;&#x5BC6;&#xFF0C;&#x5728;&#x860B;&#x679C;&#x7684;&#x751F;&#x614B;&#x7CFB;&#x4E4B;&#x5916;&#xFF0C;&#x5C31;&#x7D93;&#x5E38;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F7F;&#x7528; MPEG-DASH &#x505A;&#x70BA;&#x7DDA;&#x4E0A;&#x4E32;&#x6D41;&#x7684;&#x89E3;&#x6C7A;&#x65B9;&#x6848;&#x3002;</p>
+<p>DASH &#x662F; Dynamic Adaptive Streaming over HTTP&#xFF0C;&#x5927;&#x6982;&#x53EF;&#x4EE5;&#x7FFB;&#x8B6F;&#x6210;&#x300C;&#x57FA;&#x65BC; HTTP &#x4E0A;&#x7684;&#x52D5;&#x614B;&#x9069;&#x61C9;&#x4E32;&#x6D41;&#x300D;&#xFF08;&#x901A;&#x5E38;&#x4E0D;&#x592A;&#x6703;&#x6709;&#x4EBA;&#x9019;&#x6A23;&#x7A31;&#x547C;&#xFF09;&#xFF0C;&#x8DDF; HLS &#x4E00;&#x6A23;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x76F4;&#x64AD;/&#x5F71;&#x7247;/&#x97F3;&#x8A0A;&#x7B49;&#x5404;&#x7A2E;&#x5A92;&#x9AD4;&#x61C9;&#x7528;&#x4E0A;&#x3002;DASH &#x662F;&#x4E00;&#x5957; MPEG &#x516C;&#x958B;&#x6A19;&#x6E96;&#xFF0C;&#x4E26;&#x4E14;&#x8207;&#x8A31;&#x591A;&#x7684;&#x8EDF;&#x786C;&#x9AD4;&#x5EE0;&#x5546;&#x7D44;&#x6210;&#x4E00;&#x500B;&#x806F;&#x76DF;&#x2014;<a href="https://dashif.org/" target="_blank">DASH IF</a>&#xFF08;DASH Industry Forum&#xFF09;&#xFF0C;&#x6210;&#x54E1;&#x5305;&#x62EC; Google&#x3001;&#x5FAE;&#x8EDF;&#x3001;SONY&#x3001;Intel&#x3001;Akamai&#x2026;&#x7B49;&#xFF08;&#x53C3;&#x898B; DASH IF &#x7684;<a href="https://dashif.org/members/" target="_blank">&#x9801;&#x9762;</a>&#xFF09;&#x3002;</p>
+<p>DASH &#x4E5F;&#x662F;&#x76EE;&#x524D; Google &#x4E3B;&#x8981;&#x63A8;&#x5EE3;&#x7684;&#x4E32;&#x6D41;&#x6280;&#x8853;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x5230; Google &#x70BA; Dash &#x683C;&#x5F0F;&#x505A;&#x4E86;&#x8A31;&#x591A;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x4EE5;&#x53CA;&#x76F8;&#x95DC;&#x5DE5;&#x5177;&#xFF0C;&#x800C; <a href="https://www.widevine.com/" target="_blank">Widevine</a> &#x4FBF;&#x662F; Google &#x7528;&#x4F86;&#x4FDD;&#x8B77; Dash &#x683C;&#x5F0F;&#x5305;&#x88DD;&#x7684;&#x5167;&#x5BB9;&#x7684; DRM &#x6A5F;&#x5236;&#xFF0C;&#x7528;&#x5728; Chrome &#x700F;&#x89BD;&#x5668;&#x3001;Android &#x884C;&#x52D5;&#x88DD;&#x7F6E;&#x8207; Android TV &#x4E0A;&#x3002;</p>
+<p>&#x5F9E;&#x540D;&#x7A31;&#x4E0A;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;Dash &#x8207; HLS &#x76F8;&#x8FD1;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x5957;&#x5EFA;&#x7ACB;&#x5728; HTTP &#x7684;&#x57FA;&#x790E;&#x4E0A;&#xFF0C;&#x5229;&#x7528; HTTP server &#x7684;&#x80FD;&#x529B;&#x627F;&#x53D7;&#x5927;&#x91CF;&#x9023;&#x7DDA;&#x8207;&#x6D41;&#x91CF;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5728; Dash &#x8207; HLS &#x4E4B;&#x9593;&#xFF0C;&#x96D6;&#x7136;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x89C0;&#x5FF5;&#x53EF;&#x4EE5;&#x4E92;&#x901A;&#xFF1A;&#x4F8B;&#x5982;&#xFF0C;HLS &#x7684; playlist &#x6A94;&#x6848;&#x662F; <code>.m3u8</code> &#x6A94;&#x6848;&#xFF0C;&#x5728; Dash &#x4E2D;&#x53EF;&#x4EE5;&#x5C0D;&#x61C9;&#x5230; <strong>MPD</strong>&#xFF0C;&#x5728; HLS &#x4E2D;&#xFF0C;&#x5BE6;&#x969B;&#x7684;&#x5F71;&#x97F3;&#x8CC7;&#x6599;&#x662F;&#x653E;&#x5728; TS &#x6A94;&#x6848;&#x4E2D;&#xFF0C;&#x5728; Dash &#x4E2D;&#x5247;&#x4F7F;&#x7528; <strong>fMP4</strong>&#xFF08;Fragmented MP4&#xFF09;&#x683C;&#x5F0F;&#x3002;</p>
+<h2 id="mpd">MPD</h2>
+<p>&#x64AD;&#x653E; HLS &#x7684;&#x6642;&#x5019;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x8981;&#x5148;&#x8F09;&#x5165; <code>.m3u8</code> &#x6A94;&#x6848;&#xFF0C;&#x5728;&#x64AD;&#x653E; Dash &#x7684;&#x6642;&#x5019;&#xFF0C;&#x5247;&#x8981;&#x8B93;&#x64AD;&#x653E;&#x5668;&#x8F09;&#x5165; MPD&#xFF0C;&#x5168;&#x540D;&#x662F; Media Presentation Description&#x3002;</p>
+<p>MPD &#x7684;&#x683C;&#x5F0F;&#x8207; <code>.m3u8</code> &#x6709;&#x4E9B;&#x4E0D;&#x540C;&#xFF0C; <code>.m3u8</code> &#x6A94;&#x6848;&#x662F;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x5BEB;&#x4E0B;&#x4F86;&#x7684;&#x6587;&#x5B57;&#x683C;&#x5F0F;&#xFF0C;MPD &#x5247;&#x662F; XML &#x683C;&#x5F0F;&#xFF0C;&#x7576;&#x4E2D;&#x8A18;&#x9304;&#x4E86;&#x9019;&#x500B;&#x4E32;&#x6D41;&#xFF08;&#x5F71;&#x7247;&#x6216;&#x8072;&#x97F3;&#xFF09;&#x7684;&#x57FA;&#x672C;&#x8CC7;&#x6599;&#xFF0C;&#x4EE5;&#x53CA;&#x5BE6;&#x969B;&#x4E0A;&#x8981;&#x8F09;&#x5165;&#x7684;&#x5A92;&#x9AD4;&#x8CC7;&#x6599;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x5728; DASH-IF &#x7DB2;&#x7AD9;&#x4E0A;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;<a href="https://reference.dashif.org/dash.js/latest/samples/dash-if-reference-player/index.html" target="_blank">&#x6E2C;&#x8A66;&#x7528;&#x7684; MPD</a>&#xFF0C;&#x53EF;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x4E86;&#x89E3; Dash &#x898F;&#x683C;&#x3002;&#x6211;&#x5011;&#x4F86;&#x6253;&#x958B;&#x5176;&#x4E2D;&#x4E00;&#x500B;&#x770B;&#x770B;&#xFF0C; <a href="https://livesim.dashif.org/dash/vod/testpic_2s/audio.mpd" target="_blank">48K AAC LC Stereo Beeps</a> &#x662F;&#x4E00;&#x500B;&#x53EA;&#x6703;&#x9023;&#x7E8C;&#x767C;&#x51FA;&#x4E00;&#x500B;&#x5C0F;&#x6642;&#x55F6;&#x55F6;&#x8072;&#x7684;&#x7D14; audio &#x4E32;&#x6D41;&#xFF0C;&#x7576;&#x4E2D;&#x5167;&#x5BB9;&#x662F;&#x9019;&#x6A23;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MPD</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;urn:mpeg:dash:schema:mpd:2011&quot;</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd&quot;</span> <span class="hljs-attr">profiles</span>=<span class="hljs-string">&quot;urn:mpeg:dash:profile:isoff-live:2011,http://dashif.org/guidelines/dash-if-simple&quot;</span> <span class="hljs-attr">maxSegmentDuration</span>=<span class="hljs-string">&quot;PT2S&quot;</span> <span class="hljs-attr">minBufferTime</span>=<span class="hljs-string">&quot;PT2S&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;static&quot;</span> <span class="hljs-attr">mediaPresentationDuration</span>=<span class="hljs-string">&quot;PT1H&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">ProgramInformation</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>Media Presentation Description for audio only from DASH-IF live simulator<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">ProgramInformation</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Period</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;precambrian&quot;</span> <span class="hljs-attr">start</span>=<span class="hljs-string">&quot;PT0S&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">AdaptationSet</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">&quot;audio&quot;</span> <span class="hljs-attr">mimeType</span>=<span class="hljs-string">&quot;audio/mp4&quot;</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;eng&quot;</span> <span class="hljs-attr">segmentAlignment</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">startWithSAP</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">Role</span> <span class="hljs-attr">schemeIdUri</span>=<span class="hljs-string">&quot;urn:mpeg:dash:role:2011&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;main&quot;</span>/&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">SegmentTemplate</span> <span class="hljs-attr">startNumber</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">initialization</span>=<span class="hljs-string">&quot;$RepresentationID$/init.mp4&quot;</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">&quot;2&quot;</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;$RepresentationID$/$Number$.m4s&quot;</span>/&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">Representation</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;A48&quot;</span> <span class="hljs-attr">codecs</span>=<span class="hljs-string">&quot;mp4a.40.2&quot;</span> <span class="hljs-attr">bandwidth</span>=<span class="hljs-string">&quot;48000&quot;</span> <span class="hljs-attr">audioSamplingRate</span>=<span class="hljs-string">&quot;48000&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AudioChannelConfiguration</span> <span class="hljs-attr">schemeIdUri</span>=<span class="hljs-string">&quot;urn:mpeg:dash:23003:3:audio_channel_configuration:2011&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>/&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">Representation</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">AdaptationSet</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">Period</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">MPD</span>&gt;</span>
+</code></pre>
+<p>&#x5728;&#x6A94;&#x6848;&#x7684;&#x958B;&#x982D;&#xFF0C;&#x6211;&#x5011;&#x5148;&#x770B;&#x5230;&#x4E00;&#x5806; XML &#x5BA3;&#x544A;&#x3002;&#x9019;&#x500B; XML &#x7684; root node &#x662F; <code>MPD</code>&#xFF0C;&#x7136;&#x5F8C; XML &#x7684; scheme &#x4F4D;&#x5728;&#x54EA;&#x500B;&#x4F4D;&#x7F6E;&#x2026;&#x3002;&#x63A5;&#x4E0B;&#x4F86; <code>ProgramInformation</code> &#x662F;&#x95DC;&#x65BC;&#x5167;&#x5BB9;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x6211;&#x5011;&#x77E5;&#x9053;&#x9019;&#x500B;&#x5F71;&#x7247;&#x7684;&#x6A19;&#x984C;&#x662F;&#x300C;Media Presentation Description for audio only from DASH-IF live simulator&#x300D;&#x3002;</p>
+<p>&#x7136;&#x5F8C;&#x662F; <code>Period</code> &#x8207; <code>AdaptationSet</code>&#x3002;<code>Period</code> &#x8868;&#x793A;&#x7684;&#x662F;&#x9019;&#x500B;&#x7BC0;&#x76EE;&#x6709;&#x54EA;&#x4E9B;&#x6642;&#x9593;&#x5340;&#x6BB5;&#xFF0C;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x9019;&#x500B; MPD &#x8868;&#x793A;&#x7684;&#x662F;&#x4E00;&#x5834;&#x6F14;&#x5531;&#x6703;&#xFF0C;&#x90A3;&#x9EBC;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x80FD;&#x6703;&#x7528;&#x4E0A;&#x591A;&#x500B; <code>Period</code>&#xFF0C;&#x8868;&#x793A;&#x6F14;&#x5531;&#x6703;&#x7576;&#x4E2D;&#x6BCF;&#x4E00;&#x9996;&#x6B4C;&#x7684;&#x6642;&#x9593;&#x5340;&#x9593;&#x3002;&#x5728;&#x9019;&#x6BB5;&#x6642;&#x9593;&#x5167;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x54C1;&#x8CEA;&#xFF08;&#x97F3;&#x8CEA;&#x6216;&#x756B;&#x8CEA;&#xFF09;&#x7684;&#x5A92;&#x9AD4;&#x53EF;&#x4EE5;&#x9078;&#x7528;&#x2014;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5F71;&#x7247;&#x7684;&#x8A71;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x6709; 360p&#x3001;480p&#x2026;&#x7B49;&#x7B49;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x6790;&#x5EA6;&#x2014;&#x64AD;&#x653E;&#x5668;&#x6703;&#x6839;&#x64DA;&#x76EE;&#x524D;&#x7684;&#x7DB2;&#x8DEF;&#x72C0;&#x6CC1;&#x9078;&#x64C7;&#x6700;&#x9069;&#x5408;&#x7684;&#x3002;</p>
+<p><code>AdaptationSet</code> &#x5C31;&#x4EE3;&#x8868;&#x4E00;&#x7D44;&#x53EF;&#x7528;&#x7684;&#x756B;&#x8CEA;/&#x97F3;&#x8CEA;&#xFF0C;&#x76F8;&#x95DC;&#x7684;&#x6A94;&#x6848;&#x4F4D;&#x7F6E;&#x8207; codec &#x8CC7;&#x8A0A;&#x2026;&#x7B49;&#x3002;&#x5728;&#x9019;&#x500B;&#x6A94;&#x6848;&#x4E2D;&#xFF0C;&#x7531;&#x65BC;&#x53EA;&#x6709;&#x4E00;&#x7A2E;&#x97F3;&#x8CEA;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x53EA;&#x6709;&#x4E00;&#x7D44; <code>AdaptationSet</code>&#xFF0C;&#x5728;&#x6709;&#x591A;&#x7A2E;&#x54C1;&#x8CEA;&#x53EF;&#x4EE5;&#x6311;&#x9078;&#x7684; MPD &#x4E2D;&#xFF0C;&#x5C31;&#x6703;&#x770B;&#x5230;&#x591A;&#x7D44; <code>AdaptationSet</code>&#x3002;</p>
+<p>&#x5F9E; <code>SegmentTemplate</code> &#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x97F3;&#x6A94;&#x7684; URL &#x7684;&#x7D44;&#x5408;&#x898F;&#x5247;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">SegmentTemplate</span> <span class="hljs-attr">startNumber</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">initialization</span>=<span class="hljs-string">&quot;$RepresentationID$/init.mp4&quot;</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">&quot;2&quot;</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;$RepresentationID$/$Number$.m4s&quot;</span>/&gt;</span>
+</code></pre>
+<p>&#x9019;&#x4EE3;&#x8868;&#xFF0C;&#x6839;&#x64DA; <code>initialization</code> &#x7576;&#x4E2D;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x6211;&#x5011;&#x61C9;&#x8A72;&#x9996;&#x5148;&#x8F09;&#x5165; init.mp4&#xFF0C;&#x7136;&#x5F8C;&#x6839;&#x64DA;&#x7DE8;&#x865F;&#xFF08;$Number$ &#x662F;&#x4E00;&#x500B;&#x8B8A;&#x6578;&#xFF0C;&#x662F;&#x5F9E; 1 &#x958B;&#x59CB;&#x7684;&#x4E00;&#x9023;&#x4E32;&#x6578;&#x5B57;&#xFF09;&#x9010;&#x4E00;&#x8F09;&#x5165;&#x5F8C;&#x9762;&#x7684; m4s &#x6A94;&#x6848;&#x3002;&#x5728;&#x7D44;&#x6210; URL &#x7684;&#x6642;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x6839;&#x64DA; MPD &#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x627E;&#x51FA;&#x9019;&#x4E9B;&#x6A94;&#x6848;&#x61C9;&#x8A72;&#x6240;&#x5728;&#x7684;&#x6839;&#x76EE;&#x9304;&#x8DEF;&#x5F91;&#x3002;</p>
+<ul>
+<li>&#x9019;&#x500B; MPD &#x4F4D;&#x5728; <code>https://livesim.dashif.org/dash/vod/testpic_2s/audio.mpd</code></li>
+<li>&#x6240;&#x4EE5;&#x9019;&#x4E9B;&#x6A94;&#x6848;&#x61C9;&#x8A72;&#x4F4D;&#x5728; <code>https://livesim.dashif.org/dash/vod/testpic_2s/</code> &#x4E4B;&#x4E0B;</li>
+<li>&#x6211;&#x5011;&#x8981;&#x586B;&#x5165; <code>RepresentationID</code>&#xFF0C;&#x5F9E; MPD &#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x9019;&#x908A;&#x7684; ID &#x662F; <code>A48</code>&#xFF0C;&#x6240;&#x4EE5;&#x518D;&#x628A;&#x9019;&#x6BB5;&#x52A0;&#x5230; URL &#x4E0A;&#xFF1A;
+<code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/</code></li>
+<li>init.mp4 &#x5C31;&#x4F4D;&#x5728; <code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/init.mp4</code></li>
+<li>&#x5F8C;&#x9762;&#x7684;&#x6A94;&#x6848;&#x898F;&#x5247;&#x5C31;&#x662F; <code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/1.mps</code>&#xFF0C;&#x4F9D;&#x6B64;&#x985E;&#x63A8;</li>
+</ul>
+<h2 id="fmp4">fMP4</h2>
+<p>&#x6211;&#x5011;&#x5728;&#x8B1B;&#x89E3; AAC &#x683C;&#x5F0F;&#x7684;&#x6642;&#x5019;&#x63D0;&#x5230; MP4 &#x683C;&#x5F0F;&#xFF0C;&#x4E5F;&#x8B1B;&#x5230;&#x4E00;&#x500B;&#x55AE;&#x7368;&#x7684; MP4 &#x7684;&#x6A94;&#x6848;&#xFF0C;&#x88E1;&#x982D;&#x9700;&#x8981; <code>ftyp</code>&#x3001;<code>moov</code>&#x3001;<code>mdat</code> &#x9019;&#x4E9B;&#x57FA;&#x672C;&#x7684; atoms&#x3002;</p>
+<p>&#x5728; DASH &#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x628A;&#x9019;&#x4E9B; atom &#x62C6;&#x958B;&#xFF1A;init.mp4 &#x7576;&#x4E2D;&#x5B58;&#x653E; <code>moov</code>&#xFF0C;$Number$.m4s &#x88E1;&#x982D;&#x5247;&#x5B58;&#x653E; <code>mdat</code> &#x8CC7;&#x6599;&#xFF0C;&#x6BCF;&#x500B; m4s &#x6A94;&#x6848;&#x662F;&#x628A; <code>mdat</code> &#x4E2D;&#x7684;&#x5F71;&#x7247;&#x8CC7;&#x6599;&#x6839;&#x64DA;&#x4E00;&#x6BB5;&#x5B9A;&#x7FA9;&#x597D;&#x7684;&#x6642;&#x9593;&#x9577;&#x5EA6;&#x5207;&#x51FA;&#x4F86;&#x7684;&#x5C0F;&#x6A94;&#xFF0C;&#x9019;&#x6A23;&#x7684;&#x5C0F;&#x6A94;&#x53EB;&#x505A; fragment&#x3002;&#x5728;&#x64AD;&#x653E;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x9996;&#x5148;&#x6293;&#x53D6; <code>moov</code>&#xFF0C;&#x7136;&#x5F8C;&#x4E00;&#x6B21;&#x53C8;&#x4E00;&#x6B21;&#x628A;&#x9019;&#x6BB5; <code>moov</code> &#x8207;&#x5F8C;&#x9762;&#x5F9E; M4S &#x6A94;&#x6848;&#x4E2D;&#x62FF;&#x5230;&#x7684; <code>mdat</code> &#x7D50;&#x5408;&#x8D77;&#x4F86;&#x64AD;&#x653E;&#x3002;init.mp4 &#x8207; m4s &#x6A94;&#x6848;&#x4E2D;&#x9084;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684; atoms&#xFF0C;&#x59D1;&#x4E14;&#x4E0D;&#x8868;&#x3002;</p>
+<p>&#x5728; init.mp4 &#x4E2D;&#x7684; <code>moov</code> &#x8CC7;&#x8A0A;&#xFF1A;</p>
+<p><img src="moov.png" alt="init.mp4 &#x4E2D;&#x7684; moov &#x8CC7;&#x8A0A;"></p>
+<p>&#x5728; M4S &#x7576;&#x4E2D;&#x7684; <code>mdat</code> &#x8CC7;&#x8A0A;&#xFF1A;</p>
+<p><img src="mdat.png" alt="m4s &#x6A94;&#x6848;&#x4E2D;&#x7684; mdat &#x8CC7;&#x8A0A;"></p>
+<p>&#x6211;&#x5011;&#x5728;&#x524D;&#x9762;&#x770B;&#x5230;&#x4F7F;&#x7528; <code>SegmentTemplate</code> &#x7684;&#x7BC4;&#x4F8B;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x7A2E;&#x5B9A;&#x7FA9; m4s &#x6A94;&#x6848;&#x4F4D;&#x7F6E;&#x7684;&#x4F5C;&#x6CD5;&#xFF0C;&#x5247;&#x662F;&#x76F4;&#x63A5;&#x5168;&#x90E8;&#x5217;&#x51FA;&#x4F86;&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x500B;&#x4F86;&#x81EA; Wowza &#x7684;&#x7BC4;&#x4F8B;&#xFF0C;&#x9019;&#x500B; MPD &#x4F4D;&#x5728; <code>https://wowzaec2demo.streamlock.net/vod/elephantsdream_1100kbps-enc-wv.mp4/manifest_mvlist.mpd</code>&#xFF0C;&#x5C31;&#x5BEB;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">SegmentList</span> <span class="hljs-attr">presentationTimeOffset</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">timescale</span>=<span class="hljs-string">&quot;90000&quot;</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">&quot;900000&quot;</span> <span class="hljs-attr">startNumber</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Initialization</span> <span class="hljs-attr">sourceURL</span>=<span class="hljs-string">&quot;chunk_ctvideo_ridp0va0br994339_cinit_w1146251977_mpd.m4s&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;chunk_ctvideo_ridp0va0br994339_cn1_w1146251977_mpd.m4s&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;chunk_ctvideo_ridp0va0br994339_cn2_w1146251977_mpd.m4s&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;chunk_ctvideo_ridp0va0br994339_cn3_w1146251977_mpd.m4s&quot;</span>/&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">SegmentList</span>&gt;</span>
+</code></pre>
+<h3 id="&#x9023;&#x7E8C;&#x7684;-fmp4">&#x9023;&#x7E8C;&#x7684; fMP4</h3>
+<p>&#x53E6;&#x5916;&#x4E00;&#x7A2E;&#x5E38;&#x898B;&#x7684;&#x4F5C;&#x6CD5;&#xFF0C;&#x5247;&#x662F;&#x4F7F;&#x7528; fMP4 &#x683C;&#x5F0F;&#x7684;&#x6A94;&#x6848;&#x63D0;&#x4F9B;&#x5F71;&#x97F3;&#x8CC7;&#x6599;&#x3002;</p>
+<p>&#x56E0;&#x70BA;&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x770B;&#x904E;&#x524D;&#x9762;&#x7528; init.mp4 &#x52A0;&#x4E0A;&#x4E00;&#x5806; M4S &#x6A94;&#x6848;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x5011;&#x65BC;&#x662F;&#x6BD4;&#x8F03;&#x5BB9;&#x6613;&#x7406;&#x89E3; fMP4 &#x683C;&#x5F0F;&#xFF1A;fMP4 &#x5C31;&#x662F;&#x628A;&#x9019;&#x4E9B;&#x6A94;&#x6848;&#x5408;&#x4F75;&#x6210;&#x4E00;&#x500B;&#x5927;&#x6A94;&#x6848;&#x3002;&#x7136;&#x5F8C;&#xFF0C;MPD &#x7576;&#x4E2D;&#x6703;&#x6A19;&#x660E;&#x6BCF;&#x500B;&#x5C0D;&#x61C9;&#x5230;&#x4E00;&#x500B; M4S &#x683C;&#x5F0F;&#x7684; byte range&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x5728;&#x8F09;&#x5165; MPD &#x4E4B;&#x5F8C;&#xFF0C;&#x5148;&#x6293;&#x53D6; fMP4 &#x7684;&#x958B;&#x982D;&#x90E8;&#x5206;&#xFF08;&#x5C0D;&#x61C9;&#x5230;&#x6211;&#x5011;&#x7684; init.mp4&#xFF09;&#xFF0C;&#x7136;&#x5F8C;&#xFF0C;&#x6839;&#x64DA; MPD &#x4E2D;&#x5B9A;&#x7FA9;&#x7684; byte range&#xFF0C;&#x900F;&#x904E;&#x5E36;&#x6709; Range HTTP header &#x7684;&#x9023;&#x7DDA;&#xFF0C;&#x53EA;&#x6293;&#x53D6; fMP4 &#x6A94;&#x6848;&#x4E2D;&#x60F3;&#x8981;&#x7684;&#x90E8;&#x4EFD;&#x3002;</p>
+<p>&#x9019;&#x500B;&#x6A94;&#x6848;&#x7684;&#x8CC7;&#x6599;&#x5927;&#x6982;&#x50CF;&#x9019;&#x6A23;&#xFF1A;</p>
+<p><img src="fmp4_layout.png" alt="fMP4 &#x4E2D;&#x7684;&#x8CC7;&#x6599;&#x6392;&#x5217;"></p>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F86;&#x770B;&#x770B; YouTube &#x4F7F;&#x7528;&#x7684; DASH &#x6A94;&#x6848;&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x5728; YouTube &#x4E0A;&#xFF0C;&#x6253;&#x958B;&#x4E00;&#x500B;&#x6211;&#x5011;&#x81EA;&#x5DF1;&#x4E0A;&#x50B3;&#x7684;&#x9801;&#x9762;&#xFF08;&#x5728;&#x9019;&#x908A;&#x7528;&#x7684;&#x662F;&#x6211;&#x5728; 2019 &#x5E74;&#x5BEB;&#x7684;&#x4E00;&#x9996;&#x6B4C;<a href="https://www.youtube.com/watch?v=82pzULHbL6c" target="_blank">&#x300A;&#x5343;&#x5343;&#x842C;&#x842C;&#x300B;</a>&#xFF09;&#xFF0C;&#x7136;&#x5F8C;&#x67E5;&#x770B;&#x9801;&#x9762;&#x7684; HTML &#x539F;&#x59CB;&#x6A94;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x627E;&#x5230; dashManifestUrl &#x9019;&#x6BB5;&#xFF1A;</p>
+<p><img src="youtube_html.png" alt="YouTube &#x9801;&#x9762;"></p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x9019;&#x90E8;&#x5F71;&#x7247;&#x7684; MPD &#x4F4D;&#x5728; <code>https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...</code> &#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x6253;&#x958B;&#x4F86;&#x770B;&#x770B;&#xFF08;&#x4E0D;&#x904E;&#xFF0C;&#x9019;&#x500B; URL &#x6709;&#x6548;&#x671F;&#xFF0C;&#x4F60;&#x73FE;&#x5728;&#x9EDE;&#x4E0B;&#x53BB;&#x61C9;&#x8A72;&#x6C92;&#x7528;&#xFF09;&#xFF1A;</p>
+<p><img src="youtube_mpd.png" alt="YouTube &#x7684; MPD"></p>
+<p>&#x6211;&#x5011;&#x65BC;&#x662F;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#xFF1A;&#x9996;&#x5148;&#xFF0C;&#x9019;&#x90E8;&#x5F71;&#x7247;&#x6709;&#x4E00;&#x6BB5;&#x8CC7;&#x6599;&#x683C;&#x5F0F;&#x662F; <code>audio/mp4</code> &#x7684; <code>AdaptationSet</code>&#xFF0C;&#x4EE3;&#x8868; YouTub &#x5E6B;&#x6211;&#x5011;&#x628A;&#x5F71;&#x7247;&#x7684;&#x5716;&#x7247;&#x8DDF;&#x97F3;&#x8ECC;&#x62C6;&#x958B;&#x4F86;&#x4E86;&#xFF0C;&#x9019;&#x908A;&#x6709;&#x4E00;&#x6BB5;&#x7368;&#x7ACB;&#x7684;&#x97F3;&#x8ECC;&#xFF0C;URL &#x4E5F;&#x662F;&#x4F4D;&#x5728; <code>https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...</code> &#x4E0B;&#x65B9;&#xFF1A;</p>
+<p>&#x7136;&#x5F8C;&#x662F;&#x9019;&#x5169;&#x6BB5;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">SegmentList</span> <span class="hljs-attr">startNumber</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">timescale</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentTimeline</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9985&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;9984&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">S</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;7941&quot;</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">SegmentTimeline</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">SegmentList</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">SegmentList</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Initialization</span> <span class="hljs-attr">sourceURL</span>=<span class="hljs-string">&quot;range/0-640&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/961-62378&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/62379-123214&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/123215-184180&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/184181-245118&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/245119-305980&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/305981-366726&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/366727-427627&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/427628-488601&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/488602-549420&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/549421-610280&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/610281-671202&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/671203-732053&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/732054-792887&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/792888-853681&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/853682-914615&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/914616-975451&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/975452-1036483&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1036484-1097267&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1097268-1158216&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1158217-1219017&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1219018-1279927&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1279928-1340738&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1340739-1401680&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SegmentURL</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;range/1401681-1449774&quot;</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">SegmentList</span>&gt;</span>
+</code></pre>
+<p>&#x5728; <code>SegmentTimeline</code> &#x7576;&#x4E2D;&#xFF0C;&#x5217;&#x51FA;&#x4E86;&#x9019;&#x500B;&#x97F3;&#x8ECC;&#x7576;&#x4E2D;&#x7684;&#x6642;&#x9593;&#x8EF8;&#xFF0C;&#x6574;&#x500B;&#x97F3;&#x8ECC;&#x88AB;&#x5207;&#x6210; 24 &#x7684;&#x7247;&#x6BB5;&#xFF0C;&#x6BCF;&#x500B; <code>S</code> &#x4EE3;&#x8868;&#x4E00;&#x500B;&#x7247;&#x6BB5;&#xFF0C;&#x88E1;&#x982D;&#x7684; <code>d</code> &#x5247;&#x662F;&#x9019;&#x500B;&#x7247;&#x6BB5;&#x7684; duration&#xFF0C;&#x6642;&#x9593;&#x55AE;&#x4F4D;&#x5247;&#x6839;&#x64DA; <code>SegmentTimeline</code> &#x7576;&#x4E2D;&#x7684; <code>timescale</code>&#x3002;&#x4EE5;&#x7B2C;&#x4E00;&#x500B; <code>S</code> &#x70BA;&#x4F8B;&#xFF0C;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x9019;&#x9996;&#x6B4C;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x6642;&#x9593;&#x5340;&#x9593;&#xFF0C;<code>d</code> &#x70BA; 9985&#xFF0C;<code>timescale</code> &#x70BA; 1000&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x662F; 9.985 &#x79D2;&#xFF0C;&#x6574;&#x90E8;&#x5F71;&#x7247;&#x5927;&#x6982;&#x662F;&#x4EE5;&#x5341;&#x79D2;&#x9418;&#x70BA;&#x4E00;&#x500B;&#x5340;&#x9593;&#x5207;&#x6210;&#x5C0F;&#x7247;&#xFF0C;&#x6700;&#x5F8C;&#x4E00;&#x500B; <code>S</code> &#x5C07;&#x8FD1;&#x516B;&#x79D2;&#xFF0C;&#x6240;&#x4EE5;&#x5168;&#x90E8;&#x5927;&#x6982;&#x6709; 238 &#x79D2;&#xFF08;3 &#x5206; 58 &#x79D2;&#xFF09;&#x3002;</p>
+<p>&#x6BCF;&#x500B; <code>S</code> &#x6703;&#x5C0D;&#x61C9;&#x5230; <code>SegmentList</code> &#x88E1;&#x982D;&#x7684; <code>SegmentURL</code>&#x3002;SegmentList &#x7B2C;&#x4E00;&#x6BB5; <code>Initialization</code> &#x5C31;&#x4EE3;&#x8868;&#x6211;&#x5011;&#x4E4B;&#x524D;&#x8B1B;&#x5230;&#x7684; init.mp4 &#x7684;&#x89D2;&#x8272;&#xFF0C;&#x88E1;&#x982D;&#x5305;&#x542B; <code>ftyp</code> &#x8207; <code>moov</code> &#x7B49; atoms&#xFF0C;&#x9019;&#x6BB5;&#x5728;&#x7B2C; 0 &#x5230;&#x7B2C; 640 &#x500B; byte &#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5F8C;&#x9762;&#x6BCF;&#x500B; <code>SegmentURL</code>&#xFF0C;&#x4E5F;&#x90FD;&#x4EE3;&#x8868;&#x9019;&#x500B;&#x5340;&#x6BB5;&#x5728;&#x6A94;&#x6848;&#x4E2D;&#x7684;&#x54EA;&#x500B; byte &#x5230;&#x54EA;&#x500B; byte &#x7684;&#x5340;&#x9593;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5047;&#x5982;&#x6211;&#x5011;&#x5728;&#x64AD;&#x653E;&#x9019;&#x500B;&#x6A94;&#x6848;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x4E00;&#x958B;&#x59CB;&#x5C31;&#x60F3;&#x5F9E;&#x7B2C; 15 &#x79D2;&#x958B;&#x59CB;&#x64AD;&#x653E;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#xFF0C;&#x7B2C; 15 &#x79D2;&#x4F4D;&#x5728;&#x7B2C;&#x4E8C;&#x500B; <code>S</code> &#x5B9A;&#x7FA9;&#x7684;&#x5340;&#x6BB5;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x5C31;&#x53EA;&#x8981;&#x767C;&#x51FA;&#x5E36; Range header &#x7684; HTTP &#x9023;&#x7DDA;&#xFF0C;&#x5148;&#x6293;&#x53D6; 0-640 &#x7684; <code>ftyp</code> &#x8207; <code>moov</code> &#x7B49;&#x8CC7;&#x8A0A;&#xFF0C;&#x518D;&#x76F4;&#x63A5;&#x53BB;&#x627E;&#x7B2C;&#x4E8C;&#x500B; <code>S</code> &#x7684;&#x7BC4;&#x570D; 62379-123214&#xFF0C;&#x5728;&#x8F09;&#x5165;&#x9019;&#x6BB5;&#x6A94;&#x6848;&#x5F8C;&#xFF0C;&#x56E0;&#x70BA;&#x7B2C;&#x4E8C;&#x500B; <code>S</code> &#x662F;&#x5F9E;&#x7B2C; 10 &#x79D2;&#x958B;&#x59CB;&#xFF0C;&#x53EA;&#x8981;&#x518D; seek &#x4E94;&#x79D2;&#x9418;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6210;&#x529F;&#x9054;&#x6210;&#x300C;&#x5F9E;&#x7B2C; 15 &#x79D2;&#x958B;&#x59CB;&#x64AD;&#x653E;&#x300D;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x6253;&#x958B;&#x9019;&#x500B;&#x6A94;&#x6848;&#x770B;&#x770B;&#xFF1A;</p>
+<p>&#x5F9E; 0-640&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230; <code>ftyp</code> &#x8207; <code>moov</code>&#x3002;</p>
+<p><img src="fmp4_init.png" alt="0-640"></p>
+<p>&#x5F9E; 62379 &#x7684;&#x4E00;&#x6BB5; <code>mdat</code> &#x8CC7;&#x6599;&#xFF1A;</p>
+<p><img src="fmp4_mdat.png" alt="62379"></p>
+<h2 id="&#x64AD;&#x653E;-mpeg-dash-&#x4E32;&#x6D41;">&#x64AD;&#x653E; MPEG-DASH &#x4E32;&#x6D41;</h2>
+<p>&#x64AD;&#x653E; MPEG-DASH &#x4E32;&#x6D41;&#x7684;&#x6D41;&#x7A0B;&#x5927;&#x6982;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x6293;&#x53D6; MPD&#xFF0C;&#x4E26;&#x4E14;&#x89E3;&#x6790;&#x88E1;&#x982D;&#x7684; XML</li>
+<li>&#x5F9E; MPD &#x4E2D;&#x5224;&#x65B7;&#x6709;&#x54EA;&#x4E9B; <code>Period</code> &#x8207; <code>AdaptationSet</code></li>
+<li>&#x5F9E; <code>AdaptationSet</code> &#x4E2D;&#x6311;&#x9078;&#x6700;&#x9069;&#x5408;&#x76EE;&#x524D;&#x983B;&#x5BEC;&#x7684;&#x5F71;&#x7247;/&#x97F3;&#x8ECC;&#x7684;&#x7D44;&#x5408;</li>
+<li>&#x5F9E; <code>AdaptationSet</code> &#x4E2D;&#x7D44;&#x5408;&#x51FA;&#x5BE6;&#x969B;&#x7684; URL &#x64AD;&#x653E;</li>
+</ul>
+<p>DASH IF &#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x4E00;&#x5957; JavaScript &#x64B0;&#x5BEB;&#x7684;&#x64AD;&#x653E;&#x8EDF;&#x9AD4; <a href="https://reference.dashif.org/dash.js/" target="_blank">dash.js</a>&#xFF0C;Google &#x9019;&#x5E7E;&#x5E74;&#x5728; Android &#x5E73;&#x53F0;&#x4E0A;&#x81F4;&#x529B;&#x63A8;&#x5EE3;&#x7684; <a href="https://developer.android.com/guide/topics/media/exoplayer" target="_blank">ExoPlayer</a> &#x4E5F;&#x652F;&#x63F4; DASH &#x683C;&#x5F0F;&#xFF0C;&#x53E6;&#x5916;&#x4E5F;&#x6709;&#x4E00;&#x5957;&#x5728;&#x7DB2;&#x9801;&#x4E0A;&#x64AD;&#x653E; DASH &#x7684; <a href="https://shaka-player-demo.appspot.com/demo/#audiolang=en-US;textlang=en-US;uilang=en-US;panel=HOME;build=uncompiled" target="_blank">Shaka Player</a>&#xFF0C;Google &#x5728; Widevine SDK &#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5C31;&#x5EFA;&#x8B70;&#x4F7F;&#x7528;&#x9019;&#x5169;&#x500B; Player &#x5143;&#x4EF6;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x9084;&#x6709;&#x5404;&#x7A2E;&#x652F;&#x63F4; MPEG DASH &#x7684;&#x5BE6;&#x4F5C;&#xFF0C;&#x5728;&#x9019;&#x908A;&#x4E0D;&#x4E00;&#x4E00;&#x5217;&#x8209;&#x3002;</p>
+<p>&#x5728; iOS app &#x4E2D;&#x64AD;&#x653E; DASH &#x4E32;&#x6D41;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x9EDE;&#x8FC2;&#x8FF4;&#x3002;&#x5728; iOS &#x4E0A;&#x6211;&#x5011;&#x770B;&#x5230;&#x7684;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x64AD;&#x653E; DASH &#x7684;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#xFF0C;&#x800C;&#x662F;&#x628A; DASH &#x8F49;&#x6210; HLS&#xFF0C;&#x7136;&#x5F8C;&#x7528; AVPlayer &#x64AD;&#x653E;&#x3002;</p>
+<p>Google &#x6709;&#x4E00;&#x5957;&#x53EB;&#x505A; <a href="https://github.com/google/universal-dash-transmuxer" target="_blank">Universal DASH Transmuxer</a>&#xFF08;&#x7C21;&#x7A31; UDT&#xFF09;&#x7684;&#x8EDF;&#x9AD4;&#xFF0C;&#x662F;&#x4E00;&#x5957; Open Source &#x7684;&#x51FD;&#x5F0F;&#x5EAB;&#xFF0C;&#x5728; GitHub &#x4E0A;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x88E1;&#x982D;&#x5C31;&#x662F;&#x5C07; DASH &#x8F49;&#x63DB;&#x6210; HLS &#x7684;&#x76F8;&#x95DC;&#x5BE6;&#x4F5C;&#xFF0C;&#x81F3;&#x65BC;&#x5BE6;&#x969B;&#x600E;&#x9EBC;&#x7528;&#xFF0C;&#x9084;&#x662F;&#x5F97;&#x770B; Google &#x7684; Widevine iOS SDK&#xFF0C;&#x4F46;&#x9019;&#x90E8;&#x4EFD;&#x6C92;&#x6709; Open Source&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x539F;&#x7406;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x5148;&#x5728; app &#x4E2D;&#xFF0C;&#x958B;&#x555F;&#x4E00;&#x500B; local &#x7684; HTTP server</li>
+<li>&#x9019;&#x500B; local HTTP server &#x5728;&#x80CC;&#x5F8C;&#x6293;&#x53D6;&#x4E00;&#x500B;&#x6307;&#x5B9A;&#x7684; MPD</li>
+<li>&#x89E3;&#x6790; MPD&#xFF0C;&#x628A;&#x88E1;&#x982D;&#x7684; <code>AdaptationSet</code> &#x62BD;&#x53D6;&#x51FA;&#x4F86;&#xFF0C;&#x8F49;&#x63DB;&#x6210; <code>.m3u8</code> &#x683C;&#x5F0F;&#x7684; playlist&#xFF0C;&#x6293;&#x53D6; fMP4 &#x7684;&#x521D;&#x59CB;&#x5340;&#x6BB5;</li>
+<li>&#x5982;&#x679C;&#x662F;&#x53D7;&#x4FDD;&#x8B77;&#x7684; DASH &#x4E32;&#x6D41;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x6703;&#x53BB;&#x6293;&#x53D6; license</li>
+<li>&#x7576;&#x6709; player &#x6307;&#x5B9A;&#x8981;&#x64AD;&#x653E;&#x67D0;&#x4E00;&#x6BB5;&#x7684; TS &#x6642;&#xFF0C;local http server &#x5728;&#x6536;&#x5230;&#x8981;&#x6C42;&#x4E4B;&#x5F8C;&#xFF0C;&#x518D;&#x6839;&#x64DA;&#x4E4B;&#x524D;&#x53D6;&#x5F97;&#x7684; MPD&#xFF0C;&#x628A;&#x5C0D;&#x61C9;&#x7684; M4S &#x6A94;&#x6848;&#x6293;&#x4E0B;&#x4F86;&#xFF0C;&#x4E26;&#x4E14;&#x8F49;&#x63DB;&#x6210; TS &#x683C;&#x5F0F;&#x56DE;&#x61C9;</li>
+<li>&#x5982;&#x6B64;&#x4E0D;&#x65B7;&#x8F2A;&#x8FF4;</li>
+</ul>
+<h2 id="widevine">Widevine</h2>
+<p>Widevine &#x4FDD;&#x8B77;&#x5167;&#x5BB9;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x5C0D; <code>mdat</code> atom &#x4E2D;&#x7684;&#x8CC7;&#x6599;&#x52A0;&#x5BC6;&#x3002;&#x4E00;&#x500B;&#x53D7;&#x5230; Widevine &#x4FDD;&#x8B77;&#x7684;&#x6A94;&#x6848;&#xFF0C;&#x5916;&#x89C0;&#x4E0A;&#x9084;&#x662F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x662F;&#x4E00;&#x500B; MP4 &#x6A94;&#x6848;&#xFF0C;&#x9084;&#x662F;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x51FA; <code>ftyp</code>&#x3001;<code>moov</code>&#x3001;<code>mdat</code> &#x9019;&#x4E9B; atom&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x9700;&#x8981;&#x5148;&#x89E3;&#x6790;&#x51FA; <code>mdat</code> &#x5340;&#x6BB5;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x518D;&#x900F;&#x904E;&#x4E00;&#x4EFD; license &#x4EE5;&#x53CA; Google &#x7684;&#x6F14;&#x7B97;&#x6CD5;&#xFF0C;&#x628A;&#x88E1;&#x982D;&#x7684;&#x8CC7;&#x6599;&#x89E3;&#x5BC6;&#x56DE;&#x4F86;&#x3002;</p>
+<p>&#x4E00;&#x500B;&#x53D7;&#x5230; Widevine &#x4FDD;&#x8B77;&#x4E32;&#x6D41;&#x4E2D;&#xFF0C;&#x6703;&#x5728; MPD &#x7576;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x6BB5; <code>AdaptationSet</code> &#x4E2D;&#xFF0C;&#x5305;&#x542B;&#x4E00;&#x6BB5; <strong>PSSH</strong>&#xFF08;Protection System Specific Header&#xFF09;&#x8CC7;&#x8A0A;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x500B;<a href="https://wowzaec2demo.streamlock.net/live/bigbuckbunny-enc-wv.stream/manifest_mvtime.mpd" target="_blank">&#x4F86;&#x81EA; Wowza &#x7684; MPD</a>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9019;&#x6BB5;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AdaptationSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">group</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">mimeType</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;512&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;288&quot;</span> <span class="hljs-attr">par</span>=<span class="hljs-string">&quot;16:9&quot;</span> <span class="hljs-attr">frameRate</span>=<span class="hljs-string">&quot;30&quot;</span> <span class="hljs-attr">segmentAlignment</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">startWithSAP</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">subsegmentAlignment</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">subsegmentStartsWithSAP</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ContentProtection</span> <span class="hljs-attr">schemeIdUri</span>=<span class="hljs-string">&quot;urn:mpeg:dash:mp4protection:2011&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;cenc&quot;</span> <span class="hljs-attr">cenc:default_KID</span>=<span class="hljs-string">&quot;0294B959-9D75-5DE2-BBF0-FDCA3FA5EAB7&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ContentProtection</span> <span class="hljs-attr">schemeIdUri</span>=<span class="hljs-string">&quot;urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Widevine&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">cenc:pssh</span>&gt;</span>AAAAW3Bzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAADsIARIQApS5WZ11XeK78P3KP6XqtxoNd2lkZXZpbmVfdGVzdCIQZmtqM2xqYVNkZmFsa3IzaioCU0QyAA==<span class="hljs-tag">&lt;/<span class="hljs-name">cenc:pssh</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ContentProtection</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SegmentTemplate</span> <span class="hljs-attr">....</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">SegmentTemplate</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Representation</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;p0va0br676240&quot;</span> <span class="hljs-attr">codecs</span>=<span class="hljs-string">&quot;avc1.42c015&quot;</span> <span class="hljs-attr">sar</span>=<span class="hljs-string">&quot;1:1&quot;</span> <span class="hljs-attr">bandwidth</span>=<span class="hljs-string">&quot;676240&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">AdaptationSet</span>&gt;</span>
+</code></pre>
+<p>&#x5728; <code>&lt;cenc:pssh&gt;</code> &#x6B04;&#x4F4D;&#x4E2D;&#xFF0C;&#x5C31;&#x662F;&#x6211;&#x5011;&#x6240;&#x8981;&#x7684; PSSH &#x8CC7;&#x8A0A;&#xFF0C;PSSH &#x63A5;&#x8FD1;&#x6211;&#x5011;&#x5728; HLS &#x88E1;&#x982D;&#x7528;&#x5230;&#x7684; Asset ID&#x2014;&#x5728; HLS &#x88E1;&#x982D;&#xFF0C;&#x6211;&#x5011;&#x7528; Asset ID &#x8207;&#x860B;&#x679C;&#x7C3D;&#x767C;&#x7684; certificate &#x7522;&#x751F; SPC&#xFF0C;&#x5728; Widevine &#x88E1;&#x982D;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x7528; PSSH &#x8207; <strong>CDM</strong> &#x7522;&#x751F;&#x51FA;&#x4F86;&#x7684;&#x8CC7;&#x8A0A;&#xFF0C;&#x7522;&#x751F;&#x6388;&#x6B0A;&#x9700;&#x6C42;&#xFF0C;&#x4E0A;&#x50B3;&#x5230; server &#x4E0A;&#x7522;&#x751F;&#x3001;&#x53D6;&#x5F97;&#x89E3;&#x5BC6;&#x7528;&#x7684; license&#x3002;</p>
+<p>CDM &#x5168;&#x540D; Content Decryption Module&#xFF0C;&#x5728;&#x884C;&#x52D5;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;CDM &#x662F;&#x4E00;&#x5957;&#x7528; C++ &#x5BEB;&#x6210;&#x7684; library&#xFF0C;&#x5728;&#x6BCF;&#x7A2E;&#x5E73;&#x53F0;&#x4E0A; CDM &#x7684;&#x5C08;&#x5C6C;&#x8EDF;&#x9AD4;&#x53EB;&#x505A; CDM host&#xFF0C;Google &#x53EA;&#x6709;&#x7D66;&#x7B2C;&#x4E09;&#x65B9;&#x5EE0;&#x5546;&#x7DE8;&#x8B6F;&#x597D;&#x7684; binary &#x4EE5;&#x53CA; certificate&#x3002;</p>
+<p>&#x6211;&#x5011;&#x9996;&#x5148;&#x7528;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x88DD;&#x7F6E;&#x8CC7;&#x8A0A;&#xFF0C;&#x5C0D; CDM host &#x9032;&#x884C;&#x521D;&#x59CB;&#x8A71;&#xFF0C;&#x7136;&#x5F8C;&#xFF0C;&#x5728;&#x6293;&#x5230; PSSH &#x4E4B;&#x5F8C;&#xFF0C;&#x6211;&#x5011;&#x628A; PSSH &#x9001;&#x5230; CDM host &#x4E0A;&#xFF0C;CDM host &#x518D; callback &#x56DE;&#x4F86;&#xFF0C;&#x56DE;&#x50B3; CDM &#x7D44;&#x5408;&#x597D;&#x7684;&#x6191;&#x8B49;&#x9700;&#x6C42;&#x7684;&#x8CC7;&#x6599;&#xFF0C;CDM &#x6703;&#x628A;&#x9019;&#x6BB5;&#x8CC7;&#x6599;&#xFF0C;&#x9001;&#x5230;&#x6211;&#x5011;&#x7684;&#x4E00;&#x6BB5;&#x4EE3;&#x7406;&#x4EBA;&#x7A0B;&#x5F0F;&#xFF0D;&#x8853;&#x8A9E;&#x662F;&#x767C;&#x9001;&#xFF08;send&#xFF09;&#x4E00;&#x6BB5;&#x8A0A;&#x606F;&#xFF08;message&#xFF09;&#x2014;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x9019;&#x6BB5;&#x8CC7;&#x6599;&#x50B3;&#x5230; Google &#x7684; License Proxy &#x4E3B;&#x6A5F;&#x4E0A;&#xFF08;&#x50CF; <code>https://license.widevine.com/getlicense/&lt;provider&gt;</code> &#x9019;&#x6A23;&#x7684;&#x7DB2;&#x5740;&#xFF0C;&#x53C3;&#x898B; <a href="https://support.google.com/widevine/answer/6048495?hl=en" target="_blank">Google &#x6587;&#x4EF6;</a>&#xFF09;&#xFF0C;&#x53D6;&#x5F97; license&#x3002;</p>
+<p>Google &#x63D0;&#x4F9B;&#x7684;&#x6D41;&#x7A0B;&#x5716;&#x5982;&#x4E0B;&#xFF0C;&#x518D;&#x77E5;&#x9053;&#x4E00;&#x4E9B;&#x5C08;&#x6709;&#x540D;&#x8A5E;&#x7684;&#x610F;&#x7FA9;&#x5F8C;&#xFF0C;&#x6703;&#x6BD4;&#x8F03;&#x597D;&#x61C2;&#x3002;&#x9019;&#x4E00;&#x6BB5;&#x662F;&#x50B3;&#x9001; PSSH &#x53D6;&#x5F97; license &#x7684;&#x6D41;&#x7A0B;</p>
+<p><img src="widevine.png" alt="Widevine &#x6D41;&#x7A0B;"></p>
+<p>&#x5728; Android &#x4E0A;&#xFF0C;ExoPlayer &#x652F;&#x63F4; Widevine DRM&#xFF0C;&#x8A73;&#x60C5;&#x53EF;&#x4EE5;&#x53C3;&#x8003; ExoPlayer &#x7684;&#x6587;&#x4EF6; <a href="https://exoplayer.dev/drm.html" target="_blank">Digital rights management</a>&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x900F;&#x904E; Android &#x672C;&#x8EAB;&#x7684; <a href="https://developer.android.com/reference/android/media/MediaDrm.html" target="_blank">MediaDrm</a> API &#x7BA1;&#x7406; DRM&#x3002;</p>
+<p>&#x5728; iOS &#x4E0A;&#xFF0C;&#x62FF;&#x5230; license &#x4E4B;&#x5F8C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x70BA;&#x64AD;&#x653E;&#x5668;&#x6E96;&#x5099; HLS &#x683C;&#x5F0F;&#x7684;&#x4E32;&#x6D41;&#xFF1A;</p>
+<p><img src="widevine_hls.png" alt="Widevine &#x52A0;&#x4E0A; HLS &#x4E32;&#x6D41;&#x7684;&#x6D41;&#x7A0B;"></p>
+<p>Web &#x4E0A;&#xFF0C;&#x9019;&#x6574;&#x5957;&#x53D6;&#x5F97; license &#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x88AB;&#x5305;&#x5728; EME &#x88E1;&#x982D;&#xFF0C;Google &#x6709;&#x4E00;&#x7BC7;&#x6587;&#x4EF6;&#x5C08;&#x9580;&#x4ECB;&#x7D39; EME&#xFF1A;<a href="https://developers.google.com/web/fundamentals/media/eme" target="_blank">What is EME?</a>&#x3002;&#x81F3;&#x65BC;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x65B9;&#x9762;&#xFF0C;Google &#x4E5F;&#x4E00;&#x6A23;&#x63A8;&#x85A6;&#x7528; Shaka Player &#x64AD;&#x653E; Winevine &#x4FDD;&#x8B77;&#x7684; Dash &#x4E32;&#x6D41;&#x3002;</p>
+<h3 id="&#x96E2;&#x7DDA;&#x4E0B;&#x8F09;">&#x96E2;&#x7DDA;&#x4E0B;&#x8F09;</h3>
+<p>Widevine &#x4E5F;&#x652F;&#x63F4;&#x96E2;&#x7DDA;&#x64AD;&#x653E;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x8981;&#x4E0B;&#x8F09;&#x4E00;&#x500B; DASH &#x683C;&#x5F0F;&#x7684;&#x4E32;&#x6D41;&#xFF0C;&#x5C31;&#x662F;&#x5148;&#x6253;&#x958B; MPD&#x3001;&#x89E3;&#x6790;&#x88E1;&#x982D;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x7136;&#x5F8C;&#x6839;&#x64DA; <code>SegmentTemplate</code> &#x6216; <code>SegmentList</code> &#x627E;&#x5230;&#x5C0D;&#x61C9;&#x7684;&#x6A94;&#x6848;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x6A94;&#x6848;&#x4EE5;&#x53CA; MPD &#x5168;&#x90E8;&#x4E0B;&#x8F09;&#x56DE;&#x4F86;&#xFF0C;&#x7136;&#x5F8C;&#x5728;&#x672C;&#x5730;&#x7AEF;&#x7DAD;&#x6301;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x9304;&#x7D50;&#x69CB;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5728;&#x64AD;&#x653E;&#x96E2;&#x7DDA;&#x6A94;&#x6848;&#x4E4B;&#x524D;&#xFF0C;&#x4E00;&#x6A23;&#x8981;&#x4E00;&#x4EFD; license&#xFF0C;&#x53D6;&#x5F97; license &#x7684;&#x6D41;&#x7A0B;&#x8207;&#x7DDA;&#x4E0A;&#x64AD;&#x653E;&#x7684;&#x6D41;&#x7A0B;&#x4E00;&#x6A21;&#x4E00;&#x6A23;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x9700;&#x8981;&#x984D;&#x5916;&#x8DDF;&#x544A;&#x8A34; CDM &#x6211;&#x5011;&#x8981;&#x7684;&#x662F;&#x96E2;&#x7DDA;&#x7528;&#x7684; license&#x3002;&#x53D6;&#x5F97; license &#x4E4B;&#x5F8C;&#x8981;&#x81EA;&#x5DF1;&#x5728;&#x672C;&#x6A5F;&#x5B58;&#x653E;&#x8D77;&#x4F86;&#xFF0C;&#x4E26;&#x4E14;&#x6CE8;&#x610F;&#x9019;&#x4EFD; license &#x7684;&#x671F;&#x9650;&#x662F;&#x5426;&#x904E;&#x671F;&#x2014;CDM &#x4E2D;&#x6709;&#x76F8;&#x95DC;&#x7684; function&#xFF0C;&#x53EF;&#x4EE5;&#x6AA2;&#x67E5; license &#x7684;&#x5230;&#x671F;&#x6642;&#x9593;&#xFF0C;&#x4E0D;&#x904E;&#x7528;&#x6236;&#x4F3C;&#x4E4E;&#x53EF;&#x4EE5;&#x628A;&#x7CFB;&#x7D71;&#x6642;&#x9593;&#x6539;&#x5230;&#x904E;&#x53BB;&#xFF0C;&#x9019;&#x9EDE;&#x6211;&#x5011;&#x9084;&#x6C92;&#x6709;&#x7814;&#x7A76;&#x5F97;&#x5F88;&#x6DF1;&#x3002;</p>
+<h3 id="&#x5728;-ios-&#x4E0A;&#x64AD;&#x653E;-widevine-&#x4FDD;&#x8B77;&#x7684;-dash-&#x4E32;&#x6D41;">&#x5728; iOS &#x4E0A;&#x64AD;&#x653E; Widevine &#x4FDD;&#x8B77;&#x7684; DASH &#x4E32;&#x6D41;</h3>
+<p>&#x524D;&#x9762;&#x63D0;&#x5230;&#xFF0C;&#x5728; iOS &#x4E0A;&#x64AD;&#x653E; Dash &#x6642;&#xFF0C;&#x6703;&#x5728;&#x4E2D;&#x9593;&#x900F;&#x904E; UDT &#x8F49;&#x63DB;&#x6210; HLS &#x64AD;&#x653E;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x7528; Widevine &#x7684; iOS SDK &#x64AD;&#x653E;&#xFF0C;&#x8F49;&#x63DB;&#x51FA;&#x7684; HLS&#xFF0C;&#x6703;&#x53E6;&#x5916;&#x91CD;&#x65B0;&#x52A0;&#x5BC6;&#x3002;iOS &#x7248;&#x672C;&#x7684; Widevine DRM &#x88E1;&#x982D;&#x4E5F;&#x6709;&#x4E00;&#x4EFD; UDT&#xFF0C;&#x4F46;&#x9019;&#x4EFD; UDT &#x8DDF;&#x958B;&#x653E;&#x539F;&#x59CB;&#x78BC;&#x7248;&#x672C;&#x7684; UDT &#x4E0D;&#x540C;&#xFF0C;&#x4E2D;&#x9593;&#x52A0;&#x4E0A;&#x4E86;&#x91CD;&#x65B0;&#x52A0;&#x5BC6;&#x9019;&#x6BB5;&#xFF0C;&#x800C;&#x4E14; Google &#x4E5F;&#x53EA;&#x6709;&#x63D0;&#x4F9B;&#x6211;&#x5011; binary &#x7248;&#x672C;&#x3002;</p>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../hls/" class="navigation navigation-prev " aria-label="Previous page: HLS 與 FairPlay DRM">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tools/" class="navigation navigation-next " aria-label="Next page: 常用相關工具">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MPEG-DASH 與 Widevine DRM","level":"1.7","depth":1,"next":{"title":"常用相關工具","level":"1.8","depth":1,"path":"tools/README.md","ref":"tools/README.md","articles":[]},"previous":{"title":"HLS 與 FairPlay DRM","level":"1.6","depth":1,"path":"hls/README.md","ref":"hls/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"dash/README.md","mtime":"2022-02-06T19:23:06.391Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

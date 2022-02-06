@@ -1,0 +1,552 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>HLS 與 FairPlay DRM · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../dash/" />
+    
+    
+    <link rel="prev" href="../flac/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pcm/">
+            
+                <a href="../pcm/">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mp3/">
+            
+                <a href="../mp3/">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../dash/">
+            
+                <a href="../dash/">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../misc/mp3_parser.html">
+            
+                <a href="../misc/mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../misc/aac_adts_parser.html">
+            
+                <a href="../misc/aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../misc/id3_parser.html">
+            
+                <a href="../misc/id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../misc/flac_streaminfo.html">
+            
+                <a href="../misc/flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../misc/version.html">
+            
+                <a href="../misc/version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >HLS 與 FairPlay DRM</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="hls-&#x8207;-fairplay-drm">HLS &#x8207; FairPlay DRM</h1>
+<p>HLS &#x5168;&#x540D;&#x662F; <strong>HTTP Live Streaming</strong>&#xFF0C;&#x662F;&#x860B;&#x679C;&#x5728; 2009 &#x5E74;&#x6642;&#x6240;&#x63A8;&#x51FA;&#x7684;&#x7DB2;&#x8DEF;&#x76F4;&#x64AD;&#x6280;&#x8853;&#x2014;&#x8DDF;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684; MP4 &#x683C;&#x5F0F;&#x4E00;&#x6A23;&#xFF0C;HLS &#x4E5F;&#x4E0D;&#x662F;&#x53EA;&#x7528;&#x5728;&#x8DDF;&#x8072;&#x97F3;&#x6709;&#x95DC;&#x7684;&#x61C9;&#x7528;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x592A;&#x61C9;&#x8A72;&#x628A; HLS &#x7576;&#x6210;&#x662F;&#x4E00;&#x7A2E;&#x97F3;&#x6A94;&#xFF0C;&#x53EA;&#x662F; HLS &#x7684;&#x61C9;&#x7528;&#x7BC4;&#x570D;&#x4E5F;&#x5305;&#x62EC;&#x8072;&#x97F3;&#x7684;&#x4E32;&#x6D41;&#x3002;</p>
+<p>HLS &#x5728; 21 &#x4E16;&#x7D00;&#x7B2C;&#x4E00;&#x500B;&#x5341;&#x5E74;&#x5FEB;&#x8981;&#x7D50;&#x675F;&#x7684;&#x6642;&#x5019;&#x63A8;&#x51FA;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x610F;&#x7FA9;&#x5C31;&#x662F;&#xFF0C;HLS &#x6280;&#x8853;&#x4E00;&#x53E3;&#x6C23;&#x64F4;&#x5145;&#x4E86;&#x4E00;&#x5834;&#x7DB2;&#x8DEF;&#x5F71;&#x7247;&#x76F4;&#x64AD;&#x7684;&#x540C;&#x6642;&#x4EBA;&#x6578;&#x4E0A;&#x9650;&#x3002;HLS &#x4EE5;&#x53CA;&#x5F8C;&#x4F86;&#x6240;&#x63A8;&#x51FA;&#x7684;&#x5404;&#x7A2E;&#x65B0;&#x683C;&#x5F0F;&#xFF0C;&#x50CF;&#x662F; MPEG-DASH &#x7B49;&#xFF0C;&#x8B93;&#x6211;&#x5011;&#x73FE;&#x5728;&#x6240;&#x7FD2;&#x6163;&#x7684;&#x842C;&#x4EBA;&#x540C;&#x6642;&#x89C0;&#x770B;&#x76F4;&#x64AD;&#xFF0C;&#x6210;&#x70BA;&#x53EF;&#x80FD;&#x3002;</p>
+<p>&#x5728; HLS &#x63A8;&#x51FA;&#x4E4B;&#x524D;&#xFF0C;&#x5728;&#x4E8C;&#x5341;&#x4E00;&#x4E16;&#x7D00;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5341;&#x5E74;&#xFF0C;&#x4E3B;&#x6D41;&#x7684;&#x5F71;&#x7247;&#x76F4;&#x64AD;&#x6280;&#x8853;&#x5927;&#x6982;&#x662F; <a href="https://en.wikipedia.org/wiki/Windows_Media_Services" target="_blank">Windows Media Server</a>&#x3001;<a href="https://en.wikipedia.org/wiki/Adobe_Media_Server" target="_blank">Adobe Media Server</a> &#x7B49;&#xFF0C;&#x9019;&#x4E9B;&#x6280;&#x8853;&#x7684;&#x6700;&#x5927;&#x5171;&#x901A;&#x6027;&#xFF0C;&#x662F;&#x8B93;&#x64AD;&#x653E;&#x5F71;&#x7247;&#x76F4;&#x64AD;&#x7684; client &#x8207; server &#x4E4B;&#x9593;&#x5EFA;&#x7ACB; socket &#x9023;&#x7DDA;&#xFF0C;&#x4E2D;&#x9593;&#x4F7F;&#x7528;&#x50CF;&#x662F; <a href="https://en.wikipedia.org/wiki/Microsoft_Media_Server" target="_blank">MMS</a>&#x3001;<a href="https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol" target="_blank">RTMP</a>&#x3001;<a href="https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol" target="_blank">RTSP</a> &#x2026;&#x7B49;&#x5354;&#x5B9A;&#x6E9D;&#x901A;&#xFF0C;server &#x4E0D;&#x65B7;&#x628A;&#x6700;&#x65B0;&#x7684;&#x5F71;&#x97F3;&#x8CC7;&#x6599;&#x63A8;&#x9001;&#x5230;&#x5404;&#x500B; client &#x7AEF;&#xFF0C;&#x800C;&#x55AE;&#x4E00; server &#x80FD;&#x5920;&#x63A5;&#x53D7;&#x7684;&#x7DB2;&#x8DEF;&#x9023;&#x7DDA;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x4E00;&#x5834;&#x7DB2;&#x8DEF;&#x5F71;&#x7247;&#x76F4;&#x64AD;&#xFF0C;&#x6700;&#x591A;&#x5927;&#x6982;&#x4E0A;&#x767E;&#x4EBA;&#x540C;&#x6642;&#x89C0;&#x770B;&#xFF0C;&#x5C31;&#x5DF2;&#x7D93;&#x5230;&#x9054;&#x6975;&#x9650;&#x3002;</p>
+<p>HLS &#x6539;&#x8B8A; client/server &#x4E4B;&#x9593;&#x5EFA;&#x7ACB; socket &#x9023;&#x7DDA;&#x7684;&#x67B6;&#x69CB;&#xFF0C;&#x5F9E; HLS &#x7684;&#x540D;&#x7A31;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5229;&#x7528; HTTP &#x6280;&#x8853;&#x89E3;&#x6C7A;&#x4EBA;&#x6578;&#x4E0A;&#x9650;&#x554F;&#x984C;&#x3002;&#x5728;&#x76F4;&#x64AD;&#x8A0A;&#x6E90;&#x8207;&#x773E;&#x591A;&#x89C0;&#x770B;&#x76F4;&#x64AD;&#x7684; client &#x4E4B;&#x9593;&#xFF0C;&#x591A;&#x4E86;&#x5E7E;&#x500B;&#x6B65;&#x9A5F;&#xFF1A;&#x9996;&#x5148;&#x76F4;&#x64AD;&#x8A0A;&#x6E90;&#x6703;&#x5C07;&#x8CC7;&#x6599;&#x7DE8;&#x78BC;&#x6210; fMP4 &#xFF08;&#x6211;&#x5011;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x8A0E;&#x8AD6;&#xFF09;&#x683C;&#x5F0F;&#x4E4B;&#x5F8C;&#xFF0C;&#x9001;&#x5230;&#x4E00;&#x53F0;&#x4E3B;&#x6A5F;&#x4E0A;&#xFF0C;&#x9019;&#x53F0;&#x4E3B;&#x6A5F;&#x6703;&#x628A;&#x6BCF;&#x9694;&#x4E00;&#x6BB5;&#x6642;&#x9593;&#xFF08;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6BCF;&#x9694; 5 &#x79D2;&#x3001;10 &#x79D2;&#x2026;&#xFF09;&#x7684;&#x5F71;&#x7247;&#xFF0C;&#x8F49;&#x6210;&#x4E00;&#x500B;&#x5C0F;&#x6A94;&#x6848;&#x2014;&#x9019;&#x7A2E;&#x5C07;&#x9023;&#x7E8C;&#x7684;&#x8CC7;&#x6599;&#x8B8A;&#x6210;&#x4E00;&#x500B;&#x500B;&#x8CC7;&#x6599;&#x5207;&#x7247;&#x7684;&#x7A0B;&#x5F0F;&#xFF0C;&#x6211;&#x5011;&#x53EB;&#x505A; segmenter&#xFF0C;&#x6BCF;&#x500B;&#x88AB;&#x5207;&#x51FA;&#x4F86;&#x7684;&#x5C0F;&#x6A94;&#x6848;&#x53EB;&#x505A; ts&#xFF08;<a href="https://zh.wikipedia.org/wiki/MPEG2-TS" target="_blank">MPEG Transport Stream</a>&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x7A2E;&#x5C01;&#x88DD;&#x683C;&#x5F0F;&#xFF0C;&#x56E0;&#x70BA;&#x6211;&#x5011;&#x4E0D;&#x592A;&#x6703;&#x53BB;&#x89E3;&#x6790;&#x9019;&#x5957;&#x683C;&#x5F0F;&#xFF0C;&#x5C31;&#x4E0D;&#x89E3;&#x91CB;&#x4E86;&#xFF09;&#xFF0C;&#x9019;&#x4E9B;&#x88AB;&#x5207;&#x51FA;&#x4F86;&#x7684;&#x5C0F;&#x6A94;&#x6848;&#x6703;&#x88AB;&#x4F48;&#x7F72;&#x5230; <strong><a href="https://zh.wikipedia.org/wiki/%E5%85%A7%E5%AE%B9%E5%82%B3%E9%81%9E%E7%B6%B2%E8%B7%AF" target="_blank">CDN</a></strong> &#x4E0A;&#xFF0C;&#x53E6;&#x5916;&#x7522;&#x751F;&#x4E00;&#x500B;&#x6587;&#x5B57;&#x6A94;&#xFF0C;&#x9644;&#x6A94;&#x540D;&#x662F; <code>.m3u8</code>&#xFF0C;&#x662F;&#x9019;&#x4E9B;&#x5C0F;&#x6A94;&#x6848;&#x7684; playlist&#xFF0C;&#x6307;&#x793A; client &#x5982;&#x4F55;&#x64AD;&#x653E;&#x9019;&#x4E9B; ts&#xFF0C;&#x800C;&#x7576;&#x6709;&#x65B0;&#x7684; ts &#x88AB;&#x7522;&#x751F;&#x3001;&#x4F48;&#x7F72;&#xFF0C;&#x9019;&#x500B; <code>.m3u8</code> &#x6A94;&#x6848;&#x4E5F;&#x6703;&#x96A8;&#x4E4B;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x5728; HLS &#x898F;&#x683C;&#x4E2D;&#xFF0C;&#x9664;&#x4E86; TS &#x4E4B;&#x5916;&#xFF0C;<a href="https://datatracker.ietf.org/doc/html/rfc8216#section-3.3" target="_blank">HLS &#x7684;&#x5207;&#x7247;&#x4E5F;&#x652F;&#x63F4;&#x4F7F;&#x7528; fMP4 &#x5C01;&#x88DD;</a>&#x3002;&#x4F46;&#x4F7F;&#x7528; fMP4 &#x6A94;&#x6848;&#x5C01;&#x88DD;&#x7684; HLS &#x6D41;&#xFF0C;&#x5728;&#x591A;&#x6578;&#x5E73;&#x53F0;&#x90FD;&#x4E0D;&#x88AB;&#x652F;&#x63F4;&#xFF0C;<a href="https://developer.apple.com/documentation/http_live_streaming/about_the_ext-x-version_tag" target="_blank">&#x860B;&#x679C;&#x5E73;&#x53F0;&#x4E5F;&#x50C5;&#x5728; macOS 10.12, iOS 10, tvOS 10 &#x4E4B;&#x5F8C;&#x7684;&#x7248;&#x672C;&#x624D;&#x652F;&#x63F4;&#x64AD;&#x653E;</a>&#x3002;&#x672C;&#x7AE0;&#x7BC0;&#x5F8C;&#x7E8C;&#x5747;&#x57FA;&#x65BC; TS &#x5207;&#x7247;&#x63CF;&#x8FF0;&#xFF0C;<a href="../dash#fmp4">fMP4 &#x6A94;&#x5C07;&#x5728; MPEG-DASH &#x7AE0;&#x7BC0;&#x4ECB;&#x7D39;</a>&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x5716;&#x7247;&#x4F86;&#x81EA;&#x860B;&#x679C;&#x7684; <a href="https://developer.apple.com/documentation/http_live_streaming" target="_blank">HLS &#x6280;&#x8853;&#x5B98;&#x65B9;&#x9801;&#x9762;</a>&#xFF1A;</p>
+<p><img src="hls.png" alt="HLS"></p>
+<p>Client &#x7AEF;&#x5728;&#x64AD;&#x653E;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x6293;&#x53D6; <code>.m3u8</code> &#x6A94;&#x6848;&#xFF0C;&#x6AA2;&#x67E5;&#x7576;&#x4E2D;&#x6709;&#x54EA;&#x4E9B; ts &#x6A94;&#x6848;&#xFF0C;&#x5728;&#x76F4;&#x64AD;&#x7684;&#x72C0;&#x6CC1;&#x4E0B;&#xFF0C;&#x53EF;&#x80FD;&#x5728; <code>.m3u8</code> &#x6A94;&#x6848;&#x4E2D;&#xFF0C;&#x5C31;&#x7559;&#x4E86;&#x6700;&#x65B0;&#x7684;&#x4E09;&#x500B; ts &#x6A94;&#xFF0C;client &#x7AEF;&#x5C31;&#x5F9E;&#x7B2C;&#x4E00;&#x500B; ts &#x6A94;&#x6848;&#x958B;&#x59CB;&#x8F2A;&#x6D41;&#x6293;&#x53D6;&#x3001;&#x64AD;&#x653E;&#xFF0C;&#x5728;&#x5FEB;&#x8981;&#x628A;&#x9019;&#x4E09;&#x500B; ts &#x6A94;&#x90FD;&#x5FEB;&#x8981;&#x64AD;&#x5B8C;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x5C31;&#x518D;&#x53BB;&#x6AA2;&#x67E5;&#x4E00;&#x6B21; <code>.m3u8</code> &#x6A94;&#x6848;&#xFF0C;&#x67E5;&#x770B;&#x662F;&#x4E0D;&#x662F;&#x9084;&#x6709;&#x66F4;&#x65B0;&#x7684; ts &#x6A94;&#x6848;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5C31;&#x7E7C;&#x7E8C;&#x6293;&#x53D6;&#x9019;&#x4E9B;&#x65B0;&#x7684; ts &#x6A94;&#x3002;&#x9019;&#x500B;&#x6B65;&#x9A5F;&#x5C31;&#x4E0D;&#x65B7;&#x7684;&#x8F2A;&#x8FF4;&#xFF0C;&#x76F4;&#x5230;&#x767C;&#x73FE;&#x6C92;&#x6709;&#x66F4;&#x65B0;&#x7684; ts &#x6A94;&#x6848;&#xFF0C;&#x4EE3;&#x8868;&#x76F4;&#x64AD;&#x5DF2;&#x7D93;&#x7D50;&#x675F;&#x3002;</p>
+<p>&#x7531;&#x65BC;&#x6A94;&#x6848;&#x662F;&#x4F48;&#x7F72;&#x5728; CDN &#x4E0A;&#xFF0C;&#x7528;&#x6236;&#x4E5F;&#x662F;&#x5F9E;&#x8DDD;&#x96E2;&#x4ED6;&#x6700;&#x63A5;&#x8FD1;&#x7684; CDN &#x6293;&#x53D6;&#x6A94;&#x6848;&#xFF0C;&#x800C; Web server &#x6240;&#x80FD;&#x5920;&#x8CA0;&#x8F09;&#x7684;&#x9023;&#x7DDA;&#xFF0C;&#x9060;&#x5927;&#x65BC;&#x55AE;&#x4E00;&#x8B93;&#x773E;&#x591A; client &#x5EFA;&#x7ACB; socket &#x9023;&#x7DDA;&#x7684; server &#x3002;&#x96A8;&#x8457; 21 &#x4E16;&#x7D00;&#x7B2C;&#x4E8C;&#x500B;&#x5341;&#x5E74;&#x958B;&#x59CB;&#xFF0C;&#x5E7E;&#x5927; CDN &#x5EE0;&#x5546;&#x7684;&#x696D;&#x52D9;&#x898F;&#x6A21;&#x64F4;&#x5F35;&#xFF0C;CDN &#x6280;&#x8853;&#x6108;&#x4F86;&#x6108;&#x666E;&#x53CA;&#xFF0C;&#x50CF; <a href="https://www.akamai.com/" target="_blank">Akamai</a> &#x9019;&#x5BB6; CDN &#x670D;&#x52D9;&#xFF0C;&#x5927;&#x6982;&#x5728; HLS &#x554F;&#x4E16;&#x6642;&#x63A8;&#x51FA;&#x670D;&#x52D9;&#xFF0C;&#x96A8;&#x8457;&#x4E00;&#x8D77;&#x58EF;&#x5927;&#xFF0C;HLS &#x4EE5;&#x53CA;&#x5F8C;&#x4F86;&#x7684;&#x65B0;&#x6280;&#x8853;&#xFF0C;&#x4E5F;&#x6574;&#x500B;&#x4EE3;&#x66FF;&#x4E86;&#x4E4B;&#x524D;&#x7684;&#x5404;&#x7A2E;&#x5F71;&#x7247;&#x76F4;&#x64AD;&#x6280;&#x8853;&#xFF0C;HLS &#x4E5F;&#x5728; 2017 &#x5E74;&#x6210;&#x70BA; <a href="https://tools.ietf.org/html/rfc8216" target="_blank">RFC 8216 &#x898F;&#x683C;</a>&#x3002;&#x76EE;&#x524D;&#x696D;&#x754C;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x76F4;&#x64AD;&#x6280;&#x8853;&#xFF0C;&#x5927;&#x6982;&#x90FD;&#x662F; HLS &#x4EE5;&#x53CA;&#x4E4B;&#x5F8C;&#x7684;&#x5176;&#x4ED6;&#x65B0;&#x6280;&#x8853;&#x3002;</p>
+<p>HLS &#x96D6;&#x7136;&#x6700;&#x65E9;&#x7528;&#x5728;&#x76F4;&#x64AD;&#xFF0C;&#x4F46;&#x4E4B;&#x5F8C;&#x4E5F;&#x9678;&#x7E8C;&#x61C9;&#x7528;&#x5728;&#x5F71;&#x7247;&#x4EE5;&#x53CA;&#x97F3;&#x6A94;&#x7684;&#x7528;&#x9014;&#x4E0A;&#x3002;&#x5047;&#x5982;&#x4E00;&#x500B; <code>.m3u8</code> &#x6A94;&#x6848;&#x4E2D;&#x7684; ts &#x4E0D;&#x6703;&#x96A8;&#x6642;&#x9593;&#x66F4;&#x65B0;&#xFF0C;&#x800C;&#x662F;&#x975C;&#x614B;&#x7684;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x662F;&#x5C07;&#x76F4;&#x64AD;&#x8A0A;&#x865F;&#x5207;&#x6210;&#x5C0F;&#x6A94;&#xFF0C;&#x800C;&#x662F;&#x5C07;&#x4E00;&#x90E8;&#x96FB;&#x5F71;&#x6216;&#x662F;&#x5F71;&#x7247;&#x7684;&#x5927;&#x6A94;&#x5207;&#x6210;&#x5C0F;&#x6A94;&#xFF0C;&#x90A3;&#x9EBC;&#xFF0C;&#x9019;&#x500B; <code>.m3u8</code> &#x4E32;&#x6D41;&#x5C31;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x90E8;&#x96FB;&#x5F71;&#x6216;&#x662F;&#x96FB;&#x8996;&#x5287;&#x3002;&#x800C;&#x5982;&#x679C;&#x628A;&#x975C;&#x614B;&#x7684; <code>.m3u8</code> &#x4E2D;&#x7684; ts&#xFF0C;&#x5F9E;&#x5F71;&#x7247;&#x518D;&#x63DB;&#x6210;&#x97F3;&#x6A94;&#xFF0C;&#x90A3;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x500B;&#x88AB;&#x5207;&#x6210;&#x773E;&#x591A;&#x5C0F;&#x6A94;&#x6848;&#x7684;&#x6B4C;&#x66F2;&#x4E32;&#x6D41;&#x4E86;&#x3002;</p>
+<h2 id="&#x76F4;&#x64AD;&#x7684;&#x5EF6;&#x9072;">&#x76F4;&#x64AD;&#x7684;&#x5EF6;&#x9072;</h2>
+<p>&#x96D6;&#x7136;&#x8207;&#x6211;&#x5011;&#x8DDF;&#x97F3;&#x6A94;&#x7684;&#x76F8;&#x95DC;&#x8A0E;&#x8AD6;&#x6BD4;&#x8F03;&#x6C92;&#x6709;&#x95DC;&#x4FC2;&#xFF0C;&#x4E0D;&#x904E;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F86;&#x804A;&#x4E00;&#x4E0B;&#xFF0C;&#x5728;&#x76F4;&#x64AD;&#x904E;&#x7A0B;&#x4E2D;&#x6703;&#x767C;&#x751F;&#x7684;&#x5EF6;&#x9072;&#xFF08;latency&#xFF09;&#x3002;&#x7D30;&#x6578;&#x4E00;&#x4E0B;&#x5F9E;&#x8A0A;&#x6E90;&#x5230;&#x6700;&#x5F8C;&#x7684;&#x6536;&#x8996;&#x7AEF;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x767C;&#x73FE;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x6B65;&#x9A5F;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x8017;&#x8CBB;&#x6642;&#x9593;&#x8655;&#x7406;&#xFF0C;&#x5C0E;&#x81F4;&#x89C0;&#x770B;&#x8005;&#x770B;&#x5230;&#x67D0;&#x500B;&#x4E8B;&#x4EF6;&#x6642;&#xFF0C;&#x5DF2;&#x7D93;&#x8207;&#x4E8B;&#x4EF6;&#x5BE6;&#x969B;&#x767C;&#x751F;&#x7684;&#x6642;&#x9593;&#x4E4B;&#x9593;&#xFF0C;&#x6709;&#x4E00;&#x6BB5;&#x6642;&#x9593;&#x5DEE;&#xFF1A;</p>
+<ul>
+<li>&#x8CA0;&#x8CAC;&#x9304;&#x5F71;/&#x9304;&#x97F3;&#x7684;&#x8A2D;&#x5099;&#xFF0C;&#x9700;&#x8981;&#x62CD;&#x651D;&#x4E00;&#x5B9A;&#x6578;&#x91CF;&#x7684;&#x5F71;&#x683C;/&#x8072;&#x97F3;&#xFF08;&#x5176;&#x5BE6;&#x82F1;&#x6587;&#x90FD;&#x662F; frame&#xFF09;&#xFF0C;&#x624D;&#x6709;&#x8FA6;&#x6CD5;&#x7D2F;&#x7A4D;&#x6210; packet&#xFF0C;&#x900F;&#x904E; RTMP &#x767C;&#x9001;&#x5230;&#x8CA0;&#x8CAC;&#x5207;&#x6A94;&#x7684;&#x4E3B;&#x6A5F;</li>
+<li>RTMP &#x50B3;&#x9001;&#x8CC7;&#x6599;&#x5230;&#x4E3B;&#x6A5F;&#x4E0A;&#x7684;&#x50B3;&#x8F38;&#x6642;&#x9593;</li>
+<li>&#x4E3B;&#x6A5F;&#x9700;&#x8981;&#x7D2F;&#x7A4D;&#x4E00;&#x5B9A;&#x6578;&#x91CF;&#x7684; packet&#xFF0C;&#x624D;&#x80FD;&#x5920;&#x7522;&#x751F; ts&#x3002;&#x7531;&#x65BC; HLS &#x652F;&#x63F4;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x54C1;&#x8CEA;&#x7684;&#x5F71;&#x50CF;/&#x8072;&#x97F3;&#x7684; track&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5F80;&#x5F80;&#x6703;&#x4E00;&#x6B21;&#x7522;&#x751F;&#x591A;&#x500B;&#x4E0D;&#x540C;&#x54C1;&#x8CEA;&#x7684; ts</li>
+<li>&#x5C07; ts &#x4EE5;&#x53CA;&#x65B0;&#x7684; <code>.m3u8</code> &#x6A94;&#x6848;&#x4F48;&#x7F72;&#x5230; CDN &#x4E0A;&#x7684;&#x6642;&#x9593;</li>
+<li>&#x64AD;&#x653E;&#x7AEF; client &#x6293;&#x53D6; <code>.m3u8</code> &#x7684;&#x6642;&#x9593;</li>
+<li>&#x64AD;&#x653E;&#x7AEF; client &#x6293;&#x53D6; ts &#x6A94;&#x6848;&#xFF0C;&#x5230;&#x6709;&#x8DB3;&#x5920;&#x6578;&#x91CF;&#x7684; packet &#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x7684;&#x6642;&#x9593;&#xFF0C;&#x9019;&#x6BB5;&#x6642;&#x9593;&#x4E5F;&#x8996;&#x7528;&#x6236;&#x7684;&#x983B;&#x5BEC;&#x54C1;&#x8CEA;&#x800C;&#x6709;&#x6240;&#x4E0D;&#x540C;</li>
+<li>&#x56E0;&#x70BA; HTTP proxy &#x7684; cache&#xFF0C;&#x7528;&#x6236;&#x4E5F;&#x53EF;&#x80FD;&#x6293;&#x5230;&#x6BD4;&#x8F03;&#x820A;&#x7684;&#x6A94;&#x6848;</li>
+</ul>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5F9E;&#x4E8B;&#x4EF6;&#x767C;&#x751F;&#xFF0C;&#x5230;&#x7528;&#x6236;&#x5BE6;&#x969B;&#x89C0;&#x770B;&#x5230;&#xFF0C;&#x5F80;&#x5F80;&#x6703;&#x6709;&#x5927;&#x6982; 15 &#x79D2;&#x5230;&#x534A;&#x5206;&#x9418;&#x5DE6;&#x53F3;&#x7684;&#x5EF6;&#x9072;&#x3002;&#x860B;&#x679C;&#x5728; 2019 &#x5E74; WWDC &#x6642;&#x63A8;&#x51FA;&#x65B0;&#x7684; <a href="https://developer.apple.com/documentation/http_live_streaming/protocol_extension_for_low-latency_hls_preliminary_specification" target="_blank">Low Latency HLS &#x898F;&#x683C;</a>&#xFF0C;&#x9019;&#x500B;&#x65B0;&#x898F;&#x683C;&#x7528;&#x4E86;&#x4E00;&#x4E9B;&#x6280;&#x5DE7;&#xFF0C;&#x60F3;&#x8FA6;&#x6CD5;&#x6E1B;&#x5C11;&#x76F4;&#x64AD;&#x904E;&#x7A0B;&#x7576;&#x4E2D;&#x7684;&#x5EF6;&#x9072;&#xFF0C;&#x5927;&#x6982;&#x5C31;&#x662F;&#x8B93;&#x7528;&#x6236;&#x76E1;&#x53EF;&#x80FD;&#x53BB;&#x6293;&#x53D6;&#x6700;&#x65B0;&#x7684; ts&#xFF0C;&#x7136;&#x5F8C;&#x5728; <code>.m3u8</code> &#x6A94;&#x6848;&#x4E2D;&#x52A0;&#x4E0A;&#x6642;&#x9593;&#x76F8;&#x95DC;&#x8CC7;&#x8A0A;&#xFF0C;&#x5728;&#x6293;&#x5230; ts &#x4E4B;&#x5F8C;&#x76F4;&#x63A5;&#x8DF3;&#x5230;&#x6700;&#x65B0;&#x7684;&#x6307;&#x5B9A;&#x79D2;&#x6578;&#xFF0C;&#x4E26;&#x4E14;&#x76E1;&#x91CF;&#x4E0D;&#x8981;&#x88AB; proxy cache &#x6240;&#x5F71;&#x97FF;&#xFF0C;&#x53EF;&#x4EE5;&#x53C3;&#x8003; <a href="https://developer.apple.com/videos/play/wwdc2019/502/" target="_blank">WWDC 2019 &#x5E74;&#x7684;&#x8AAA;&#x660E;</a>&#x3002;&#x4F46;&#x9019;&#x6A23;&#x7684; HLS server &#x7684;&#x5BE6;&#x4F5C;&#x5728;&#x73FE;&#x5728;&#xFF08;2020 &#x5E74;&#x521D;&#xFF09;&#x9084;&#x4E0D;&#x666E;&#x53CA;&#xFF0C;&#x64AD;&#x653E;&#x7AEF;&#x4E5F;&#x9700;&#x8981;&#x6700;&#x65B0;&#x7684;&#x4F5C;&#x696D;&#x7CFB;&#x7D71;&#x8207;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x652F;&#x63F4;&#xFF0C;&#x8981;&#x7B49;&#x5230;&#x666E;&#x53CA;&#xFF0C;&#x76F8;&#x4FE1;&#x9084;&#x8981;&#x82B1;&#x4E0A;&#x4E00;&#x6BB5;&#x6642;&#x9593;&#x3002;</p>
+<h2 id="m3u8-&#x6A94;&#x6848;">.m3u8 &#x6A94;&#x6848;</h2>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x6253;&#x958B; Akamai &#x7684;&#x4E00;&#x500B;<a href="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8" target="_blank">&#x7BC4;&#x4F8B; m3u8 &#x6A94;&#x6848;</a>&#xFF0C;&#x770B;&#x770B;&#x88E1;&#x982D;&#x7684;&#x5167;&#x5BB9;&#xFF1A;</p>
+<pre><code>#EXTM3U
+#EXT-X-VERSION:5
+
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;audio&quot;,NAME=&quot;English stereo&quot;,LANGUAGE=&quot;en&quot;,AUTOSELECT=YES,URI=&quot;f08e80da-bf1d-4e3d-8899-f0f6155f6efa_audio_1_stereo_128000.m3u8&quot;
+
+#EXT-X-STREAM-INF:BANDWIDTH=628000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=320x180,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_180_250000.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=928000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=480x270,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_270_400000.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=1728000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=640x360,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_360_800000.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=2528000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=960x540,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_540_1200000.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=4928000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=1280x720,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_720_2400000.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=9728000,CODECS=&quot;avc1.42c00d,mp4a.40.2&quot;,RESOLUTION=1920x1080,AUDIO=&quot;audio&quot;
+f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_1080_4800000.m3u8
+</code></pre><p>&#x9019;&#x662F;&#x4E00;&#x90E8;&#x5F71;&#x7247;&#x7684; <code>.m3u8</code> &#x6A94;&#x6848;&#x3002;&#x6BCF;&#x500B; <code>.m3u8</code> &#x6A94;&#x6848;&#x4EE5; <code>#EXTM3U</code> &#x958B;&#x982D;&#xFF0C;&#x7136;&#x5F8C;&#x63A5;&#x8457;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x7684; metadata&#xFF0C;&#x50CF;&#xFF0C;&#x9019;&#x90E8;&#x5F71;&#x7247;&#x88E1;&#x982D;&#x7528;&#x7684;&#x8A9E;&#x6587;&#x662F;&#x82F1;&#x6587;&#x3002;</p>
+<p>&#x5728;&#x9019;&#x88E1;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x9019;&#x4EFD; HLS &#x4E32;&#x6D41;&#x652F;&#x63F4;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x7684;&#x54C1;&#x8CEA;&#xFF0C;&#x5F71;&#x50CF;&#x89E3;&#x6790;&#x5EA6;&#x6700;&#x4F4E;&#x5230; 320x180&#x3001;&#x6700;&#x9AD8;&#x5230; 1080p&#xFF08;1920x1080&#xFF09;&#x3002;client &#x7AEF;&#x7684;&#x64AD;&#x653E;&#x5668;&#x53EF;&#x4EE5;&#x6839;&#x64DA;&#x73FE;&#x5728;&#x7684;&#x983B;&#x5BEC;&#x54C1;&#x8CEA;&#xFF0C;&#x5F9E;&#x591A;&#x500B;&#x4E0D;&#x540C;&#x54C1;&#x8CEA;&#x7684;&#x4E32;&#x6D41;&#x4E2D;&#xFF0C;&#x9078;&#x64C7;&#x76EE;&#x524D;&#x6700;&#x9069;&#x5408;&#x3001;&#x80FD;&#x5920;&#x9806;&#x66A2;&#x64AD;&#x64AD;&#x653E;&#x7684;&#x6700;&#x9AD8;&#x54C1;&#x8CEA;&#xFF0C;&#x800C;&#x7576;&#x983B;&#x5BEC;&#x54C1;&#x8CEA;&#x6539;&#x8B8A;&#x6642;&#xFF0C;&#x4E5F;&#x6703;&#x5207;&#x63DB;&#x5230;&#x53E6;&#x4E00;&#x500B;&#x6700;&#x9069;&#x5408;&#x7684;&#x4E32;&#x6D41;&#x3002;&#x9019;&#x7A2E;&#x53EF;&#x4EE5;&#x52D5;&#x614B;&#x4F7F;&#x7528;&#x6700;&#x9069;&#x5408;&#x54C1;&#x8CEA;&#x7684;&#x4E32;&#x6D41;&#x64AD;&#x653E;&#x65B9;&#x5F0F;&#xFF0C;&#x53EB;&#x505A; <a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E9%81%A9%E6%80%A7%E4%B8%B2%E6%B5%81#Apple_HTTP_Live_Streaming_(HLS" target="_blank">Adaptive Streaming</a>&gt;)&#x3002;&#x96D6;&#x7136;&#x6709;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x7684;&#x5F71;&#x7247;&#x683C;&#x5F0F;&#xFF0C;&#x5728;&#x8072;&#x97F3;&#x65B9;&#x9762;&#xFF0C;&#x5247;&#x5171;&#x7528;&#x540C;&#x4E00;&#x500B; 128k &#x7684;&#x8072;&#x97F3; &quot;f08e80da-bf1d-4e3d-8899-f0f6155f6efa_audio_1_stereo_128000.m3u8&quot;&#x3002;</p>
+<p>&#x7136;&#x5F8C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B; <a href="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_180_250000.m3u8" target="_blank">f08e80da-bf1d-4e3d-8899-f0f6155f6efa_video_180_250000.m3u8</a> &#x9019;&#x500B;&#x5F71;&#x7247;&#x76F8;&#x95DC;&#x7684; <code>.m3u8</code> &#x6A94;&#x6848;&#x7576;&#x4E2D;&#x7684;&#x5167;&#x5BB9;&#xFF1A;</p>
+<pre><code>#EXTM3U
+
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:4
+
+#EXTINF:4.0
+../video/180_250000/hls/segment_0.ts
+#EXTINF:4.0
+../video/180_250000/hls/segment_1.ts
+#EXTINF:4.0
+../video/180_250000/hls/segment_2.ts
+#EXTINF:4.0
+../video/180_250000/hls/segment_3.ts
+#EXTINF:4.0
+../video/180_250000/hls/segment_4.ts
+#EXTINF:4.0
+../video/180_250000/hls/segment_5.ts
+.....
+</code></pre><p>&#x7576;&#x4E2D;&#x5C31;&#x662F;&#x4E00;&#x9023;&#x4E32;&#x7684; ts &#x6A94;&#x6848;&#xFF0C;&#x5728; <code>#EXTINF</code> &#x4E2D;&#xFF0C;&#x5247;&#x63CF;&#x8FF0;&#x4E86;&#x6BCF;&#x500B; ts &#x6A94;&#x6848;&#x7684;&#x9577;&#x5EA6;&#x662F; 4.0 &#x79D2;&#x3002;</p>
+<p>&#x860B;&#x679C;&#x5728; 2016 &#x5E74;&#x7684;&#x6642;&#x5019;&#x5BA3;&#x5E03;&#xFF0C;&#x9664;&#x4E86;&#x53EF;&#x4EE5;&#x5C07;&#x6A94;&#x6848;&#x5207;&#x6210; ts &#x4E4B;&#x5916;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x652F;&#x63F4; fMP4 &#x683C;&#x5F0F;&#x7684; byte range&#xFF0C;&#x5982;&#x6B64;&#x4E00;&#x4F86;&#xFF0C;&#x6703;&#x8B93; HLS &#x8207;&#x5F8C;&#x9762;&#x8981;&#x8B1B;&#x5230;&#x7684; MPEG Dash &#x683C;&#x5F0F;&#x9032;&#x4E00;&#x6B65;&#x76F8;&#x5BB9;&#x3002;&#x4E0D;&#x904E;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x662F;&#x7559;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x8A0E;&#x8AD6;&#x3002;</p>
+<h2 id="&#x64AD;&#x653E;-hls">&#x64AD;&#x653E; HLS</h2>
+<p>HLS &#x683C;&#x5F0F;&#x662F;&#x958B;&#x653E;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x9664;&#x4E86;&#x860B;&#x679C;&#x7684;&#x65B9;&#x6848;&#x4EE5;&#x5916;&#xFF0C;&#x7B2C;&#x4E09;&#x65B9;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5BE6;&#x4F5C; HLS &#x7684; server&#x3001;segmenter &#x8207; client &#x7AEF;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x76EE;&#x524D;&#x6709;&#x8A31;&#x591A;&#x7684;&#x5F71;&#x97F3;&#x6258;&#x7BA1;&#x670D;&#x52D9;&#xFF0C;&#x50CF;&#x662F; <a href="https://www.wowza.com/" target="_blank">Wowza</a> &#x7B49;&#xFF0C;&#x53EF;&#x4EE5;&#x5E6B;&#x60F3;&#x8981;&#x64AD;&#x653E;&#x5167;&#x5BB9;&#x7684;&#x4F7F;&#x7528;&#x8005;&#x7522;&#x751F; HLS &#x4E32;&#x6D41;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x540C;&#x6642;&#x7522;&#x751F; MPEG Dash &#x7B49;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x50B3;&#x7684;&#x662F;&#x8072;&#x97F3;&#x8A0A;&#x865F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7522;&#x751F; shoutcast&#x3001;icecast &#x5F62;&#x5F0F;&#x7684;&#x7DB2;&#x8DEF;&#x8072;&#x97F3;&#x5EE3;&#x64AD;&#x3002;</p>
+<p>&#x5728;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x65B9;&#x9762;&#xFF0C;&#x860B;&#x679C;&#x5B98;&#x65B9;&#x7684;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#xFF0C;&#x81EA;&#x7136;&#x662F; AVPlayer&#x3002;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E00;&#x4E9B;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x5BE6;&#x4F5C;&#xFF0C;&#x50CF;&#x662F; <a href="https://www.jwplayer.com/" target="_blank">JWPlayer</a>&#x3001;<a href="http://player.kaltura.com/docs/" target="_blank">Kaltura Player</a> &#x7B49;&#x7B49;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x64AD;&#x653E; HLS&#x3002;&#x4F46;&#x662F;&#x80FD;&#x4E0D;&#x80FD;&#x5920;&#x64AD;&#x653E; FairPlay &#x4FDD;&#x8B77;&#x7684; HLS&#xFF0C;&#x5C31;&#x8981;&#x770B;&#x5404;&#x5BB6; Player &#x7684;&#x652F;&#x63F4;&#x7A0B;&#x5EA6;&#x3002;</p>
+<p>&#x7531;&#x65BC; HLS &#x540C;&#x6642;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x76F4;&#x64AD;&#xFF0C;&#x6216;&#x662F;&#x64AD;&#x653E;&#x7DDA;&#x4E0A;&#x7684;&#x5F71;&#x7247;&#x6216;&#x662F;&#x97F3;&#x6A02;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x6703;&#x6709;&#x5169;&#x7A2E;&#x64AD;&#x653E; HLS &#x7684;&#x6A21;&#x5F0F;&#xFF1A;&#x5728;&#x64AD;&#x653E;&#x7DDA;&#x4E0A;&#x7684;&#x5F71;&#x7247;&#x6216;&#x97F3;&#x6A02;&#x7684;&#x72C0;&#x614B;&#x4E0B;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x8DF3;&#x5230;&#x5F71;&#x7247;&#x6216;&#x97F3;&#x6A02;&#x7684;&#x4EFB;&#x4E00;&#x4F4D;&#x7F6E;&#xFF0C;&#x800C;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x5728;&#x8DF3;&#x5230;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x4E5F;&#x53EA;&#x9700;&#x8981;&#x5F9E; <code>.m3u8</code> &#x6A94;&#x6848;&#x4E2D;&#xFF0C;&#x627E;&#x5230;&#x7B26;&#x5408;&#x6642;&#x9593;&#x4F4D;&#x5740;&#x7684; ts &#x8F09;&#x5165;&#xFF1B;&#x81F3;&#x65BC;&#x5728;&#x76F4;&#x64AD;&#x7684;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x7531;&#x65BC;&#x6211;&#x5011;&#x53EA;&#x6709;&#x5C11;&#x90E8;&#x5206;&#x7684; ts &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x4ECB;&#x9762;&#x5C31;&#x5F80;&#x5F80;&#x5448;&#x73FE;&#x6210;&#x300C;&#x5F80;&#x524D;&#x5341;&#x79D2;&#x300D;&#x6216;&#x300C;&#x5F80;&#x5F8C;&#x5341;&#x79D2;&#x300D;&#x64AD;&#x653E;&#x3002;</p>
+<p><img src="player.png" alt="&#x76F4;&#x64AD;&#x6A21;&#x5F0F;&#x7684;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;"></p>
+<p>&#x800C;&#x5728;&#x652F;&#x63F4;&#x7684;&#x97F3;&#x8A0A;&#x683C;&#x5F0F;&#x65B9;&#x9762;&#xFF0C;TS container &#x4E26;&#x6C92;&#x6709;&#x9650;&#x5236;&#x7576;&#x4E2D;&#x7684;&#x8CC7;&#x6599;&#x683C;&#x5F0F;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x5C07; HLS &#x7528;&#x5728;&#x97F3;&#x8A0A;&#x7684;&#x4E32;&#x6D41;&#x4E0A;&#xFF0C;&#x5728; iOS/macOS &#x4E0A;&#xFF0C;&#x53EA;&#x8981;&#x662F; Core Audio &#x6240;&#x652F;&#x63F4;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5305;&#x62EC; MP3&#x3001;AAC&#x3001;FLAC&#x2026;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; HLS &#x767C;&#x4F48;&#x3002;</p>
+<h2 id="fairplay-streaming">FairPlay Streaming</h2>
+<p><a href="https://developer.apple.com/streaming/fps/" target="_blank">FairPlay Streaming</a> &#x7C21;&#x7A31; FPS&#xFF0C;&#x662F;&#x860B;&#x679C;&#x7528;&#x4F86;&#x4FDD;&#x8B77; HLS &#x4E32;&#x6D41;&#x7684;&#x5546;&#x7528; DRM &#x6A5F;&#x5236;&#x3002;&#x6211;&#x5011;&#x8981;&#x89E3;&#x91CB;&#x4E00;&#x4E0B; FairPlay &#x8207; FairPlay Streaming &#x9019;&#x5169;&#x500B;&#x540D;&#x8A5E;&#x7684;&#x5DEE;&#x7570;&#xFF0C;FairPlay &#x662F;&#x4E00;&#x5957;&#x860B;&#x679C;&#x7528;&#x5728;&#x5404;&#x7A2E;&#x7522;&#x54C1;&#x4E0A;&#x7684; DRM &#x6280;&#x8853;&#xFF0C;&#x50CF;&#x662F; iTunes Store &#x4E0A;&#x9762;&#x8CFC;&#x8CB7;&#x7684;&#x97F3;&#x6A02;&#x3001;App Store &#x4E0A;&#x8CFC;&#x8CB7;&#x7684; app&#xFF0C;&#x860B;&#x679C;&#x90FD;&#x4F7F;&#x7528; FairPlay &#x4FDD;&#x8B77;&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x53EA;&#x6709;&#x7528;&#x4F86;&#x4FDD;&#x8B77; HLS &#x7684; FPS&#xFF0C;&#x624D;&#x5F9E; 2015 &#x5E74;&#x8D77;&#x958B;&#x653E;&#x7D66;&#x5916;&#x90E8;&#x4F7F;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x7576;&#x6211;&#x5011;&#x5728;&#x860B;&#x679C;&#x5916;&#x90E8;&#x8B1B;&#x5230; FairPlay&#xFF0C;&#x8B1B;&#x7684;&#x5F80;&#x5F80;&#x662F; FPS&#x3002;&#x800C;&#x5373;&#x4F7F;&#x860B;&#x679C;&#x958B;&#x653E;&#x5916;&#x90E8;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x5011;&#x9084;&#x662F;&#x8981;&#x984D;&#x5916;&#x8DDF;&#x860B;&#x679C;&#x7533;&#x8ACB;&#x4EE5;&#x53CA;&#x7C3D;&#x7D04;&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x500B;&#x53D7;&#x5230; FPS &#x4FDD;&#x8B77;&#x7684; HLS &#x4E32;&#x6D41;&#x4E2D;&#xFF0C;&#x6703;&#x628A;&#x6BCF;&#x500B; ts &#x6A94;&#x6848;&#x52A0;&#x4E0A; AES &#x52A0;&#x5BC6;&#xFF0C;client &#x7AEF;&#x8981;&#x80FD;&#x5920;&#x64AD;&#x653E;&#xFF0C;&#x5C31;&#x5FC5;&#x9808;&#x8981;&#x53D6;&#x5F97;&#x9019;&#x628A; key&#xFF0C;FPS &#x7684;&#x91CD;&#x9EDE;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x4FDD;&#x8B49;&#x9019;&#x628A; key &#x5728;&#x50B3;&#x905E;&#x7684;&#x904E;&#x7A0B;&#x4E2D;&#x4E0D;&#x6703;&#x88AB;&#x5916;&#x90E8;&#x7834;&#x89E3;&#x3002;&#x56E0;&#x70BA;&#x662F;&#x88AB;&#x860B;&#x679C;&#x4FDD;&#x8B77;&#x8D77;&#x4F86;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x4E5F;&#x641E;&#x4E0D;&#x6E05;&#x695A;&#x5BE6;&#x969B;&#x4E0A;&#x860B;&#x679C;&#x505A;&#x4E86;&#x4EC0;&#x9EBC;&#xFF0C;&#x6839;&#x64DA;&#x860B;&#x679C;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x8981;&#x7167;&#x4EE5;&#x4E0B;&#x9019;&#x9EBC;&#x505A;&#x5C31;&#x5C0D;&#x4E86;&#xFF1A;</p>
+<blockquote>
+<p>&#x627E;&#x5230; <strong>Asset ID</strong>&#xFF0C;&#x628A; Asset ID &#x8DDF; <strong>Certificate</strong> &#x7D50;&#x5408;&#x8D77;&#x4F86;&#x7522;&#x751F; <strong>SPC</strong>&#xFF0C;&#x50B3;&#x5230; server &#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x5F9E; server &#x6210;&#x529F;&#x62FF;&#x5230; <strong>CKC</strong>&#xFF0C;&#x628A; CKC &#x585E;&#x9032;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x64AD;&#x4E86;&#x3002;</p>
+</blockquote>
+<p>&#x2026;&#x9019;&#x4E00;&#x6BB5;&#x8A71;&#x88E1;&#x982D;&#x5145;&#x6EFF;&#x4E86;&#x8A31;&#x591A;&#x5947;&#x5999;&#x7684;&#x95DC;&#x9375;&#x5B57;&#xFF0C;&#x50CF;&#x662F; SPC&#x3001;CKC&#x2026;&#x4E00;&#x5B9A;&#x8981;&#x89E3;&#x91CB;&#x4E00;&#x4E0B;&#x624D;&#x6709;&#x8FA6;&#x6CD5;&#x7406;&#x89E3;&#x3002;&#x6211;&#x5011;&#x5728;&#x4E0B;&#x9762;&#x6703;&#x89E3;&#x91CB;&#x4E00;&#x4E0B;&#x5728; iOS/macOS app &#x4E0A;&#x7684;&#x6D41;&#x7A0B;&#x3002;&#x7576;&#x4E2D;&#x4E0D;&#x6703;&#x8B1B;&#x89E3;&#x592A;&#x591A;&#x5BE6;&#x969B;&#x5728;&#x5E73;&#x53F0;&#x4E0A;&#x6703;&#x547C;&#x53EB;&#x54EA;&#x4E9B; API&#xFF0C;&#x4F46;&#x662F;&#x81F3;&#x5C11;&#x5F97;&#x89E3;&#x91CB;&#x50CF; CKC&#x3001;SPC &#x9019;&#x4E9B;&#x95DC;&#x9375;&#x5B57;&#xFF0C;&#x624D;&#x6709;&#x8FA6;&#x6CD5;&#x4E86;&#x89E3; FPS&#x3002;</p>
+<h2 id="&#x8655;&#x7406;-fairplay-streaming-&#x7684;&#x6D41;&#x7A0B;">&#x8655;&#x7406; FairPlay Streaming &#x7684;&#x6D41;&#x7A0B;</h2>
+<h3 id="&#x5148;&#x5F9E;-m3u8-&#x4E2D;&#x89E3;&#x6790;&#x51FA;-asset-id">&#x5148;&#x5F9E; .m3u8 &#x4E2D;&#x89E3;&#x6790;&#x51FA; asset ID</h3>
+<p>&#x4E00;&#x500B;&#x88AB; FairPlay &#x4FDD;&#x8B77;&#x8D77;&#x4F86;&#x7684; .m3u8 &#x6A94;&#x6848;&#xFF0C;&#x88E1;&#x982D;&#x6703;&#x6709;&#x50CF;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x6BB5;&#xFF1A;</p>
+<pre><code>#EXTM3U
+....
+#EXT-X-KEY:METHOD=SAMPLE-AES,URI=&quot;skd://f3c5e0361e6654b28f8049c778b23946+5c3de6de8c2bb1295712e8da387add37&quot;,KEYFORMATVERSIONS=&quot;1&quot;,KEYFORMAT=&quot;com.apple.streamingkeydelivery&quot;
+</code></pre><p>&quot;f3c5e0361e6654b28f8049c778b23946+5c3de6de8c2bb1295712e8da387add37&quot; &#x9019;&#x4E00;&#x6BB5;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x500B; asset ID&#xFF0C;&#x662F; FairPlay &#x6A5F;&#x5236;&#x7576;&#x4E2D;&#x7528;&#x4F86;&#x8868;&#x793A;&#x4E00;&#x500B;&#x7279;&#x5B9A;&#x5A92;&#x9AD4;&#xFF0C;&#x50CF;&#x662F;&#x7279;&#x5B9A;&#x5F71;&#x7247;&#x3001;&#x6B4C;&#x66F2;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x64AD;&#x653E;&#x4E00;&#x500B; HLS &#x4E32;&#x6D41;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x5C31;&#x6703;&#x5617;&#x8A66;&#x53BB;&#x5C0B;&#x627E;&#x662F;&#x5426;&#x6709;&#x9019;&#x6BB5;&#x8CC7;&#x8A0A;&#xFF0C;&#x5982;&#x679C;&#x6C92;&#x6709;&#xFF0C;&#x5C31;&#x4EE3;&#x8868;&#x6C92;&#x6709;&#x52A0;&#x4E0A;&#x4FDD;&#x8B77;&#xFF0C;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#x5C31;&#x6703;&#x76F4;&#x63A5;&#x64AD;&#x653E;&#x9019;&#x500B; HLS &#x4E32;&#x6D41;&#x3002;</p>
+<p>&#x5728; iOS/macOS app &#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x5148;&#x628A; <code>.m3u8</code> &#x4E32;&#x6D41;&#x653E;&#x5728;&#x4E00;&#x500B; AVAsset &#x4E2D;&#xFF0C;&#x5728;&#x5617;&#x8A66;&#x8F09;&#x5165;&#x9019;&#x500B; AVAsset &#x7684;&#x6642;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x9047;&#x5230;&#x88AB;&#x4FDD;&#x8B77;&#x3001;&#x9700;&#x8981; Key &#x7684; HLS&#xFF0C;&#x5C31;&#x6703;&#x89F8;&#x767C;&#x5C0D;&#x61C9;&#x7684; delegate method&#x3002;&#x5728; Safari &#x700F;&#x89BD;&#x5668;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C0D; video tag &#x7684; &quot;webkitneedkey&quot; &#x4E8B;&#x4EF6;&#x52A0;&#x4E0A; listener&#xFF0C;&#x7136;&#x5F8C;&#xFF0C;&#x9019;&#x500B; video tag &#x64AD;&#x653E;&#x7684;&#x5F71;&#x7247;&#x9700;&#x8981;&#x6709;&#x4E00;&#x628A; Key &#x6642;&#xFF0C;&#x5C31;&#x6703;&#x89F8;&#x767C;&#x5F8C;&#x7E8C;&#x7684;&#x884C;&#x70BA;&#x3002;</p>
+<h3 id="&#x7522;&#x751F;&#x3001;&#x4E0A;&#x50B3;-spc&#xFF0C;&#x53D6;&#x5F97;-ckc">&#x7522;&#x751F;&#x3001;&#x4E0A;&#x50B3; SPC&#xFF0C;&#x53D6;&#x5F97; CKC</h3>
+<p>SPC &#x5168;&#x540D;&#x53EB;&#x505A; Server Playback Context&#xFF0C;&#x7C21;&#x55AE;&#x4F86;&#x8AAA;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x5169;&#x7A2E;&#x4F86;&#x6E90;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x900F;&#x904E;&#x860B;&#x679C;&#x7684;&#x4E00;&#x5957;&#x88AB;&#x4FDD;&#x8B77;&#x8D77;&#x4F86;&#x7684;&#x6F14;&#x7B97;&#x6CD5;&#xFF0C;&#x7522;&#x751F;&#x51FA;&#x4F86;&#x7684;&#x6388;&#x6B0A;&#x9700;&#x6C42;&#x8CC7;&#x6599;&#xFF0C;&#x6211;&#x5011;&#x5F80; server &#x4E0A;&#x50B3;&#x9019;&#x4EFD;&#x8CC7;&#x6599;&#x4E4B;&#x5F8C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x6700;&#x5F8C;&#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x64AD;&#x653E;&#x7684; key&#x2014;&#x4E0D;&#x904E;&#xFF0C;&#x9019;&#x628A; Key &#x4E5F;&#x662F;&#x88AB;&#x4FDD;&#x8B77;&#x8D77;&#x4F86;&#x7684;&#xFF0C;&#x9019;&#x500B;&#x628A; Key &#x5305;&#x8D77;&#x4F86;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x53EB;&#x505A; CKC&#xFF0C;Content Key Context&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5728;&#x901A;&#x904E;&#x860B;&#x679C;&#x7684;&#x5BE9;&#x6838;&#xFF0C;&#x53EF;&#x4EE5;&#x958B;&#x59CB;&#x4F7F;&#x7528; FairPlay &#x4E4B;&#x5F8C;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5728;&#x860B;&#x679C;&#x7684;&#x958B;&#x767C;&#x8005;&#x5F8C;&#x53F0;&#x4E0A;&#x5EFA;&#x7ACB;&#x4E00;&#x4EFD; FPS &#x4F7F;&#x7528;&#x7684; Certificate&#xFF0C;&#x56E0;&#x70BA;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x96A8;&#x6642;&#x66F4;&#x65B0;&#x9019;&#x4EFD; certificate&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x592A;&#x61C9;&#x8A72;&#x76F4;&#x63A5;&#x653E;&#x5728; client &#x7AEF;&#xFF0C;&#x800C;&#x662F;&#x61C9;&#x8A72;&#x653E;&#x5728;&#x4E00;&#x500B; Web API &#x4E0A;&#xFF0C;&#x8B93; client &#x7AEF;&#x5728;&#x6709;&#x9700;&#x8981;&#x7684;&#x6642;&#x5019;&#x6293;&#x53D6;&#x3002;</p>
+<p>&#x5728; iOS/macOS &#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x6211;&#x5011;&#x63A5;&#x4E0B;&#x4F86;&#x8981;&#x547C;&#x53EB; AVAssetResourceLoadingRequest &#x7684; <a href="https://developer.apple.com/documentation/avfoundation/avassetresourceloadingrequest/1386116-streamingcontentkeyrequestdata" target="_blank">streamingContentKeyRequestData(forApp:contentIdentifier:options:)</a>&#xFF0C;&#x9019;&#x908A; <code>forApp:</code> &#x8981;&#x50B3;&#x5165;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684; certificate&#xFF0C;contentIdentifier &#x5247;&#x662F; asset ID&#xFF1B;&#x9019;&#x500B; API &#x56DE;&#x50B3;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x5C31;&#x662F; SPC&#x3002;&#x81F3;&#x65BC;&#x9019;&#x500B; method &#x5F8C;&#x9762;&#x505A;&#x4E86;&#x4EC0;&#x9EBC;&#x4E8B;&#x60C5;&#xFF0C;&#x6C92;&#x6709;&#x4EBA;&#x77E5;&#x9053;&#x3002;</p>
+<p>&#x5728; Safari &#x700F;&#x89BD;&#x5668;&#x4E2D;&#xFF0C;&#x5728; webkitneedkey &#x88AB;&#x547C;&#x53EB;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x5247;&#x8981;&#x7D50;&#x5408; asset ID &#x8207; certificate&#xFF0C;&#x547C;&#x53EB; video tag &#x7684;<a href="https://developer.apple.com/documentation/webkitjs/htmlmediaelement/1633293-webkitsetmediakeys" target="_blank">webkitSetMediaKeys</a>&#xFF0C;&#x4EE5;&#x53CA; <a href="https://developer.apple.com/documentation/webkitjs/webkitmediakeys" target="_blank">WebKitMediaKeys</a> &#x7684; <a href="https://developer.apple.com/documentation/webkitjs/webkitmediakeys/2871278-createsession" target="_blank">createSession</a> &#x3002;&#x547C;&#x53EB;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x53C3;&#x8003; FPS SDK &#xFF08;&#x53EF;&#x4EE5;&#x5F9E;&#x860B;&#x679C;<a href="https://developer.apple.com/streaming/fps/" target="_blank">&#x5B98;&#x7DB2;</a>&#x4E0B;&#x8F09;&#xFF09;&#x4E2D;&#x7684;&#x7BC4;&#x4F8B;&#x7A0B;&#x5F0F;&#xFF1A;</p>
+<p><img src="web.png" alt="&#x4F7F;&#x7528; JavaScript API &#x53D6;&#x5F97; SPC &#x8207; CKC"></p>
+<p>&#x6211;&#x5011;&#x7684; Server &#x9700;&#x8981;&#x6E96;&#x5099;&#x53E6;&#x5916;&#x4E00;&#x652F; Web API&#xFF0C;&#x9019;&#x652F; API &#x5F8C;&#x9762;&#xFF0C;&#x8981;&#x6A4B;&#x63A5;&#x860B;&#x679C;&#x5728; FairPlay SDK &#x88E1;&#x982D;&#x7684; Key Server Module&#xFF0C;&#x62FF;&#x860B;&#x679C;&#x7684; library &#x4F86;&#x8655;&#x7406; client &#x7AEF;&#x4E0A;&#x50B3;&#x7684; SPC&#xFF0C;&#x56DE;&#x50B3;&#x7684;&#x7D50;&#x679C;&#xFF0C;&#x5C31;&#x662F; CKC&#xFF0C;&#x628A; CKC &#x585E;&#x5230; Player &#x4E0A;&#xFF08;&#x5728; iOS/macOS app &#x4E2D;&#xFF0C;&#x547C;&#x53EB; <a href="https://developer.apple.com/documentation/avfoundation/avassetresourceloadingdatarequest" target="_blank">AVAssetResourceLoadingDataRequest</a> &#x7684; <a href="https://developer.apple.com/documentation/avfoundation/avassetresourceloadingdatarequest/1390581-respond" target="_blank">respond(with:)</a>&#xFF09;&#xFF1B;&#x81F3;&#x65BC;&#x5728; Safari &#x700F;&#x89BD;&#x5668;&#x4E2D;&#xFF0C;&#x5247;&#x662F;&#x547C;&#x53EB; <a href="https://developer.apple.com/documentation/webkitjs/webkitmediakeysession" target="_blank">WebKitMediaKeySession</a> &#x7684; <a href="https://developer.apple.com/documentation/webkitjs/webkitmediakeysession/2870997-update" target="_blank">update</a>&#x3002;</p>
+<p>&#x63DB;&#x53E5;&#x8A71;&#x8AAA;&#xFF0C;&#x4E00;&#x500B;&#x5B8C;&#x6574;&#x7684; FairPlay server &#x61C9;&#x8A72;&#x8981;&#x6709;&#x5169;&#x500B; API end point&#xFF1A;1. &#x4E0B;&#x8F09; certificate&#x3001;2. &#x9A57;&#x8B49; SPC &#x4E26;&#x56DE;&#x50B3; CKC&#x3002;</p>
+<h2 id="fairplay-streaming-&#x8FD1;&#x5E74;&#x7684;&#x6F14;&#x8B8A;">FairPlay Streaming &#x8FD1;&#x5E74;&#x7684;&#x6F14;&#x8B8A;</h2>
+<p>&#x860B;&#x679C;&#x5728; 2015 &#x5E74;&#x91CB;&#x51FA;&#x516C;&#x958B;&#x7248;&#x672C;&#x7684; FPS &#x6642;&#xFF0C;&#x53EA;&#x63D0;&#x4F9B;&#x5728;&#x64AD;&#x653E;&#x7684;&#x904E;&#x7A0B;&#x4E2D;&#x6293;&#x53D6; CKC &#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x4E4B;&#x5F8C;&#xFF0C;&#x860B;&#x679C;&#x4E5F;&#x9678;&#x7E8C;&#x64F4;&#x5145; FPS&#xFF0C;&#x5728;&#x6BCF;&#x5E74;&#x7684; WWDC &#x516C;&#x5E03;&#x66F4;&#x591A; FPS &#x7684;&#x65B0;&#x529F;&#x80FD;&#x3002;&#x9019;&#x4E9B;&#x65B0;&#x529F;&#x80FD;&#x90FD;&#x5728; ios/macOS &#x7684; app &#x7AEF;&#xFF0C;&#x5728; Web &#x4E0A;&#xFF0C;</p>
+<h3 id="wwdc-2016---offline-hls">WWDC 2016 - Offline HLS</h3>
+<p>&#x860B;&#x679C;&#x5728; 2016 &#x5E74;&#x63A8;&#x51FA; Offline HLS&#xFF0C;&#x53EF;&#x4EE5;&#x8B93;&#x7B2C;&#x4E09;&#x65B9;&#x5EE0;&#x5546;&#x5728;&#x81EA;&#x5DF1;&#x7684; app &#x4E2D;&#xFF0C;&#x5C07; HLS &#x4E32;&#x6D41;&#x4E0B;&#x8F09;&#x5230;&#x672C;&#x5730;&#x7AEF;&#x96E2;&#x7DDA;&#x64AD;&#x653E;&#xFF0C;&#x800C; HLS &#x7684; Key &#x4E5F;&#x5206;&#x6210;&#x4E86;&#x5169;&#x7A2E;&#xFF0C;&#x4E00;&#x7A2E;&#x662F;&#x64AD;&#x653E;&#x7528;&#x7684;&#xFF08;Streaming Key&#xFF09;&#x3001;&#x53E6;&#x5916;&#x4E00;&#x7A2E;&#x662F;&#x96E2;&#x7DDA;&#x5132;&#x5B58;&#x7528;&#x7684;&#xFF08;Persistent Key&#xFF09;&#x3002;&#x8207; Offline HLS &#x7684;&#x76F8;&#x95DC;&#x8CC7;&#x8A0A;&#x53C3;&#x898B; <a href="https://developer.apple.com/videos/play/wwdc2016/504/" target="_blank">What&apos;s New in HTTP Live Streaming</a>&#x3002;</p>
+<h3 id="wwdc-2017---content-key-session">WWDC 2017 - Content Key Session</h3>
+<p>&#x860B;&#x679C;&#x5728; 2017 &#x5E74;&#x63A8;&#x51FA; Content Key Session&#xFF0C;&#x628A;&#x6293;&#x53D6; CKC &#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x8207;&#x64AD;&#x653E;&#x6D41;&#x7A0B;&#x5340;&#x5206;&#x958B;&#x4F86;&#x3002;</p>
+<p>&#x9019;&#x500B;&#x8A2D;&#x8A08;&#x5728;&#x65BC;&#x89E3;&#x6C7A;&#x5E7E;&#x500B;&#x554F;&#x984C;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x67D0;&#x500B;&#x76F4;&#x64AD;&#x6D3B;&#x52D5;&#x6703;&#x5728;&#x67D0;&#x500B;&#x6642;&#x9593;&#x958B;&#x64AD;&#xFF0C;&#x7576;&#x76F4;&#x64AD;&#x958B;&#x59CB;&#x4E4B;&#x5F8C;&#xFF0C;&#x5C31;&#x6703;&#x6709;&#x5927;&#x6279;&#x7684;&#x7528;&#x6236;&#x6E67;&#x5165;&#xFF0C;&#x7576;&#x6240;&#x6709;&#x7528;&#x6236;&#x90FD;&#x540C;&#x6642;&#x8DDF; server &#x8981;&#x6C42; CKC &#x7684;&#x6642;&#x5019;&#xFF0C;&#x5C31;&#x6703;&#x7522;&#x751F;&#x5F88;&#x5927;&#x7684;&#x77AC;&#x9593;&#x6D41;&#x91CF;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x5E0C;&#x671B;&#x53EF;&#x4EE5;&#x5728;&#x6D3B;&#x52D5;&#x958B;&#x64AD;&#x4E4B;&#x524D;&#xFF0C;&#x7528;&#x6236;&#x5C31;&#x5B8C;&#x6210; DRM &#x7684;&#x9A57;&#x8B49;&#x6D41;&#x7A0B;&#xFF0C;&#x62FF;&#x5230; CKC&#xFF0C;&#x800C;&#x4E0D;&#x8981;&#x5230;&#x4E86;&#x958B;&#x64AD;&#x4E4B;&#x5F8C;&#x624D;&#x505A;&#x3002;</li>
+<li>&#x5728; 2016 &#x5E74;&#x63A8;&#x51FA; Offline HLS &#x4E4B;&#x5F8C;&#xFF0C;&#x53EF;&#x4EE5;&#x8A2D;&#x5B9A;&#x4E00;&#x4EFD; Offline HLS &#x5728;&#x56FA;&#x5B9A;&#x6642;&#x9593;&#x904E;&#x671F;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x904E;&#x671F;&#x4E4B;&#x5F8C;&#xFF0C;&#x539F;&#x672C;&#x7684;&#x6A5F;&#x5236;&#xFF0C;&#x53EA;&#x80FD;&#x5920;&#x5728;&#x7528;&#x6236;&#x91CD;&#x65B0;&#x64AD;&#x653E;&#x7684;&#x6642;&#x5019;&#x66F4;&#x65B0;&#x96E2;&#x7DDA;&#x6191;&#x8B49;&#xFF0C;&#x4E0D;&#x80FD;&#x4E8B;&#x5148;&#x8B93;&#x7528;&#x6236;&#x77E5;&#x9053;&#x5DF2;&#x7D93;&#x904E;&#x671F;&#xFF0C;&#x4F7F;&#x7528;&#x9AD4;&#x9A57;&#x4E26;&#x4E0D;&#x53CB;&#x5584;&#x3002;</li>
+</ul>
+<p>Content Key Session &#x7368;&#x7ACB;&#x65BC;&#x64AD;&#x653E;&#x5143;&#x4EF6;&#x4E4B;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x8B93;&#x7B2C;&#x4E09;&#x65B9;&#x5EE0;&#x5546;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9069;&#x7576;&#x7684;&#x6642;&#x6A5F;&#xFF0C;&#x5C31;&#x6293;&#x53D6;&#x3001;&#x66F4;&#x65B0; CKC&#xFF1B;&#x6B64;&#x5916;&#x860B;&#x679C;&#x589E;&#x52A0;&#x4E86; HEVC &#x5F71;&#x50CF;&#x683C;&#x5F0F;&#x652F;&#x63F4;&#x3001;IMSC1 &#x5B57;&#x5E55;&#x3001;&#x65B0;&#x7684;&#x4E0B;&#x8F09;&#x7BA1;&#x7406;&#x54E1;&#x5143;&#x4EF6;&#x2026;&#x7B49;&#x3002;&#x53C3;&#x898B; <a href="https://developer.apple.com/videos/play/wwdc2017/504/" target="_blank">Advances in HTTP Live Streaming</a>&#x3002;</p>
+<p>&#x8DDF; Content Key Session &#x6709;&#x95DC;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53C3;&#x898B; WWDC 2018 &#x7684; <a href="https://developer.apple.com/videos/play/wwdc2018/507" target="_blank">AVContentKeySession Best Practices</a></p>
+<h3 id="wwdc-2019---low-latency-hls">WWDC 2019 - Low Latency HLS</h3>
+<p>&#x5982;&#x524D;&#x6240;&#x8FF0;&#xFF0C;&#x860B;&#x679C;&#x63A8;&#x51FA; Low Latency HLS &#x898F;&#x683C;&#xFF0C;&#x5617;&#x8A66;&#x964D;&#x4F4E; HLS &#x7684;&#x5EF6;&#x9072;&#x6642;&#x9593;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;-hlsfairplay-streaming-&#x7684;&#x512A;&#x7F3A;&#x9EDE;">&#x4F7F;&#x7528; HLS/FairPlay Streaming &#x7684;&#x512A;&#x7F3A;&#x9EDE;</h2>
+<p>HLS/FairPlay Streaming &#x662F;&#x5728; iOS/macOS/tvOS &#x7B49;&#x860B;&#x679C;&#x5E73;&#x53F0;&#xFF0C;&#x4EE5;&#x53CA; Safari &#x700F;&#x89BD;&#x5668;&#x4E2D;&#x64AD;&#x653E;&#x76F4;&#x64AD;&#x4E32;&#x6D41;&#x2014;&#x5C24;&#x5176;&#x662F;&#x53D7;&#x4FDD;&#x8B77;&#x7684;&#x4E32;&#x6D41;&#x2014;&#x7684;&#x9996;&#x9078;&#xFF0C;&#x6211;&#x5011;&#x76F4;&#x63A5;&#x4EAB;&#x53D7;&#x5E73;&#x53F0;&#x5B98;&#x65B9;&#x7684;&#x5957;&#x4EF6;&#x4EE5;&#x53CA;&#x652F;&#x63F4;&#x670D;&#x52D9;&#x3002;</p>
+<p>&#x4F46;&#xFF0C;&#x7528;&#x4F86;&#x64AD;&#x653E; HLS &#x7684;&#x5143;&#x4EF6;&#xFF0C;&#x5176;&#x5BE6;&#x662F;&#x8A2D;&#x8A08;&#x7D66;&#x5F71;&#x7247;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8A2D;&#x8A08;&#x7D66;&#x97F3;&#x6A02;&#x670D;&#x52D9;&#x7528;&#x7684;&#x2014;&#x5982;&#x679C;&#x53EA;&#x662F; HLS&#xFF0C;&#x6211;&#x5011;&#x9084;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x9078;&#x64C7;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8981;&#x64AD;&#x653E; FairPlay DRM &#x4FDD;&#x8B77;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x5C31;&#x53EA;&#x6709; AVPlayer &#x7B49;&#x5B98;&#x65B9;&#x7684;&#x5143;&#x4EF6;&#x2014;&#x5F71;&#x7247;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x4E26;&#x4E0D;&#x6703;&#x8003;&#x616E;&#x4E00;&#x4E9B;&#x97F3;&#x6A02;&#x64AD;&#x653E;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x5883;&#xFF0C;&#x50CF;&#x662F;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x8FF4;&#x97F3;&#x3001;&#x7B49;&#x5316;&#x5668;&#x6548;&#x679C;&#xFF0C;&#x6216;&#x662F;&#x6703;&#x8B93;&#x5169;&#x9996;&#x6B4C;&#x66F2;&#x91CD;&#x758A;&#x7684;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#x2014;&#x6C92;&#x6709;&#x4EBA;&#x6703;&#x628A;&#x5169;&#x90E8;&#x96FB;&#x5F71;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x6DF7;&#x97F3;&#x64AD;&#x653E;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x97F3;&#x6A02;&#x4E0A;&#x537B;&#x662F;&#x975E;&#x5E38;&#x5E38;&#x898B;&#x7684;&#x60C5;&#x5883;&#x3002;</p>
+<p>&#x62FF; HLS &#x5BE6;&#x4F5C;&#x97F3;&#x6A02;&#x64AD;&#x653E;&#xFF0C;&#x5C31;&#x5F97;&#x540C;&#x6211;&#x5011;&#x8981;&#x6368;&#x68C4;&#x9019;&#x4E9B;&#x97F3;&#x8A0A;&#x6548;&#x679C;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x662F;&#x6253;&#x9020;&#x4E00;&#x5957;&#x5168;&#x65B0;&#x7684;&#x670D;&#x52D9;&#xFF0C;&#x53EF;&#x80FD;&#x9084;&#x53EF;&#x4EE5;&#x5F9E;&#x4E00;&#x958B;&#x59CB;&#x5C31;&#x4E0D;&#x6253;&#x7B97;&#x652F;&#x63F4;&#xFF1B;&#x4F46;&#x5982;&#x679C;&#x4E00;&#x5957;&#x7522;&#x54C1;&#x4E0A;&#x7DDA;&#x5DF2;&#x4E45;&#xFF0C;&#x9019;&#x4E9B;&#x6548;&#x679C;&#xFF0C;&#x662F;&#x5DF2;&#x7D93;&#x5B58;&#x5728;&#x7684;&#x7522;&#x54C1;&#x529F;&#x80FD;&#xFF0C;&#x90A3;&#x662F;&#x5426;&#x61C9;&#x8A72;&#x6539;&#x7528; AVPlayer &#x4EE5;&#x53CA; HLS &#x9019;&#x4E00;&#x6574;&#x5957;&#x6280;&#x8853;&#xFF0C;&#x5C31;&#x5F97;&#x8981;&#x505A;&#x5168;&#x76E4;&#x7684;&#x8A55;&#x4F30;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5C31;&#x662F; Offline HLS &#x7684;&#x96E2;&#x7DDA;&#x64AD;&#x653E;&#x6388;&#x6B0A;&#x6191;&#x8B49;&#x66F4;&#x65B0;&#x6A5F;&#x5236;&#x3002;&#x6BCF;&#x90E8; HLS &#x4E0B;&#x8F09;&#x4E4B;&#x5F8C;&#xFF0C;&#x90FD;&#x6709;&#x5404;&#x81EA;&#x7684; CKC&#xFF0C;&#x5728;&#x66F4;&#x65B0;&#x6191;&#x8B49;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x4E5F;&#x8981;&#x4E00;&#x90E8;&#x4E00;&#x90E8;&#x5F71;&#x7247;&#x5404;&#x81EA;&#x66F4;&#x65B0;&#x3002;&#x7531;&#x65BC;&#x9019;&#x4E9B;&#x6A5F;&#x5236;&#x4E3B;&#x8981;&#x70BA;&#x4E86;&#x5F71;&#x7247;&#x800C;&#x8A2D;&#x8A08;&#xFF0C;&#x7DDA;&#x4E0A;&#x5F71;&#x8996;&#x670D;&#x52D9;&#x7684;&#x7528;&#x6236;&#xFF0C;&#x5927;&#x6982;&#x53EA;&#x6703;&#x4E0B;&#x8F09;&#x4E00;&#x5B9A;&#x6578;&#x91CF;&#x7684;&#x5F71;&#x7247;&#xFF0C;&#x800C;&#x4E14;&#x5F80;&#x5F80;&#x770B;&#x904E;&#x4E00;&#x6B21;&#x5C31;&#x522A;&#x9664;&#xFF0C;&#x7528;&#x6236;&#x5F80;&#x5F80;&#x6703;&#x91CD;&#x8907;&#x64AD;&#x653E;&#x76F8;&#x540C;&#x7684;&#x97F3;&#x6A02;&#xFF0C;&#x4F46;&#x5F88;&#x5C11;&#x91CD;&#x8907;&#x89C0;&#x770B;&#x76F8;&#x540C;&#x7684;&#x96FB;&#x5F71;&#x3002;&#x5982;&#x679C;&#x62FF; Offline HLS &#x505A;&#x97F3;&#x6A02;&#x670D;&#x52D9;&#x7684;&#x96E2;&#x7DDA;&#x4E0B;&#x8F09;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x9810;&#x671F;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6236;&#x4E0B;&#x8F09;&#x4E86;&#x5927;&#x91CF;&#x6B4C;&#x66F2;&#xFF0C;&#x4F7F;&#x7528;&#x9AD4;&#x9A57;&#x53EF;&#x80FD;&#x4E26;&#x4E0D;&#x7406;&#x60F3;&#x3002;</p>
+<p>&#x800C;&#x9019;&#x6574;&#x5957;&#x6280;&#x8853;&#xFF0C;&#x90FD;&#x8207;&#x860B;&#x679C;&#x7684;&#x751F;&#x614B;&#x7CFB;&#x7D81;&#x5F97;&#x975E;&#x5E38;&#x7DCA;&#x5BC6;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5728;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x4E0A;&#x4F7F;&#x7528;&#x5546;&#x7528; DRM &#x4FDD;&#x8B77;&#x5167;&#x5BB9;&#xFF0C;&#x5F80;&#x5F80;&#x9084;&#x662F;&#x5F97;&#x6311;&#x9078;&#x5176;&#x4ED6;&#x7684;&#x65B9;&#x6848;&#x3002;</p>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../flac/" class="navigation navigation-prev " aria-label="Previous page: FLAC 格式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../dash/" class="navigation navigation-next " aria-label="Next page: MPEG-DASH 與 Widevine DRM">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"HLS 與 FairPlay DRM","level":"1.6","depth":1,"next":{"title":"MPEG-DASH 與 Widevine DRM","level":"1.7","depth":1,"path":"dash/README.md","ref":"dash/README.md","articles":[]},"previous":{"title":"FLAC 格式","level":"1.5","depth":1,"path":"flac/README.md","ref":"flac/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"hls/README.md","mtime":"2022-02-06T19:23:06.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

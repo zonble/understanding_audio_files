@@ -1,0 +1,89 @@
+
+.extra-html-donate {
+  text-align: center;
+  $color: #ff6d51;
+
+  button {
+    border-radius: 4px;
+    padding: 6px 15px;
+    background: 0;
+    color: white;
+    border: thin solid $color;
+    background: $color;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &-qrcode {
+    $border-color: #ddd;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border: thin solid $border-color;
+    margin-top: 15px;
+
+    &:before, &:after {
+      content: " ";
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 10px);
+      height: 0;
+      width: 0;
+      border: 10px solid transparent;
+      border-bottom-color: $border-color;
+    }
+
+    &-item {
+      flex: 1;
+      padding: 30px 0 15px;
+
+      img {
+        max-height: 150px;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.color-theme-1 {
+
+}
+
+.color-theme-1 {
+  .extra-html-donate {
+    &-qrcode {
+      $border-color: #e7e7e7;
+      border-color: $border-color;
+
+      &:before, &:after {
+        border-bottom-color: $border-color;
+      }
+    }
+  }
+}
+
+.color-theme-2 {
+  .extra-html-donate {
+    $color: #ba593d;
+
+    button {
+      border: thin solid $color;
+      background: $color;
+      color: inherit;
+    }
+
+    &-qrcode {
+      $border-color: #363a4c;
+      border-color: $border-color;
+
+      &:before, &:after {
+        border-bottom-color: $border-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,504 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-TW" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MP3 與 ID3 格式 · 認識音檔（公開版本）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Weizhong Yang a.k.a zonble <zonble@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tree/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-extra-html/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../aac/" />
+    
+    
+    <link rel="prev" href="../pcm/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    關於《認識音檔》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pcm/">
+            
+                <a href="../pcm/">
+            
+                    
+                    PCM 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MP3 與 ID3 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../aac/">
+            
+                <a href="../aac/">
+            
+                    
+                    AAC 與 MP4 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../flac/">
+            
+                <a href="../flac/">
+            
+                    
+                    FLAC 格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../hls/">
+            
+                <a href="../hls/">
+            
+                    
+                    HLS 與 FairPlay DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../dash/">
+            
+                <a href="../dash/">
+            
+                    
+                    MPEG-DASH 與 Widevine DRM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    常用相關工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    附註
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../misc/mp3_parser.html">
+            
+                <a href="../misc/mp3_parser.html">
+            
+                    
+                    MP3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../misc/aac_adts_parser.html">
+            
+                <a href="../misc/aac_adts_parser.html">
+            
+                    
+                    AAC-ADTS Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../misc/id3_parser.html">
+            
+                <a href="../misc/id3_parser.html">
+            
+                    
+                    ID3 Parser 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../misc/flac_streaminfo.html">
+            
+                <a href="../misc/flac_streaminfo.html">
+            
+                    
+                    FLAC Stream Info Encoder 範例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../misc/version.html">
+            
+                <a href="../misc/version.html">
+            
+                    
+                    文件版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >MP3 與 ID3 格式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <header></header><h1 id="mp3-&#x683C;&#x5F0F;">MP3 &#x683C;&#x5F0F;</h1>
+<p>Internet &#x5728;&#x4E0A;&#x500B;&#x4E16;&#x7D00; 90 &#x5E74;&#x4EE3;&#x958B;&#x59CB;&#x666E;&#x53CA;&#x3002;&#x4E00;&#x9996;&#x9304;&#x88FD;&#x5728; CD &#x4E0A;&#x7684;&#x4E09;&#x5206;&#x9418;&#x9577;&#x5EA6;&#x7684;&#x6B4C;&#x66F2;&#xFF0C;&#x5927;&#x6982;&#x5C31;&#x8981; 30mb&#xFF0C;&#x4EE5;&#x90A3;&#x500B;&#x6642;&#x4EE3;&#x7684;&#x983B;&#x5BEC;&#x4F86;&#x8AAA;&#xFF0C;&#x50B3;&#x905E;&#x9019;&#x6A23;&#x7684;&#x6A94;&#x6848;&#x662F;&#x975E;&#x5E38;&#x5403;&#x529B;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x5728; MP3 &#x683C;&#x5F0F;&#x51FA;&#x73FE;&#x4E4B;&#x5F8C;&#xFF0C;&#x4E00;&#x9996; 30mb &#x5927;&#x5C0F;&#x7684;&#x6B4C;&#x66F2;&#x8B8A;&#x6210;&#x4E86; 3mb &#x5927;&#x5C0F;&#xFF0C;&#x8B8A;&#x6210;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5728;&#x7DB2;&#x8DEF;&#x4E0A;&#x50B3;&#x4F48;&#xFF0C;&#x65BC;&#x662F;&#xFF0C;&#x7121;&#x8AD6;&#x662F;&#x7528;&#x6236;&#x5728;&#x975E;&#x6CD5; P2P &#x8EDF;&#x9AD4;&#x4E0A;&#x5927;&#x91CF;&#x6563;&#x4F48;&#x3001;&#x50B3;&#x905E; MP3&#xFF0C;&#x6216;&#x662F;&#x5F8C;&#x4F86;&#x51FA;&#x73FE;&#x900F;&#x904E;&#x7DB2;&#x8DEF;&#x8CFC;&#x8CB7;&#x97F3;&#x6A94;&#x7684;&#x97F3;&#x6A02;&#x5546;&#x5E97;&#xFF0C;&#x751A;&#x81F3;&#x66F4;&#x5F8C;&#x4F86;&#x51FA;&#x73FE;&#x4E86;&#x6708;&#x8CBB;&#x5236;&#x97F3;&#x6A02;&#x670D;&#x52D9;&#x3001;&#x751A;&#x81F3;&#x662F; Freemium &#x5546;&#x696D;&#x6A21;&#x5F0F;&#xFF0C;MP3 &#x90FD;&#x6574;&#x500B;&#x6539;&#x8B8A;&#x4E86;&#x97F3;&#x6A02;&#x7522;&#x696D;&#x4EE5;&#x53CA;&#x6574;&#x500B;&#x4E16;&#x754C;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5728;&#x9019;&#x908A;&#x7565;&#x904E; MP3 &#x7684;&#x6B77;&#x53F2;&#xFF0C;MP3 &#x5982;&#x4F55;&#x6210;&#x70BA;&#x898F;&#x683C;&#xFF0C;&#x4EE5;&#x53CA;&#x97F3;&#x6A02;&#x7522;&#x696D;&#x767C;&#x751F;&#x7684;&#x8B8A;&#x5316;&#xFF0C;&#x53EA;&#x8A0E;&#x8AD6; MP3 &#x662F;&#x600E;&#x6A23;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4EE5;&#x53CA;&#x5DE5;&#x7A0B;&#x5E2B;&#x53EF;&#x4EE5;&#x5982;&#x4F55;&#x8655;&#x7406; MP3 &#x6A94;&#x6848;&#x3002;</p>
+<p>MP3 &#x662F;&#x4E00;&#x7A2E;&#x58D3;&#x7E2E;&#x683C;&#x5F0F;&#xFF0C;&#x65BC;&#x662F;&#x8B93;&#x6A94;&#x6848;&#x8B8A;&#x5C0F;&#xFF0C;&#x66F4;&#x7CBE;&#x78BA;&#x4F86;&#x8AAA;&#xFF0C;&#x662F;&#x4E00;&#x7A2E;&#x7834;&#x58DE;&#x5F0F;&#x58D3;&#x7E2E;&#x6A94;&#x6848;&#xFF0C;&#x5728;&#x58D3;&#x7E2E;&#x5730;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x6703;&#x6368;&#x68C4;&#x6389;&#x4E00;&#x4E9B;&#x767C;&#x660E;&#x9019;&#x500B;&#x683C;&#x5F0F;&#x6642;&#x3001;&#x89BA;&#x5F97;&#x53EF;&#x4EE5;&#x6368;&#x68C4;&#x6389;&#x7684;&#x90E8;&#x4EFD;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x628A; CD &#x4E0A;&#x7684;&#x6B4C;&#x66F2;&#x8F49;&#x6210; MP3&#xFF0C;&#x96D6;&#x7136;&#x9084;&#x662F;&#x6709;&#x8FA6;&#x6CD5;&#x53EF;&#x4EE5;&#x518D;&#x8F49;&#x63DB;&#x56DE; CD &#x683C;&#x5F0F;&#x7684; PCM &#x6A94;&#x6848;&#xFF0C;&#x4F46;&#x9019;&#x6A23;&#x7684;&#x6A94;&#x6848;&#x5DF2;&#x7D93;&#x8DDF;&#x539F;&#x672C;&#x7684;&#x6A94;&#x6848;&#x4E0D;&#x540C;&#x4E86;&#x3002;</p>
+<h2 id="bit-rate">Bit Rate</h2>
+<p><strong>Bit rate</strong> &#x5728;&#x4E2D;&#x6587;&#x5F88;&#x591A;&#x6642;&#x5019;&#x53EB;&#x505A;&#x6BD4;&#x7279;&#x7387;&#xFF0C;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x58D3;&#x7E2E;&#x97F3;&#x6A94;&#x88AB;&#x58D3;&#x7E2E;&#x5230;&#x4EC0;&#x9EBC;&#x7A0B;&#x5EA6;&#xFF0C;&#x55AE;&#x4F4D;&#x662F; bps&#xFF08;bits per seconds&#xFF0C;&#x4E00;&#x79D2;&#x7684;&#x97F3;&#x8A0A;&#x9700;&#x8981;&#x591A;&#x5C11; bit&#xFF09;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5E38;&#x898B;&#x6240;&#x8B02; 128k&#x3001;192k&#x3001;320k &#x9019;&#x4E9B;&#x55AE;&#x4F4D;&#xFF0C;&#x610F;&#x601D;&#x662F;&#xFF0C;&#x4E00;&#x79D2;&#x9418;&#x7684;&#x58D3;&#x7E2E;&#x97F3;&#x6A94;&#xFF0C;&#x6703;&#x9700;&#x8981;&#x7528;&#x5230;&#x591A;&#x5C11; bit &#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x4EE5; 128k &#x4F86;&#x8AAA;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x79D2;&#x9418;&#x6709; 128 k &#x7684; bit&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x63DB;&#x7B97;&#x6210; byte&#xFF0C;&#x5C31;&#x662F; 128 * 1024 / 8&#xFF08;&#x4E00;&#x500B; byte &#x6709; 8 &#x500B; bit&#xFF09;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5F97;&#x5230; 16,384 bytes&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E00;&#x9996;&#x4E09;&#x5206;&#x9418;&#x7684;&#x6B4C;&#x66F2;&#xFF0C;&#x5728;&#x56FA;&#x5B9A;&#x78BC;&#x7387;&#x7684;&#x72C0;&#x6CC1;&#xFF0C;&#x6A94;&#x6848;&#x5927;&#x5C0F;&#x5C31;&#x5728; 3mb &#x5DE6;&#x53F3;&#xFF08;128 * 1024 / 8 * 3 * 60 = 2949120&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x58D3;&#x7E2E;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x9084;&#x6709;&#x6240;&#x8B02;&#x7684;<strong>&#x8B8A;&#x52D5;&#x78BC;&#x7387;</strong>&#xFF08; VBR&#xFF0C;Variable Bit Rate&#xFF09;&#x8207;<strong>&#x56FA;&#x5B9A;&#x78BC;&#x7387;</strong>&#xFF08; CBR&#xFF0C;Constant Bit Rate&#xFF09;&#x3002;&#x5982;&#x679C;&#x67D0;&#x500B; packet &#x7576;&#x4E2D;&#x51FA;&#x73FE;&#x7684;&#x6578;&#x5B57;&#x90FD;&#x975E;&#x5E38;&#x8FD1;&#x4F3C;&#xFF0C;&#x50CF;&#x662F;&#x9019;&#x500B; packet &#x4E2D;&#x7684;&#x8072;&#x97F3;&#x90FD;&#x662F;&#x975C;&#x97F3;&#x7684;&#xFF0C;&#x90A3;&#x9EBC;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x6709;&#x6A5F;&#x6703;&#x53EF;&#x4EE5;&#x628A;&#x9019;&#x500B; packet &#x58D3;&#x7E2E;&#x5F97;&#x66F4;&#x5C0F;&#xFF0C;&#x65BC;&#x662F;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x6574;&#x500B; MP3 &#x6A94;&#x6848;&#x58D3;&#x7E2E;&#x5F97;&#x66F4;&#x5C0F;&#xFF0C;&#x800C;&#x6BCF;&#x500B; packet &#x7684;&#x5927;&#x5C0F;&#x5247;&#x4E0D;&#x4E00;&#xFF0C;&#x9019;&#x5C31;&#x662F;&#x8B8A;&#x52D5;&#x78BC;&#x7387;&#x3002;&#x5982;&#x679C;&#x6211;&#x5011;&#x95DC;&#x9589;&#x9019;&#x7A2E;&#x884C;&#x70BA;&#xFF0C;&#x8B93;&#x6BCF;&#x500B; packet &#x7684;&#x5927;&#x5C0F;&#x56FA;&#x5B9A;&#xFF0C;&#x5C31;&#x662F;&#x56FA;&#x5B9A;&#x78BC;&#x7387;&#x3002;</p>
+<h2 id="packet&#x3001;&#x4EE5;&#x53CA;-mp3-&#x6A94;&#x6848;&#x7684;&#x9577;&#x5EA6;">Packet&#x3001;&#x4EE5;&#x53CA; MP3 &#x6A94;&#x6848;&#x7684;&#x9577;&#x5EA6;</h2>
+<p>&#x5728;&#x5C07; PCM &#x7DE8;&#x78BC;&#x6210; MP3 &#x683C;&#x5F0F;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x6211;&#x5011;&#x4E26;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x58D3;&#x7E2E;&#x6574;&#x500B;&#x6A94;&#x6848;&#xFF0C;&#x800C;&#x662F;&#x5148;&#x5C07;&#x9023;&#x7E8C;&#x7684; Binary Data &#x5207;&#x6210;&#x8A31;&#x591A;&#x5C0F;&#x584A;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x628A;&#x4E00;&#x5C0F;&#x584A;&#x3001;&#x4E00;&#x5C0F;&#x584A;&#x7684;&#x8CC7;&#x6599;&#x58D3;&#x7E2E;&#x8D77;&#x4F86;&#x4E4B;&#x5F8C;&#xFF0C;&#x518D;&#x628A;&#x58D3;&#x7E2E;&#x5F8C;&#x7684;&#x8CC7;&#x6599;&#x9023;&#x63A5;&#x8D77;&#x4F86;&#x3002;&#x7528;&#x4F86;&#x5C0D;&#x9019;&#x6A23;&#x5C0F;&#x584A;&#x8CC7;&#x6599;&#x505A;&#x58D3;&#x7E2E;/&#x89E3;&#x58D3;&#x7E2E;&#x7684;&#x7A0B;&#x5F0F;&#xFF0C;&#x53EB;&#x505A; <strong>codec</strong>&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x5C0F;&#x584A;&#x7684;&#x55AE;&#x4F4D;&#xFF0C;&#x53EB;&#x505A; packet&#xFF08;&#x901A;&#x5E38;&#x5728;&#x53F0;&#x7063;&#x7A31;&#x547C; packet &#x70BA;&#x5C01;&#x5305;&#xFF09;&#x3002;&#x6216;&#x9019;&#x9EBC;&#x8AAA;&#xFF1A;codec &#x5C31;&#x662F;&#x8CA0;&#x8CAC;&#x58D3;&#x7E2E;/&#x89E3;&#x58D3;&#x7E2E; packet &#x7684;&#x7A0B;&#x5F0F;&#x3002;</p>
+<p>&#x5728; MP3 &#x683C;&#x5F0F;&#x4E2D;&#xFF0C;&#x6BCF;&#x500B; packet &#x7576;&#x4E2D;&#xFF0C;&#x901A;&#x5E38;&#x6703;&#x6709; 1152 &#x500B;&#x63A1;&#x6A23;&#xFF08;&#x5176;&#x5BE6;&#x4E5F;&#x53EF;&#x80FD;&#x6703;&#x6709; 384 &#x6216; 576 &#x9019;&#x6A23;&#x7684;&#x63A1;&#x6A23;&#x6578;&#x5B57;&#xFF0C;&#x4F46;&#x5BE6;&#x5728;&#x5F88;&#x5C11;&#x7528;&#x5230;&#xFF09;&#xFF0C;&#x5982;&#x6B64;&#x4E00;&#x4F86;&#xFF0C;&#x5C31;&#x5F80;&#x5F80;&#x6703;&#x9047;&#x5230;&#x5FC5;&#x9808;&#x8981;&#x5728;&#x6700;&#x5F8C;&#x4E00;&#x500B; packet &#x4E2D;&#xFF0C;&#x900F;&#x904E;&#x586B;&#x5165; 0 &#x88DC;&#x8DB3; packet &#x9577;&#x5EA6;&#x7684;&#x60C5;&#x5F62;&#xFF0C;&#x53E6;&#x5916;&#xFF0C;&#x8A31;&#x591A;&#x7684; encoder &#x4E5F;&#x6703;&#x5728;&#x6A94;&#x6848;&#x7684;&#x524D;&#x5F8C;&#x88DC;&#x4E0A;&#x4E00;&#x4E9B;&#x975C;&#x97F3;&#x7684;&#x63A1;&#x6A23;&#xFF08;&#x50CF; LAME &#x9019;&#x500B; encoder &#x5C31;&#x662F;&#x5982;&#x6B64;&#xFF0C;&#x53C3;&#x898B; LAME &#x7684;<a href="https://lame.sourceforge.io/tech-FAQ.txt" target="_blank">&#x8AAA;&#x660E;</a>&#xFF09;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x5011;&#x8981;&#x6709;&#x4E00;&#x500B;&#x91CD;&#x8981;&#x7684;&#x89C0;&#x5FF5;&#xFF1A;<strong>&#x7576;&#x6211;&#x5011;&#x5728;&#x8F49;&#x63DB;&#x97F3;&#x6A94;&#x683C;&#x5F0F;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x97F3;&#x6A94;&#x7684;&#x9577;&#x5EA6;&#x662F;&#x6703;&#x6539;&#x8B8A;&#x7684;</strong>&#x3002;</p>
+<p>&#x4EE5; CD &#x97F3;&#x8CEA;&#x4F86;&#x8AAA;&#xFF0C;&#x7531;&#x65BC;&#x4E00;&#x79D2;&#x9418;&#x6709; 44100 &#x500B;&#x63A1;&#x6A23;&#xFF0C;&#x4E5F;&#x5C31;&#x4EE3;&#x8868;&#xFF0C;&#x9019;&#x500B;&#x6A94;&#x6848;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x6642;&#x9593;&#x55AE;&#x4F4D;&#x662F; 1/44100 &#x79D2;&#xFF0C;&#x800C; MP3 &#x683C;&#x5F0F;&#x7684;&#x6700;&#x5C0F;&#x6642;&#x9593;&#x55AE;&#x4F4D;&#x5247;&#x662F; 1152/44100 &#x79D2;&#xFF1B;&#x5047;&#x4F7F;&#x6211;&#x5011;&#x73FE;&#x5728;&#x6709;&#x4E00;&#x500B;&#x525B;&#x597D;&#x4E00;&#x79D2;&#x9418;&#x7684; PCM &#x6A94;&#x6848;&#xFF0C;&#x60F3;&#x8981;&#x8F49;&#x63DB;&#x6210; MP3 &#x683C;&#x5F0F;&#xFF0C;44100/1152 &#x662F; 38.28125&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5B8C;&#x6574;&#x5305;&#x542B;&#x9019;&#x4E00;&#x79D2;&#x7684;&#x8CC7;&#x6599;&#xFF0C;MP3 &#x683C;&#x5F0F;&#x5C31;&#x5F97;&#x7528;&#x5230; 39 &#x500B; packet&#xFF0C;&#x4F46;&#x662F;&#x7B2C; 39 &#x500B; packet &#x5F97;&#x5728;&#x5F8C;&#x9762;&#x88DC;&#x4E0A;&#x96F6;&#xFF0C;&#x800C;&#x8F49;&#x51FA;&#x4F86;&#x7684; MP3 &#x4E5F;&#x4E0D;&#x6703;&#x662F;&#x4E00;&#x79D2;&#x9418;&#xFF0C;&#x800C;&#x662F; 1.0187755102 &#x79D2;&#x3002;</p>
+<p>Client &#x7AEF;&#x7684; player &#x5728;&#x64AD;&#x653E; MP3 &#x6642;&#xFF0C;&#x4E0D;&#x7528;&#x628A;&#x9019;&#x500B;&#x6A94;&#x6848;&#x5168;&#x90E8;&#x6293;&#x4E0B;&#x4F86;&#xFF0C;&#x53EA;&#x8981;&#x7D2F;&#x7A4D;&#x4E00;&#x5B9A;&#x9577;&#x5EA6;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x8A8D;&#x70BA;&#x9019;&#x500B;&#x9577;&#x5EA6;&#x8DB3;&#x5920;&#x9806;&#x66A2;&#x64AD;&#x653E;&#xFF0C;&#x5C31;&#x6703;&#x958B;&#x59CB;&#x64AD;&#x653E;&#x3002;&#x8A08;&#x7B97;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x770B;&#x7D2F;&#x7A4D;&#x4E86;&#x591A;&#x5C11; packet&#xFF1A;&#x5F9E;&#x4E0A;&#x9762;&#x90A3;&#x500B;&#x4F8B;&#x5B50;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5982;&#x679C; Player &#x627E;&#x5230;&#x4E86; 39 &#x500B; packet&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#xFF0C;&#x9019;&#x500B;&#x6A94;&#x6848;&#x6709;&#x5927;&#x6982;&#x4E00;&#x79D2;&#x5DE6;&#x53F3;&#x7684;&#x8CC7;&#x6599;&#xFF1B;&#x5982;&#x679C; client &#x7AEF;&#x89BA;&#x5F97;&#xFF0C;&#x6709;&#x4E86;&#x4E94;&#x79D2;&#x9418;&#x5DE6;&#x53F3;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#xFF0C;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x958B;&#x59CB;&#x5C07; MP3 &#x8F49;&#x63DB;&#x6210; PCM &#x64AD;&#x653E;&#x3002;&#x5982;&#x679C;&#x7DB2;&#x8DEF;&#x6709;&#x9EDE;&#x5361;&#x9813;&#xFF0C;&#x9020;&#x6210;&#x67D0;&#x6BB5;&#x8CC7;&#x6599;&#x64AD;&#x653E;&#x5B8C;&#x7562;&#xFF0C;&#x4F46;&#x662F;&#x7B49;&#x4E0D;&#x5230;&#x63A5;&#x4E0B;&#x4F86;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x9019;&#x6642;&#x5019; player &#x5C31;&#x6703;&#x9032;&#x5165;&#x6240;&#x8B02; <strong>stall</strong> &#x7684;&#x72C0;&#x614B;&#xFF1A;player &#x6703;&#x5148;&#x66AB;&#x505C;&#xFF0C;&#x7B49;&#x5230;&#x7E7C;&#x7E8C;&#x7D2F;&#x7A4D;&#x5230;&#x5920;&#x591A;&#x7684; packet&#xFF0C;&#x624D;&#x63A5;&#x7E8C;&#x64AD;&#x653E;&#x3002;</p>
+<p>&#x800C;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x4E00;&#x9996; MP3 &#x6B4C;&#x66F2;&#x6709;&#x591A;&#x9577;&#xFF0C;&#x5C31;&#x662F;&#x628A;&#x9019;&#x500B;&#x6A94;&#x6848;&#x8B80;&#x904E;&#x4E00;&#x6B21;&#xFF0C;&#x627E;&#x51FA;&#x9019;&#x500B;&#x6A94;&#x6848;&#x6709;&#x591A;&#x5C11; packet&#xFF0C;&#x7136;&#x5F8C;&#x7528; packet &#x7684;&#x6578;&#x91CF;&#x7B97;&#x51FA;&#x6642;&#x9593;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x539F;&#x672C;&#x662F;&#x540C;&#x4E00;&#x9996;&#x6B4C;&#x66F2;&#xFF0C;&#x7D93;&#x904E;&#x8F49;&#x6A94;&#x4E4B;&#x5F8C;&#xFF0C;&#x5728;&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x4E0B;&#x7684;&#x9577;&#x5EA6;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5728;&#x7D93;&#x71DF;&#x97F3;&#x6A02;&#x670D;&#x52D9;&#xFF0C;&#x60F3;&#x8981;&#x7D71;&#x8A08;&#x7528;&#x6236;&#x5C0D;&#x4E00;&#x9996;&#x6B4C;&#x66F2;&#x5230;&#x5E95;&#x64AD;&#x653E;&#x4E86;&#x591A;&#x5C11;&#x6642;&#x9593;&#xFF0C;&#x4E5F;&#x5FC5;&#x9808;&#x628A;&#x9019;&#x4E9B;&#x5DEE;&#x7570;&#x8003;&#x616E;&#x9032;&#x53BB;&#xFF0C;&#x5373;&#x4F7F;&#x7528;&#x6236;&#x64AD;&#x653E;&#x7684;&#x662F;&#x540C;&#x4E00;&#x9996;&#x6B4C;&#x66F2;&#xFF0C;&#x4F46;&#x56E0;&#x70BA;&#x9078;&#x64C7;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6700;&#x5F8C;&#x56DE;&#x5831;&#x7684;&#x64AD;&#x653E;&#x9577;&#x5EA6;&#xFF0C;&#x4E5F;&#x9084;&#x662F;&#x6703;&#x6709;&#x6BEB;&#x79D2;&#x7B49;&#x7D1A;&#x7684;&#x5DEE;&#x5225;&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x540C;&#x6642;&#x63D0;&#x4F9B;&#x4E00;&#x9996;&#x6B4C;&#x66F2;&#x7684; MP3 &#x8207; AAC &#x7248;&#x672C;&#xFF0C;&#x5728; AAC &#x683C;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E00;&#x500B; packet &#x7684;&#x5927;&#x5C0F;&#x662F; 1024&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;MP3 &#x8207; AAC &#x683C;&#x5F0F;&#x7684;&#x9577;&#x5EA6;&#x5C31;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
+<p>&#x4EE5;&#x5716;&#x5F62;&#x8868;&#x793A; MP3 &#x683C;&#x5F0F;&#xFF0C;&#x5927;&#x6982;&#x6703;&#x50CF;&#x9019;&#x6A23;&#xFF1A;</p>
+<p><img src="mp3_layout.png" alt="MP3 packets"></p>
+<h2 id="mp3-frame-header">MP3 Frame Header</h2>
+<p>&#x4E00;&#x500B; MP3 &#x6A94;&#x6848;&#x4E2D;&#xFF0C;&#x6240;&#x5305;&#x542B;&#x7684;&#x662F;&#x9023;&#x7E8C;&#x7684; Binary Data&#xFF0C;&#x4E0D;&#x904E;&#xFF0C;&#x5728;&#x6211;&#x5011;&#x7DE8;&#x88FD; MP3 &#x6A94;&#x6848;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x6703;&#x5728;&#x6BCF;&#x500B; packet &#x524D;&#x65B9;&#x52A0;&#x4E0A;&#x4E00;&#x5C0F;&#x6BB5; header&#xFF0C;&#x7531;&#x65BC;&#x9019;&#x7A2E; header &#x6709;&#x660E;&#x986F;&#x7684;&#x7279;&#x5FB5;&#xFF0C;Player &#x53EA;&#x8981;&#x627E;&#x5230; header&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x54EA;&#x88E1;&#x662F; packet &#x7684;&#x958B;&#x982D;&#x8207;&#x7D50;&#x5C3E;&#xFF0C;&#x628A; packet &#x8CC7;&#x6599;&#x62BD;&#x51FA;&#x4F86;&#xFF0C;&#x4EA4;&#x7D66; codec &#x89E3;&#x58D3;&#x7E2E;&#xFF0C;&#x8F49;&#x6210; PCM &#x683C;&#x5F0F;&#xFF0C;&#x4E4B;&#x5F8C;&#x5C31;&#x53EF;&#x4EE5;&#x4EA4;&#x7D66;&#x4F5C;&#x696D;&#x7CFB;&#x7D71;&#x7684;&#x97F3;&#x8A0A; API &#x64AD;&#x653E;&#x3002;</p>
+<p>&#x6BCF;&#x500B; header &#x7684;&#x9577;&#x5EA6;&#x70BA; 4 &#x500B; bytes&#xFF0C;&#x6700;&#x5927;&#x7684;&#x7279;&#x8272;&#x662F;&#x524D; 11 &#x500B; bit &#x90FD;&#x662F; 1&#xFF0C;&#x9019;&#x4E00;&#x6BB5;&#x53EB;&#x505A; <strong>Syncword</strong>&#x3002;&#x627E;&#x5230; syncword &#x4E4B;&#x5F8C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7E7C;&#x7E8C;&#x628A;&#x5F8C;&#x9762;&#x7684; bit &#x90FD;&#x8B80;&#x5B8C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230; Mpeg Audio &#x7248;&#x672C;&#xFF08;&#x5728; MP3 &#x4E4B;&#x524D;&#x9084;&#x6709; MP1&#x3001;MP2 &#x5169;&#x7A2E;&#x683C;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x4E26;&#x4E0D;&#x6D41;&#x884C;&#xFF0C;&#x4F46;&#x662F; MP3 Header &#x9084;&#x662F;&#x628A;&#x9019;&#x500B;&#x7248;&#x672C;&#x5217;&#x5165;&#x898F;&#x683C;&#x4E2D;&#xFF09;&#x3001;&#x58D3;&#x7E2E;&#x5F8C;&#x7684; bitrate&#x2026;&#x7B49;&#x7B49;&#x8CC7;&#x8A0A;&#x3002;</p>
+<p><img src="mp3_header.png" alt="MP3 Header"></p>
+<p>&#x5982;&#x679C;&#x6211;&#x5011;&#x6253;&#x958B; MP3 header &#x7684;<a href="http://www.mp3-tech.org/programmer/frame_header.html" target="_blank">&#x898F;&#x683C;&#x66F8;</a>&#xFF0C;&#x6703;&#x770B;&#x5230;&#x4E00;&#x4E32;&#x300C;AAAAAAAA AAABBCCD EEEEFFGH IIJJKLMM&#x300D;&#x50CF;&#x662F;&#x5929;&#x66F8;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x8981;&#x88AB;&#x5687;&#x5230;&#xFF0C;&#x9019;&#x4E32;&#x6587;&#x5B57;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x9019; 4 &#x500B; bytes&#x3001;32 &#x500B; bit &#x4E2D;&#x3001;&#x6BCF;&#x500B; bit &#x7684;&#x7528;&#x9014;&#x3002;&#x50CF;&#x662F;&#x4E00;&#x958B;&#x982D;&#x7684; 11 &#x7684; A&#xFF0C;&#x5C31;&#x662F;&#x6211;&#x5011;&#x4E0A;&#x9762;&#x8B1B;&#x5230;&#x7684; syncword&#x3002;</p>
+<p>&#x7528;&#x4F86;&#x5C07; header&#x3001;packet &#x5F9E;&#x9023;&#x7E8C;&#x7684; Binary Data &#x627E;&#x51FA;&#x4F86;&#x7684;&#x7A0B;&#x5F0F;&#xFF0C;&#x53EB;&#x505A; <strong>Parser</strong>&#x3002;&#x5C0D;&#x65BC;&#x6709;&#x8655;&#x7406;&#x904E; Binary Data &#x7684;&#x5DE5;&#x7A0B;&#x5E2B;&#x4F86;&#x8AAA;&#xFF0C;&#x90FD;&#x6709;&#x8FA6;&#x6CD5;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x64B0;&#x5BEB;&#x51FA; MP3 Parser&#xFF0C;&#x81F3;&#x65BC; MP3 codec &#x5247;&#x5F88;&#x9577;&#x6642;&#x9593;&#x53D7;&#x5230;&#x6B0A;&#x5229;&#x4FDD;&#x8B77;&#xFF0C;&#x4E00;&#x822C;&#x5DE5;&#x7A0B;&#x5E2B;&#x4E5F;&#x6C92;&#x4EC0;&#x9EBC;&#x6A5F;&#x6703;&#x76F4;&#x63A5;&#x63A5;&#x89F8; codec&#x3002;&#x800C;&#x5728;&#x50CF;&#x662F; macOS &#x6216; iOS &#x7B49;&#x860B;&#x679C;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x860B;&#x679C;&#x53EA;&#x63D0;&#x4F9B;&#x6211;&#x5011; decode MP3 &#x7684; codec&#xFF0C;&#x800C;&#x6C92;&#x6709; encode MP3 &#x7684; codec&#x3002;</p>
+<h2 id="id3">ID3</h2>
+<p>MP3 &#x683C;&#x5F0F;&#x672C;&#x8EAB;&#x53EA;&#x6709;&#x5B9A;&#x7FA9;&#x8072;&#x97F3;&#x8CC7;&#x6599;&#x7684;&#x90E8;&#x4EFD;&#xFF0C;&#x4F46;&#x5F88;&#x591A;&#x6642;&#x5019;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x95DC;&#x65BC;&#x97F3;&#x6A94;&#x7684;&#x984D;&#x5916;&#x63CF;&#x8FF0;&#x8CC7;&#x6599;&#xFF0C;&#x50CF;&#x662F;&#x9019;&#x7A2E;&#x6B4C;&#x7684;&#x6B4C;&#x540D;&#xFF0C;&#x6B4C;&#x624B;&#x662F;&#x8AB0;&#x3001;&#x51FA;&#x81EA;&#x54EA;&#x5F35;&#x5C08;&#x8F2F;&#x3001;&#x5C6C;&#x65BC;&#x54EA;&#x7A2E;&#x6A02;&#x98A8;&#x2026;&#x4E5F;&#x5C31;&#x662F;&#x82F1;&#x6587;&#x6240;&#x7A31;&#x7684; metadata&#xFF0C;&#x4E26;&#x6C92;&#x6709;&#x5305;&#x542B;&#x5728; MP3 &#x683C;&#x5F0F;&#x7684;&#x898F;&#x7BC4;&#x88E1;&#x3002;&#x6211;&#x5011;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x97F3;&#x6A94;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#xFF0C;&#x50CF;&#x662F; iTunes&#xFF08;&#x5728; macOS 10.15 &#x4E4B;&#x5F8C;&#x6539;&#x540D; Music&#xFF09;&#x3001;VLC &#x7B49;&#x7B49;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5F9E;&#x6A94;&#x6848;&#x4E2D;&#x77E5;&#x9053;&#x9019;&#x4E9B;&#x8CC7;&#x8A0A;&#xFF0C;&#x5247;&#x662F;&#x900F;&#x904E; <a href="https://en.wikipedia.org/wiki/ID3" target="_blank">ID3</a> &#x683C;&#x5F0F;&#x3002;</p>
+<p><img src="mp3_with_id3.png" alt="&#x52A0;&#x4E0A; ID3 &#x7684; MP3 &#x6A94;&#x6848;"></p>
+<p>ID3 metadata &#x4E5F;&#x662F;&#x4E00;&#x9023;&#x4E32;&#x7684; binary data&#xFF0C;&#x76EE;&#x524D;&#x6BD4;&#x8F03;&#x901A;&#x884C;&#x7684;&#x662F;&#x7B2C;&#x4E8C;&#x7248;&#x7684; ID3v2&#xFF0C;&#x6703;&#x51FA;&#x73FE;&#x5728;&#x6574;&#x500B; MP3 &#x6A94;&#x6848;&#x6700;&#x524D;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#x3002;ID3 &#x8CC7;&#x6599;&#x7684;&#x524D;&#x4E09;&#x500B; bytes &#x5C31;&#x662F; &quot;ID3&quot; &#x9019;&#x4E09;&#x500B;&#x5B57;&#x5143;&#x7684; ASCII code&#x3002;&#x5728;&#x8B80;&#x53D6; MP3 &#x6A94;&#x6848;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x53EA;&#x8981;&#x4E00;&#x958B;&#x59CB;&#x5C31;&#x8B80;&#x5230;&#x9019;&#x4E09;&#x500B;&#x5B57;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5224;&#x65B7;&#x9019;&#x500B;&#x6A94;&#x6848;&#x6709; ID3 &#x8CC7;&#x8A0A;&#xFF1B;&#x63A5;&#x8457;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x4F86;&#x8655;&#x7406;&#x6B63;&#x6BB5;&#x8CC7;&#x6599;&#x7684;&#x524D; 10 &#x500B; bytes&#xFF0C;&#x5728;&#x9019; 10 &#x500B; bytes &#x4E2D;&#xFF0C;&#x9664;&#x4E86; &quot;ID3&quot; &#x9019;&#x4E09;&#x500B;&#x5B57;&#x4E4B;&#x5916;&#xFF0C;&#x9084;&#x5305;&#x542B;&#x4E86;&#x9019;&#x662F;&#x90A3;&#x500B;&#x7248;&#x672C;&#x7684; ID3&#xFF0C;&#x4EE5;&#x53CA;&#x6574;&#x6BB5; ID3 &#x8CC7;&#x6599;&#x5340;&#x6BB5;&#x7684;&#x9577;&#x5EA6;&#x6709;&#x591A;&#x5C11;&#x7B49;&#x8CC7;&#x8A0A;&#x2026;&#x6211;&#x5011;&#x5C31;&#x4E00;&#x76F4;&#x8B80;&#x5230;&#x9019;&#x500B;&#x9577;&#x5EA6;&#x7BC4;&#x570D;&#x3002;</p>
+<p>&#x6709;&#x4E00;&#x9EDE;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;ID3 &#x683C;&#x5F0F;&#x4E2D;&#xFF0C;&#x662F;&#x7528; 28 &#x4F4D;&#x5143;&#x4E0D;&#x5E36;&#x6B63;&#x8CA0;&#x865F;&#x6574;&#x6578;&#xFF08;UInt28&#xFF09;&#xFF0C;&#x63CF;&#x8FF0; ID3 &#x8CC7;&#x6599;&#x7684;&#x9577;&#x5EA6;&#x3002;28 &#x4F4D;&#x5143;&#x6574;&#x6578;&#x9019;&#x500B;&#x898F;&#x683C;&#x6709;&#x9EDE;&#x5947;&#x5999;&#xFF0C;&#x7E3D;&#x9577;&#x5EA6;&#x5176;&#x5BE6;&#x4E5F;&#x662F; 4 &#x500B; bytes&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x500B; byte &#x7684;&#x7B2C;&#x4E00;&#x500B; bit &#x8981;&#x6368;&#x68C4;&#x6389;&#xFF0C;&#x7136;&#x5F8C;&#xFF0C;&#x7528;&#x9019;&#x56DB;&#x500B; bytes &#x7684;&#x5269;&#x4E0B; 7 &#x500B; bit&#xFF0C;&#x7D44;&#x5408;&#x51FA;&#x4E00;&#x500B;&#x6574;&#x6578;&#x3002;</p>
+<p>&#x5F9E;&#x7B2C; 11 &#x500B; byte &#x958B;&#x59CB;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x8B80;&#x51FA;&#x4E00;&#x500B;&#x500B;&#x7684; ID3 frame&#xFF0C;&#x6BCF;&#x500B; ID3 frame &#x4E5F;&#x662F;&#x7531; header &#x8207; body &#x7D44;&#x6210;&#xFF0C;&#x5728; header &#x4E2D;&#x53EF;&#x4EE5;&#x8B80;&#x51FA;&#x9019;&#x500B; frame &#x4EE3;&#x8868;&#x4EC0;&#x9EBC;&#x3001;&#x4EE5;&#x53CA; body &#x7684;&#x9577;&#x5EA6;&#xFF0C;body &#x5247;&#x662F;&#x5BE6;&#x969B;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x50CF;&#x662F;&#x6B4C;&#x540D;&#x3001;&#x6B4C;&#x624B;&#x2026;&#x7B49;&#xFF1A;</p>
+<ul>
+<li>&#x6BCF;&#x6B21;&#x5148;&#x8B80; 10 &#x500B; bytes<ul>
+<li>&#x524D; 4 &#x500B; bytes &#x662F; Tag ID&#xFF0C;&#x50CF; <code>TALB</code> &#x5C31;&#x662F;&#x5C08;&#x8F2F;&#x540D;&#x7A31;&#x3001;<code>TCOM</code> &#x662F;&#x4F5C;&#x66F2;&#x8005;&#x2026;</li>
+<li>5-8 &#x9019; 4 &#x500B; bytes &#x662F; frame body &#x7684;&#x9577;&#x5EA6;&#xFF0C;&#x4E5F;&#x662F; 28 &#x4F4D;&#x5143;&#x7121;&#x6B63;&#x8CA0;&#x865F;&#x6574;&#x6578;</li>
+<li>2 &#x500B; bytes &#x7684; padding</li>
+</ul>
+</li>
+<li>&#x7136;&#x5F8C;&#x6839;&#x64DA; header &#x4E2D;&#x7684; frame body &#x9577;&#x5EA6;&#xFF0C;&#x5F80;&#x4E0B;&#x8B80;&#x53D6;<ul>
+<li>frame body &#x7684;&#x7B2C;&#x4E00;&#x500B; byte&#xFF0C;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x9019;&#x500B;&#x8CC7;&#x8A0A;&#x4F7F;&#x7528;&#x7684;&#x5B57;&#x5143;&#x7DE8;&#x78BC;&#x65B9;&#x5F0F;<ul>
+<li>0&#xFF1A;ASCII</li>
+<li>1&#xFF1A;UTF-16-LE</li>
+<li>2&#xFF1A;UTF-18-BE</li>
+<li>3&#xFF1A;UTF-8</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>&#x6BCF;&#x6BB5;&#x8CC7;&#x6599;&#x7684;&#x9577;&#x5EA6;&#x5982;&#x4E0B;&#x5716;&#xFF1A;</p>
+<p><img src="id3.png" alt="ID3 Tag &#x9577;&#x5EA6;"></p>
+<p>&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x53C3;&#x8003; ID3 &#x7DB2;&#x7AD9;&#x4E0A;&#x7684;<a href="http://id3.org/id3v2.3.0" target="_blank">&#x898F;&#x683C;</a>&#x3002;</p>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528; Hex Editor &#x6253;&#x958B;&#x4E00;&#x500B; MP3 &#x6A94;&#x6848;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x767C;&#x73FE;&#x6211;&#x5011;&#x6240;&#x8B1B;&#x5230;&#x7684;&#x91CD;&#x9EDE;&#xFF1A;</p>
+<p><img src="hex_editor.png" alt="&#x7528; Hex Editor &#x6253;&#x958B; MP3"></p>
+<ul>
+<li>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x9019;&#x500B; MP3 &#x6A94;&#x6848;&#x7684;&#x958B;&#x982D;&#x662F; &quot;ID3&quot;&#xFF0C;&#x4EE3;&#x8868;&#x5305;&#x542B;&#x4E86; ID3 &#x8CC7;&#x8A0A;</li>
+<li>&#x7531;&#x65BC; syncword &#x662F;&#x9023;&#x7E8C; 11 &#x500B; 1&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x53BB;&#x627E; &quot;FFFB&quot;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x627E;&#x5230; packet &#x7684;&#x958B;&#x982D;</li>
+<li>&#x9019;&#x88E1;&#x7684;&#x7B2C;&#x4E00;&#x500B; packet&#xFF0C;&#x5176;&#x5BE6;&#x662F; LAME &#x52A0;&#x4E0A;&#x53BB;&#x7684;&#x975C;&#x97F3; packet</li>
+</ul>
+<h2 id="mp3-&#x683C;&#x5F0F;&#x7684;&#x512A;&#x7F3A;&#x9EDE;">MP3 &#x683C;&#x5F0F;&#x7684;&#x512A;&#x7F3A;&#x9EDE;</h2>
+<p>&#x6BCF;&#x500B; packet &#x524D;&#x9762;&#x90FD;&#x6709;&#x4E00;&#x500B;&#x6A94;&#x982D;&#xFF0C;&#x540C;&#x6642;&#x662F; MP3 &#x683C;&#x5F0F;&#x7684;&#x512A;&#x9EDE;&#x8207;&#x7F3A;&#x9EDE;&#x3002;&#x597D;&#x8655;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x64AD;&#x653E;&#x8EDF;&#x9AD4;&#x900F;&#x904E;&#x7DB2;&#x8DEF;&#xFF0C;&#x63A5;&#x53D7;&#x5230;&#x4E86;&#x4E00;&#x6BB5;&#x9023;&#x7E8C;&#x7684; MP3 &#x8CC7;&#x6599;&#xFF0C;&#x53EA;&#x8981;&#x64AD;&#x653E;&#x5668;&#x5F9E;&#x8CC7;&#x6599;&#x4E2D;&#x767C;&#x73FE;&#x4E00;&#x500B; syncword&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x627E;&#x5230; packet &#x4E26;&#x4E14;&#x958B;&#x59CB;&#x64AD;&#x653E;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x56E0;&#x70BA;&#x7DB2;&#x8DEF;&#x50B3;&#x8F38;&#x554F;&#x984C;&#xFF0C;&#x9020;&#x6210;&#x67D0;&#x4E00;&#x8CC7;&#x6599;&#x907A;&#x5931;&#xFF0C;&#x90A3;&#x9EBC;&#xFF0C;&#x4E00;&#x6A23;&#x53EA;&#x8981;&#x7E7C;&#x7E8C;&#x5F80;&#x4E0B;&#x8B80;&#x53D6;&#xFF0C;&#x627E;&#x5230; syncword&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6062;&#x5FA9;&#x64AD;&#x653E;&#x3002;</p>
+<p>MP3 &#x683C;&#x5F0F;&#x7684;&#x9019;&#x7A2E;&#x7279;&#x6027;&#xFF0C;&#x5728; 90 &#x5E74;&#x4EE3;&#x9020;&#x5C31;&#x4E86;&#x50CF;&#x662F; <a href="https://www.shoutcast.com/" target="_blank">shoutcast</a> &#x9019;&#x6A23;&#x7684;&#x7DB2;&#x8DEF;&#x5EE3;&#x64AD;&#x96FB;&#x53F0;&#x3002;Shoutcast &#x6280;&#x8853;&#x8B93; client &#x8207; server &#x4E4B;&#x9593;&#x5EFA;&#x7ACB; socket &#x9023;&#x7DDA;&#xFF0C;server &#x4E0D;&#x65B7;&#x5411; client &#x7AEF;&#x50B3;&#x9001;&#x9023;&#x7E8C;&#x7684; MP3 &#x8CC7;&#x6599;&#xFF0C;client &#x7AEF;&#x4E00;&#x958B;&#x59CB;&#x9023;&#x4E0A;&#x6642;&#xFF0C;&#x4E26;&#x4E0D;&#x8A8D;&#x5F97;&#x6700;&#x524D;&#x9762;&#x7684;&#x4E00;&#x4E9B; bytes&#xFF0C;&#x4F46;&#x53EA;&#x8981;&#x8B80;&#x5230;&#x7B2C;&#x4E00;&#x500B; syncword&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8B93;&#x7528;&#x6236;&#x958B;&#x59CB;&#x4EAB;&#x53D7;&#x7DB2;&#x8DEF;&#x5EE3;&#x64AD;&#x3002;</p>
+<p>&#x4F46;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x4E00;&#x500B; MP3 &#x97F3;&#x6A94;&#x7684;&#x5BE6;&#x969B;&#x9577;&#x5EA6;&#xFF0C;&#x4EE5;&#x53CA;&#x50CF;&#x662F;&#x64AD;&#x653E;&#x4F4D;&#x7F6E;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x6703;&#x5C0D;&#x61C9;&#x5230;&#x6A94;&#x6848;&#x7684;&#x54EA;&#x500B;&#x4F4D;&#x7F6E;&#xFF0C;MP3 &#x5C31;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x6548;&#x7387;&#x7684;&#x683C;&#x5F0F;&#x3002;&#x6211;&#x5011;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x7E3D;&#x9577;&#x5EA6;&#xFF0C;&#x5C31;&#x5F97;&#x628A;&#x6574;&#x500B;&#x6A94;&#x6848;&#x8B80;&#x53D6;&#x4E00;&#x6B21;&#xFF0C;&#x624D;&#x6709;&#x8FA6;&#x6CD5;&#x77E5;&#x9053;&#x7E3D;&#x5171;&#x6709;&#x591A;&#x5C11; packet&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x5F97;&#x8B80;&#x53D6;&#x4E86;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x7684;&#x8CC7;&#x6599;&#xFF0C;&#x624D;&#x6709;&#x8FA6;&#x6CD5;&#x8981;&#x6C42;&#x64AD;&#x653E;&#x8EDF;&#x9AD4; seek &#x5230;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x64AD;&#x653E;&#x3002;</p>
+<p>&#x6BD4;&#x65B9;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x6709;&#x4E00;&#x500B;&#x653E;&#x5728; web server &#x4E0A;&#x7684; MP3 &#x97F3;&#x6A94;&#xFF0C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5728;&#x64AD;&#x653E;&#x9019;&#x500B;&#x6A94;&#x6848;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x76F4;&#x63A5;&#x5F9E;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x958B;&#x59CB;&#x64AD;&#x653E;&#xFF0C;&#x66F4;&#x6709;&#x6548;&#x7387;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4E00;&#x958B;&#x59CB;&#x5C31;&#x77E5;&#x9053;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x662F;&#x6574;&#x500B;&#x6A94;&#x6848;&#x7684;&#x7B2C;&#x5E7E;&#x500B; byte&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x76F4;&#x63A5;&#x5E36;&#x4E86; <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests" target="_blank">Range HTTP Header</a> &#x7684; HTTP &#x9023;&#x7DDA;&#xFF0C;&#x76F4;&#x63A5;&#x5F9E;&#x90A3;&#x500B;&#x4F4D;&#x7F6E;&#x958B;&#x59CB;&#x6293;&#x6A94;&#xFF0C;Server &#x5C31;&#x6703;&#x56DE;&#x61C9; HTTP status code &#x70BA; <a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status/206" target="_blank">206</a> &#x7684;&#x56DE;&#x61C9;&#xFF0C;&#x53EA;&#x7D66;&#x6211;&#x5011;&#x90A3;&#x4E00;&#x6BB5;&#x8CC7;&#x6599;&#xFF0C;&#x7701;&#x53BB;&#x8F09;&#x5165;&#x524D;&#x4E00;&#x5206;&#x591A;&#x9418;&#x7684;&#x6642;&#x9593;&#x3002;</p>
+<p>&#x90A3;&#x9EBC;&#xFF0C;&#x6211;&#x5011;&#x6709;&#x4EC0;&#x9EBC;&#x8FA6;&#x6CD5;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x4E00;&#x5206;&#x96F6;&#x4E09;&#x79D2;&#x5230;&#x5E95;&#x5728;&#x6A94;&#x6848;&#x7684;&#x54EA;&#x88E1;&#xFF1F;&#x5982;&#x679C;&#x662F;&#x56FA;&#x5B9A;&#x78BC;&#x7387;&#x7684;&#x6A94;&#x6848;&#xFF0C;&#x6211;&#x5011;&#x5927;&#x6982;&#x9084;&#x6709;&#x8FA6;&#x6CD5;&#x63A8;&#x7B97;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x662F;&#x8B8A;&#x52D5;&#x78BC;&#x7387;&#x5462;&#xFF1F;</p>
+<p>&#x65BC;&#x662F;&#xFF0C;&#x6211;&#x5011;&#x767C;&#x73FE;&#xFF0C;&#x5728; MP3 &#x4E4B;&#x5F8C;&#x7684;&#x8A31;&#x591A;&#x6A94;&#x6848;&#x683C;&#x5F0F;&#xFF0C;&#x662F;&#x8B93; codec &#x8207; <strong>container</strong> &#xFF08;&#x4E2D;&#x6587;&#x901A;&#x5E38;&#x53EB;&#x300C;&#x5BB9;&#x5668;&#x300D;&#xFF0C;&#x4F46;&#x7FD2;&#x6163;&#x4E0A;&#x9084;&#x662F;&#x76F4;&#x63A5;&#x8B1B;&#x82F1;&#x6587;&#xFF09;&#x5206;&#x5BB6;&#x7684;&#x3002;codec &#x8CA0;&#x8CAC;&#x7684;&#x662F; packet &#x7684;&#x58D3;&#x7E2E;/&#x89E3;&#x58D3;&#x7E2E;&#xFF0C;&#x800C; container &#x5247;&#x8CA0;&#x8CAC;&#x5B89;&#x6392; packet &#x8207; packet &#x7684; header &#x7684;&#x64FA;&#x653E;&#x65B9;&#x5F0F;&#xFF0C;&#x50CF; AAC &#x97F3;&#x6A94;&#x5C31;&#x6709;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x7684; container &#x683C;&#x5F0F;&#x3002;&#x5728;&#x860B;&#x679C;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x901A;&#x5E38;&#x628A; codec &#x683C;&#x5F0F;&#x53EB;&#x505A; audio format&#x3001;&#x628A; container &#x53EB;&#x505A; file format&#x3002;</p>
+<h2 id="&#x6539;&#x8B8A;-bit-rate-&#x6703;&#x6539;&#x8B8A;-sample-rate-&#x55CE;&#xFF1F;">&#x6539;&#x8B8A; Bit Rate &#x6703;&#x6539;&#x8B8A; Sample Rate &#x55CE;&#xFF1F;</h2>
+<p>&#x4E4B;&#x524D;&#x6709;&#x500B;&#x540C;&#x4E8B;&#x6709;&#x9EDE;&#x628A; Bit Rate &#x8207; Sample Rate &#x641E;&#x6DF7;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x554F;&#x6211;&#xFF0C;MP3 &#x660E;&#x660E;&#x5C31;&#x6703;&#x628A;&#x6A94;&#x6848;&#x58D3;&#x5C0F;&#xFF0C;&#x70BA;&#x4EC0;&#x9EBC;&#x58D3;&#x7E2E;&#x4E4B;&#x5F8C;&#xFF0C;Sample Rate &#x4E26;&#x6C92;&#x6709;&#x6539;&#x8B8A;&#xFF1F;&#x6211;&#x5C31;&#x8209;&#x4E86;&#x4E00;&#x500B;&#x5716;&#x6A94;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6709;&#x4E00;&#x5F35; 1920 x 1080 &#x89E3;&#x6790;&#x5EA6;&#x7684;&#x5716;&#x6A94;&#xFF0C;&#x5728;&#x5132;&#x5B58;&#x6210; JPEG &#x5716;&#x5F62;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x5404;&#x7A2E;&#x4FEE;&#x5716;&#x8EDF;&#x9AD4;&#x6216;&#x662F;&#x8F49;&#x6A94;&#x8EDF;&#x9AD4;&#xFF0C;&#x6703;&#x8A62;&#x554F;&#x4F60;&#x8981;&#x600E;&#x6A23;&#x7684;&#x6BD4;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x628A;&#x5716;&#x6A94;&#x58D3;&#x7E2E;&#x5F97;&#x8D8A;&#x5C0F;&#xFF0C;&#x90A3;&#x9EBC;&#x58D3;&#x7E2E;&#x4E4B;&#x5F8C;&#x7684;&#x5716;&#x7247;&#x5C31;&#x6703;&#x8D8A;&#x5931;&#x771F;&#xFF0C;&#x4F46;&#x4E0D;&#x7BA1;&#x4F60;&#x600E;&#x9EBC;&#x58D3;&#x7E2E;&#xFF0C;&#x4F60;&#x91CD;&#x65B0;&#x6253;&#x958B;&#x9019;&#x4E00;&#x5F35;&#x5716;&#x6A94;&#xFF0C;&#x89E3;&#x6790;&#x5EA6;&#x4ECD;&#x7136;&#x662F; 1920 x 1080&#x3002;&#x97F3;&#x6A94;&#x4E5F;&#x662F;&#x540C;&#x6A23;&#x7684;&#x9053;&#x7406;&#xFF0C;&#x5C0D;&#x65BC; MP3 &#x9019;&#x4E9B;&#x683C;&#x5F0F;&#x4F86;&#x8AAA;&#xFF0C;&#x4E0D;&#x7BA1;&#x4F60;&#x628A;&#x97F3;&#x6A94;&#x58D3;&#x7E2E;&#x5F97;&#x591A;&#x5C0F;&#xFF0C;&#x6700;&#x5F8C; codec &#x628A;&#x58D3;&#x7E2E;&#x97F3;&#x6A94;&#x9084;&#x539F;&#x6210;&#x539F;&#x59CB; PCM &#x683C;&#x5F0F;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x9084;&#x662F;&#x4E00;&#x6A23;&#x7684; Sample Rate&#x3002;</p>
+<p>&#x800C;&#x6539;&#x8B8A; Sample Rate &#x9019;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F03;&#x50CF;&#x662F;&#x4F60;&#x628A;&#x4E00;&#x5F35; 1920 x 1080 &#x7684;&#x5716;&#x7247;&#x8F49;&#x6210; 1280 x 720 &#x7684;&#x5716;&#x6A94;&#x3002;</p>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script><footer><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDVV7L35X0');
+</script><p>&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x6642;&#x9593;&#xFF1A;2022/02/07 03:23 CST</p>
+</footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../pcm/" class="navigation navigation-prev " aria-label="Previous page: PCM 格式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../aac/" class="navigation navigation-next " aria-label="Next page: AAC 與 MP4 格式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MP3 與 ID3 格式","level":"1.3","depth":1,"next":{"title":"AAC 與 MP4 格式","level":"1.4","depth":1,"path":"aac/README.md","ref":"aac/README.md","articles":[]},"previous":{"title":"PCM 格式","level":"1.2","depth":1,"path":"pcm/README.md","ref":"pcm/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["japanese-support","toc","tree","-sharing","code","-lunr","-search","search-pro","splitter","extra-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/epub.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"toc":{"addClass":true,"className":"toc"},"extra-html":{"footer":{"files":["./ga.html"]},"header":{}},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"tree":{}},"theme":"default","author":"Weizhong Yang a.k.a zonble <zonble@gmail.com>","bookRoot":"https://zonble.github.io/understanding_audio_files/","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"認識音檔（公開版本）","language":"zh-TW","gitbook":"*","description":"一份專門講解音檔格式的小冊子"},"file":{"path":"mp3/README.md","mtime":"2022-02-06T19:23:06.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-06T19:23:50.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/jquery.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-tree/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-extra-html/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
