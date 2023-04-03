@@ -50,6 +50,10 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
+extra_css:
+  - css/extra.css
+  - css/pdf-print.css
+
 extra:
   social:
     - icon: fontawesome/brands/github
