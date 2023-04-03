@@ -26,9 +26,5 @@ build/Release
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 
-/_book/
-/book.pdf
-/book.epub
-/book.mobi
-package-lock.json
-package.json
+/site
+.cache

@@ -1,0 +1,57 @@
+@media print {
+  hr {
+    display: none;
+  }
+
+  .pdf-order {
+    display: none;
+  }
+
+  body {
+    font-family: serif;
+    font-size: 12pt;
+  }
+
+  p {
+    font-family: serif;
+    font-size: 12pt;
+  }
+
+  li {
+    font-family: serif;
+    font-size: 12pt;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Noto Sans TC", sans-serif !important;
+  }
+
+  h1 {
+    font-size: 28pt !important;
+  }
+
+  h2 {
+    font-size: 24pt !important;
+  }
+
+  h3 {
+    font-size: 20pt !important;
+  }
+
+  h4 {
+    font-size: 18pt !important;
+  }
+
+  h5 {
+    font-size: 16pt !important;
+  }
+
+  h6 {
+    font-size: 14pt !important;
+  }
+}

@@ -1,0 +1,99 @@
+site_name: 認識音檔（公開版本）
+site_url: https://zonble.github.io/understanding_audio_files/
+repo_url: https://github.com/zonble/understanding_audio_files
+repo_name: zonble/understanding_audio_files
+copyright: 2022 and onwards © Weizhong Yang a.k.a zonble
+site_description: 一本關於音檔格式的技術小冊子
+site_author: Weizhong Yang a.k.a zonble
+theme:
+  name: material
+  language: "zh-TW"
+  custom_dir: custom_theme/
+  palette:
+    - scheme: default
+      primary: white
+      accent: pink
+      toggle:
+        name: Switch to light mode
+        icon: material/weather-sunny
+    - scheme: slate
+      primary: black
+      accent: pink
+      toggle:
+        name: Switch to dark mode
+        icon: material/weather-night
+
+  # palette:
+  #   primary: amber
+  font:
+    text: Lato
+  features:
+    - navigation.tracking
+    - navigation.instant
+    # - toc.integrate
+    - navigation.top
+
+plugins:
+  - offline
+  - search:
+      lang: en
+  - social:
+      cards_font: Noto Sans TC
+  # - with-pdf:
+  #     copyright: 2022 © 楊維中 a.k.a zonble
+  #     author: 楊維中 a.k.a zonble
+  #     cover_subtitle: 一本關於音檔格式的技術小冊子
+  #     toc_title: 目錄
+  #     output_path: understanding_audio_files.pdf
+
+markdown_extensions:
+  - footnotes
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zonble
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/zonble
+  analytics:
+    provider: google
+    property: G-HDVV7L35X0
+    feedback:
+      title: 這個網頁有用嗎？
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: 有用
+          data: 1
+          note: >-
+            謝謝您的回應！
+        - icon: material/emoticon-sad-outline
+          name: 沒用
+          data: 0
+          note: >-
+            謝謝您的回應！
+  search:
+    language: "jp"
+
+nav:
+  - "關於《認識音檔》": "index.md"
+  - "pcm/README.md"
+  - "mp3/README.md"
+  - "aac/README.md"
+  - "flac/README.md"
+  - "hls/README.md"
+  - "dash/README.md"
+  - "tools/README.md"
+  - "附註":
+      # - "misc/README.md"
+      - "misc/mp3_parser.md"
+      - "misc/aac_adts_parser.md"
+      - "misc/id3_parser.md"
+      - "misc/flac_streaminfo.md"
+      - "misc/version.md"
