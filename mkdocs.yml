@@ -22,9 +22,6 @@ theme:
       toggle:
         name: Switch to dark mode
         icon: material/weather-night
-
-  # palette:
-  #   primary: amber
   font:
     text: Lato
   features:
@@ -39,12 +36,12 @@ plugins:
       lang: en
   - social:
       cards_font: Noto Sans TC
-  # - with-pdf:
-  #     copyright: 2022 © 楊維中 a.k.a zonble
-  #     author: 楊維中 a.k.a zonble
-  #     cover_subtitle: 一本關於音檔格式的技術小冊子
-  #     toc_title: 目錄
-  #     output_path: understanding_audio_files.pdf
+  - with-pdf:
+      copyright: 2022 © 楊維中 a.k.a zonble
+      author: 楊維中 a.k.a zonble
+      cover_subtitle: 一本關於音檔格式的技術小冊子
+      toc_title: 目錄
+      output_path: understanding_audio_files.pdf
 
 markdown_extensions:
   - footnotes
