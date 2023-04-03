@@ -8,7 +8,6 @@ site_author: Weizhong Yang a.k.a zonble
 theme:
   name: material
   language: "zh-TW"
-  custom_dir: custom_theme/
   palette:
     - scheme: default
       primary: white
@@ -73,7 +72,6 @@ nav:
   - "dash/README.md"
   - "tools/README.md"
   - "附註":
-      # - "misc/README.md"
       - "misc/mp3_parser.md"
       - "misc/aac_adts_parser.md"
       - "misc/id3_parser.md"
