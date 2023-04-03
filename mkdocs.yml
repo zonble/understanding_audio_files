@@ -27,11 +27,9 @@ theme:
   features:
     - navigation.tracking
     - navigation.instant
-    # - toc.integrate
     - navigation.top
 
 plugins:
-  - offline
   - search:
       lang: en
   - social:
@@ -62,19 +60,6 @@ extra:
   analytics:
     provider: google
     property: G-HDVV7L35X0
-    # feedback:
-    #   title: 這個網頁有用嗎？
-    #   ratings:
-    #     - icon: material/emoticon-happy-outline
-    #       name: 有用
-    #       data: 1
-    #       note: >-
-    #         謝謝您的回應！
-    #     - icon: material/emoticon-sad-outline
-    #       name: 沒用
-    #       data: 0
-    #       note: >-
-    #         謝謝您的回應！
   search:
     language: "jp"
 
