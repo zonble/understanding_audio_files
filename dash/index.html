@@ -1,0 +1,1052 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一本關於音檔格式的技術小冊子">
+      
+      
+        <meta name="author" content="Weizhong Yang a.k.a zonble">
+      
+      
+        <link rel="canonical" href="https://zonble.github.io/understanding_audio_files/dash/">
+      
+      
+        <link rel="prev" href="../hls/">
+      
+      
+        <link rel="next" href="../tools/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>MPEG-DASH 與 Widevine DRM - 認識音檔（公開版本）</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/pdf-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-HDVV7L35X0"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-HDVV7L35X0",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-HDVV7L35X0",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="MPEG-DASH 與 Widevine DRM - 認識音檔（公開版本）" >
+      
+        <meta  property="og:description"  content="一本關於音檔格式的技術小冊子" >
+      
+        <meta  property="og:image"  content="https://zonble.github.io/understanding_audio_files/assets/images/social/dash/README.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://zonble.github.io/understanding_audio_files/dash/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="MPEG-DASH 與 Widevine DRM - 認識音檔（公開版本）" >
+      
+        <meta  name="twitter:description"  content="一本關於音檔格式的技術小冊子" >
+      
+        <meta  name="twitter:image"  content="https://zonble.github.io/understanding_audio_files/assets/images/social/dash/README.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mpeg-dash-widevine-drm" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href=".." title="認識音檔（公開版本）" class="md-header__button md-logo" aria-label="認識音檔（公開版本）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            認識音檔（公開版本）
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MPEG-DASH 與 Widevine DRM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zonble/understanding_audio_files" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zonble/understanding_audio_files
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="認識音檔（公開版本）" class="md-nav__button md-logo" aria-label="認識音檔（公開版本）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    認識音檔（公開版本）
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zonble/understanding_audio_files" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zonble/understanding_audio_files
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    關於《認識音檔》
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pcm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PCM 格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mp3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MP3 格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AAC 與 MP4 格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAC 格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HLS 與 FairPlay DRM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MPEG-DASH 與 Widevine DRM
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MPEG-DASH 與 Widevine DRM
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      MPD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmp4" class="md-nav__link">
+    <span class="md-ellipsis">
+      fMP4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fMP4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fmp4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      連續的 fMP4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mpeg-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      播放 MPEG-DASH 串流
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widevine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widevine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Widevine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      離線下載
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-widevine-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 iOS 上播放 Widevine 保護的 DASH 串流
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用相關工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    附註
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            附註
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/mp3_parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MP3 Parser 範例
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/aac_adts_parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AAC-ADTS Parser 範例
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/id3_parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ID3 Parser 範例
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/flac_streaminfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAC Stream Info Encoder 範例
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/version/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件版本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      MPD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmp4" class="md-nav__link">
+    <span class="md-ellipsis">
+      fMP4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fMP4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fmp4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      連續的 fMP4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mpeg-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      播放 MPEG-DASH 串流
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widevine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widevine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Widevine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      離線下載
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-widevine-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 iOS 上播放 Widevine 保護的 DASH 串流
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="mpeg-dash-widevine-drm">MPEG-DASH 與 Widevine DRM</h1>
+<p>HLS 與蘋果生態系綁得非常緊密，在蘋果的生態系之外，就經常可以看到使用 MPEG-DASH 做為線上串流的解決方案。</p>
+<p>DASH 是 Dynamic Adaptive Streaming over HTTP，大概可以翻譯成「基於 HTTP 上的動態適應串流」（通常不太會有人這樣稱呼），跟 HLS 一樣，可以用在直播/影片/音訊等各種媒體應用上。DASH 是一套 MPEG 公開標準，並且與許多的軟硬體廠商組成一個聯盟—<a href="https://dashif.org/">DASH IF</a>（DASH Industry Forum），成員包括 Google、微軟、SONY、Intel、Akamai…等（參見 DASH IF 的<a href="https://dashif.org/members/">頁面</a>）。</p>
+<p>DASH 也是目前 Google 主要推廣的串流技術，我們可以看到 Google 為 Dash 格式做了許多播放軟體以及相關工具，而 <a href="https://www.widevine.com/">Widevine</a> 便是 Google 用來保護 Dash 格式包裝的內容的 DRM 機制，用在 Chrome 瀏覽器、Android 行動裝置與 Android TV 上。</p>
+<p>從名稱上就可以看出，Dash 與 HLS 相近，也是一套建立在 HTTP 的基礎上，利用 HTTP server 的能力承受大量連線與流量。所以，在 Dash 與 HLS 之間，雖然是不同的格式，但是有一些觀念可以互通：例如，HLS 的 playlist 檔案是 <code>.m3u8</code> 檔案，在 Dash 中可以對應到 <strong>MPD</strong>，在 HLS 中，實際的影音資料是放在 TS 檔案中，在 Dash 中則使用 <strong>fMP4</strong>（Fragmented MP4）格式。</p>
+<h2 id="mpd">MPD</h2>
+<p>播放 HLS 的時候，播放器要先載入 <code>.m3u8</code> 檔案，在播放 Dash 的時候，則要讓播放器載入 MPD，全名是 Media Presentation Description。</p>
+<p>MPD 的格式與 <code>.m3u8</code> 有些不同， <code>.m3u8</code> 檔案是一行一行寫下來的文字格式，MPD 則是 XML 格式，當中記錄了這個串流（影片或聲音）的基本資料，以及實際上要載入的媒體資料位置。</p>
+<p>在 DASH-IF 網站上，有一些<a href="https://reference.dashif.org/dash.js/latest/samples/dash-if-reference-player/index.html">測試用的 MPD</a>，可以讓我們了解 Dash 規格。我們來打開其中一個看看， <a href="https://livesim.dashif.org/dash/vod/testpic_2s/audio.mpd">48K AAC LC Stereo Beeps</a> 是一個只會連續發出一個小時嗶嗶聲的純 audio 串流，當中內容是這樣的：</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;MPD</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;urn:mpeg:dash:schema:mpd:2011&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd&quot;</span><span class="w"> </span><span class="na">profiles=</span><span class="s">&quot;urn:mpeg:dash:profile:isoff-live:2011,http://dashif.org/guidelines/dash-if-simple&quot;</span><span class="w"> </span><span class="na">maxSegmentDuration=</span><span class="s">&quot;PT2S&quot;</span><span class="w"> </span><span class="na">minBufferTime=</span><span class="s">&quot;PT2S&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;static&quot;</span><span class="w"> </span><span class="na">mediaPresentationDuration=</span><span class="s">&quot;PT1H&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nt">&lt;ProgramInformation&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="nt">&lt;Title&gt;</span>Media<span class="w"> </span>Presentation<span class="w"> </span>Description<span class="w"> </span>for<span class="w"> </span>audio<span class="w"> </span>only<span class="w"> </span>from<span class="w"> </span>DASH-IF<span class="w"> </span>live<span class="w"> </span>simulator<span class="nt">&lt;/Title&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="nt">&lt;/ProgramInformation&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="nt">&lt;Period</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;precambrian&quot;</span><span class="w"> </span><span class="na">start=</span><span class="s">&quot;PT0S&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&lt;AdaptationSet</span><span class="w"> </span><span class="na">contentType=</span><span class="s">&quot;audio&quot;</span><span class="w"> </span><span class="na">mimeType=</span><span class="s">&quot;audio/mp4&quot;</span><span class="w"> </span><span class="na">lang=</span><span class="s">&quot;eng&quot;</span><span class="w"> </span><span class="na">segmentAlignment=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">startWithSAP=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">         </span><span class="nt">&lt;Role</span><span class="w"> </span><span class="na">schemeIdUri=</span><span class="s">&quot;urn:mpeg:dash:role:2011&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;main&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">         </span><span class="nt">&lt;SegmentTemplate</span><span class="w"> </span><span class="na">startNumber=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">initialization=</span><span class="s">&quot;$RepresentationID$/init.mp4&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;$RepresentationID$/$Number$.m4s&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">         </span><span class="nt">&lt;Representation</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;A48&quot;</span><span class="w"> </span><span class="na">codecs=</span><span class="s">&quot;mp4a.40.2&quot;</span><span class="w"> </span><span class="na">bandwidth=</span><span class="s">&quot;48000&quot;</span><span class="w"> </span><span class="na">audioSamplingRate=</span><span class="s">&quot;48000&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="nt">&lt;AudioChannelConfiguration</span><span class="w"> </span><span class="na">schemeIdUri=</span><span class="s">&quot;urn:mpeg:dash:23003:3:audio_channel_configuration:2011&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">         </span><span class="nt">&lt;/Representation&gt;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&lt;/AdaptationSet&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">   </span><span class="nt">&lt;/Period&gt;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">&lt;/MPD&gt;</span>
+</span></code></pre></div>
+<p>在檔案的開頭，我們先看到一堆 XML 宣告。這個 XML 的 root node 是 <code>MPD</code>，然後 XML 的 scheme 位在哪個位置…。接下來 <code>ProgramInformation</code> 是關於內容的描述，我們知道這個影片的標題是「Media Presentation Description for audio only from DASH-IF live simulator」。</p>
+<p>然後是 <code>Period</code> 與 <code>AdaptationSet</code>。<code>Period</code> 表示的是這個節目有哪些時間區段，比方說，如果這個 MPD 表示的是一場演唱會，那麼，我們就可能會用上多個 <code>Period</code>，表示演唱會當中每一首歌的時間區間。在這段時間內，可以有多種不同品質（音質或畫質）的媒體可以選用—比方說，如果是影片的話，就可能有 360p、480p…等等不同的解析度—播放器會根據目前的網路狀況選擇最適合的。</p>
+<p><code>AdaptationSet</code> 就代表一組可用的畫質/音質，相關的檔案位置與 codec 資訊…等。在這個檔案中，由於只有一種音質的資料，所以也就只有一組 <code>AdaptationSet</code>，在有多種品質可以挑選的 MPD 中，就會看到多組 <code>AdaptationSet</code>。</p>
+<p>從 <code>SegmentTemplate</code> 中，我們可以看到音檔的 URL 的組合規則：</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;SegmentTemplate</span><span class="w"> </span><span class="na">startNumber=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">initialization=</span><span class="s">&quot;$RepresentationID$/init.mp4&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;$RepresentationID$/$Number$.m4s&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div>
+<p>這代表，根據 <code>initialization</code> 當中的資料，我們應該首先載入 init.mp4，然後根據編號（$Number$ 是一個變數，是從 1 開始的一連串數字）逐一載入後面的 m4s 檔案。在組成 URL 的時候，首先根據 MPD 所在的位置，找出這些檔案應該所在的根目錄路徑。</p>
+<ul>
+<li>這個 MPD 位在 <code>https://livesim.dashif.org/dash/vod/testpic_2s/audio.mpd</code></li>
+<li>所以這些檔案應該位在 <code>https://livesim.dashif.org/dash/vod/testpic_2s/</code> 之下</li>
+<li>我們要填入 <code>RepresentationID</code>，從 MPD 中可以看到，這邊的 ID 是 <code>A48</code>，所以再把這段加到 URL 上：
+  <code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/</code></li>
+<li>init.mp4 就位在 <code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/init.mp4</code></li>
+<li>後面的檔案規則就是 <code>https://livesim.dashif.org/dash/vod/testpic_2s/A48/1.mps</code>，依此類推</li>
+</ul>
+<h2 id="fmp4">fMP4</h2>
+<p>我們在講解 AAC 格式的時候提到 MP4 格式，也講到一個單獨的 MP4 的檔案，裡頭需要 <code>ftyp</code>、<code>moov</code>、<code>mdat</code> 這些基本的 atoms。</p>
+<p>在 DASH 中，我們把這些 atom 拆開：init.mp4 當中存放 <code>moov</code>，$Number$.m4s 裡頭則存放 <code>mdat</code> 資料，每個 m4s 檔案是把 <code>mdat</code> 中的影片資料根據一段定義好的時間長度切出來的小檔，這樣的小檔叫做 fragment。在播放的時候，播放器首先抓取 <code>moov</code>，然後一次又一次把這段 <code>moov</code> 與後面從 M4S 檔案中拿到的 <code>mdat</code> 結合起來播放。init.mp4 與 m4s 檔案中還有一些其他的 atoms，姑且不表。</p>
+<p>在 init.mp4 中的 <code>moov</code> 資訊：</p>
+<p><img alt="init.mp4 中的 moov 資訊" src="moov.png" /></p>
+<p>在 M4S 當中的 <code>mdat</code> 資訊：</p>
+<p><img alt="m4s 檔案中的 mdat 資訊" src="mdat.png" /></p>
+<p>我們在前面看到使用 <code>SegmentTemplate</code> 的範例，另外一種定義 m4s 檔案位置的作法，則是直接全部列出來。比方說，我們可以看一個來自 Wowza 的範例，這個 MPD 位在 <code>https://wowzaec2demo.streamlock.net/vod/elephantsdream_1100kbps-enc-wv.mp4/manifest_mvlist.mpd</code>，就寫成：</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;SegmentList</span><span class="w"> </span><span class="na">presentationTimeOffset=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">timescale=</span><span class="s">&quot;90000&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;900000&quot;</span><span class="w"> </span><span class="na">startNumber=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;Initialization</span><span class="w"> </span><span class="na">sourceURL=</span><span class="s">&quot;chunk_ctvideo_ridp0va0br994339_cinit_w1146251977_mpd.m4s&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;chunk_ctvideo_ridp0va0br994339_cn1_w1146251977_mpd.m4s&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;chunk_ctvideo_ridp0va0br994339_cn2_w1146251977_mpd.m4s&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;chunk_ctvideo_ridp0va0br994339_cn3_w1146251977_mpd.m4s&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span>...
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">&lt;/SegmentList&gt;</span>
+</span></code></pre></div>
+<h3 id="fmp4_1">連續的 fMP4</h3>
+<p>另外一種常見的作法，則是使用 fMP4 格式的檔案提供影音資料。</p>
+<p>因為我們已經看過前面用 init.mp4 加上一堆 M4S 檔案的例子，我們於是比較容易理解 fMP4 格式：fMP4 就是把這些檔案合併成一個大檔案。然後，MPD 當中會標明每個對應到一個 M4S 格式的 byte range，播放器在載入 MPD 之後，先抓取 fMP4 的開頭部分（對應到我們的 init.mp4），然後，根據 MPD 中定義的 byte range，透過帶有 Range HTTP header 的連線，只抓取 fMP4 檔案中想要的部份。</p>
+<p>這個檔案的資料大概像這樣：</p>
+<p><img alt="fMP4 中的資料排列" src="fmp4_layout.png" /></p>
+<p>我們可以來看看 YouTube 使用的 DASH 檔案。比方說，我們在 YouTube 上，打開一個我們自己上傳的頁面（在這邊用的是我在 2019 年寫的一首歌<a href="https://www.youtube.com/watch?v=82pzULHbL6c">《千千萬萬》</a>），然後查看頁面的 HTML 原始檔，就可以找到 dashManifestUrl 這段：</p>
+<p><img alt="YouTube 頁面" src="youtube_html.png" /></p>
+<p>因此我們可以知道，這部影片的 MPD 位在 <code>https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...</code> 。我們可以打開來看看（不過，這個 URL 有效期，你現在點下去應該沒用）：</p>
+<p><img alt="YouTube 的 MPD" src="youtube_mpd.png" /></p>
+<p>我們於是可以找到：首先，這部影片有一段資料格式是 <code>audio/mp4</code> 的 <code>AdaptationSet</code>，代表 YouTube 幫我們把影片的圖片跟音軌拆開來了，這邊有一段獨立的音軌，URL 也是位在 <code>https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...</code> 下方：</p>
+<p>然後是這兩段：</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;SegmentList</span><span class="w"> </span><span class="na">startNumber=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">timescale=</span><span class="s">&quot;1000&quot;</span><span class="nt">&gt;&lt;SegmentTimeline&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9985&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;9984&quot;</span><span class="nt">/&gt;&lt;S</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;7941&quot;</span><span class="nt">/&gt;&lt;/SegmentTimeline&gt;&lt;/SegmentList&gt;</span>
+</span></code></pre></div>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;SegmentList&gt;&lt;Initialization</span><span class="w"> </span><span class="na">sourceURL=</span><span class="s">&quot;range/0-640&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/961-62378&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/62379-123214&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/123215-184180&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/184181-245118&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/245119-305980&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/305981-366726&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/366727-427627&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/427628-488601&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/488602-549420&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/549421-610280&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/610281-671202&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/671203-732053&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/732054-792887&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/792888-853681&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/853682-914615&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/914616-975451&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/975452-1036483&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1036484-1097267&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1097268-1158216&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1158217-1219017&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1219018-1279927&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1279928-1340738&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1340739-1401680&quot;</span><span class="nt">/&gt;&lt;SegmentURL</span><span class="w"> </span><span class="na">media=</span><span class="s">&quot;range/1401681-1449774&quot;</span><span class="nt">/&gt;&lt;/SegmentList&gt;</span>
+</span></code></pre></div>
+<p>在 <code>SegmentTimeline</code> 當中，列出了這個音軌當中的時間軸，整個音軌被切成 24 的片段，每個 <code>S</code> 代表一個片段，裡頭的 <code>d</code> 則是這個片段的 duration，時間單位則根據 <code>SegmentTimeline</code> 當中的 <code>timescale</code>。以第一個 <code>S</code> 為例，代表的是這首歌的第一個時間區間，<code>d</code> 為 9985，<code>timescale</code> 為 1000，所以我們可以算出是 9.985 秒，整部影片大概是以十秒鐘為一個區間切成小片，最後一個 <code>S</code> 將近八秒，所以全部大概有 238 秒（3 分 58 秒）。</p>
+<p>每個 <code>S</code> 會對應到 <code>SegmentList</code> 裡頭的 <code>SegmentURL</code>。SegmentList 第一段 <code>Initialization</code> 就代表我們之前講到的 init.mp4 的角色，裡頭包含 <code>ftyp</code> 與 <code>moov</code> 等 atoms，這段在第 0 到第 640 個 byte 的位置，後面每個 <code>SegmentURL</code>，也都代表這個區段在檔案中的哪個 byte 到哪個 byte 的區間。</p>
+<p>所以，假如我們在播放這個檔案的時候，一開始就想從第 15 秒開始播放，我們就可以算出，第 15 秒位在第二個 <code>S</code> 定義的區段，這時候就只要發出帶 Range header 的 HTTP 連線，先抓取 0-640 的 <code>ftyp</code> 與 <code>moov</code> 等資訊，再直接去找第二個 <code>S</code> 的範圍 62379-123214，在載入這段檔案後，因為第二個 <code>S</code> 是從第 10 秒開始，只要再 seek 五秒鐘，就可以成功達成「從第 15 秒開始播放」。</p>
+<p>我們可以打開這個檔案看看：</p>
+<p>從 0-640，可以看到 <code>ftyp</code> 與 <code>moov</code>。</p>
+<p><img alt="0-640" src="fmp4_init.png" /></p>
+<p>從 62379 的一段 <code>mdat</code> 資料：</p>
+<p><img alt="62379" src="fmp4_mdat.png" /></p>
+<h2 id="mpeg-dash">播放 MPEG-DASH 串流</h2>
+<p>播放 MPEG-DASH 串流的流程大概是：</p>
+<ul>
+<li>抓取 MPD，並且解析裡頭的 XML</li>
+<li>從 MPD 中判斷有哪些 <code>Period</code> 與 <code>AdaptationSet</code></li>
+<li>從 <code>AdaptationSet</code> 中挑選最適合目前頻寬的影片/音軌的組合</li>
+<li>從 <code>AdaptationSet</code> 中組合出實際的 URL 播放</li>
+</ul>
+<p>DASH IF 本身提供一套 JavaScript 撰寫的播放軟體 <a href="https://reference.dashif.org/dash.js/">dash.js</a>，Google 這幾年在 Android 平台上致力推廣的 <a href="https://developer.android.com/guide/topics/media/exoplayer">ExoPlayer</a> 也支援 DASH 格式，另外也有一套在網頁上播放 DASH 的 <a href="https://shaka-player-demo.appspot.com/demo/#audiolang=en-US;textlang=en-US;uilang=en-US;panel=HOME;build=uncompiled">Shaka Player</a>，Google 在 Widevine SDK 的文件中，就建議使用這兩個 Player 元件。此外，還有各種支援 MPEG DASH 的實作，在這邊不一一列舉。</p>
+<p>在 iOS app 中播放 DASH 串流的方式有點迂迴。在 iOS 上我們看到的不是可以直接播放 DASH 的播放元件，而是把 DASH 轉成 HLS，然後用 AVPlayer 播放。</p>
+<p>Google 有一套叫做 <a href="https://github.com/google/universal-dash-transmuxer">Universal DASH Transmuxer</a>（簡稱 UDT）的軟體，是一套 Open Source 的函式庫，在 GitHub 上可以取得程式碼，裡頭就是將 DASH 轉換成 HLS 的相關實作，至於實際怎麼用，還是得看 Google 的 Widevine iOS SDK，但這部份沒有 Open Source。</p>
+<p>基本原理是：</p>
+<ul>
+<li>先在 app 中，開啟一個 local 的 HTTP server</li>
+<li>這個 local HTTP server 在背後抓取一個指定的 MPD</li>
+<li>解析 MPD，把裡頭的 <code>AdaptationSet</code> 抽取出來，轉換成 <code>.m3u8</code> 格式的 playlist，抓取 fMP4 的初始區段</li>
+<li>如果是受保護的 DASH 串流，這時候會去抓取 license</li>
+<li>當有 player 指定要播放某一段的 TS 時，local http server 在收到要求之後，再根據之前取得的 MPD，把對應的 M4S 檔案抓下來，並且轉換成 TS 格式回應</li>
+<li>如此不斷輪迴</li>
+</ul>
+<h2 id="widevine">Widevine</h2>
+<p>Widevine 保護內容的方式，是對 <code>mdat</code> atom 中的資料加密。一個受到 Widevine 保護的檔案，外觀上還是可以看出是一個 MP4 檔案，還是可以解析出 <code>ftyp</code>、<code>moov</code>、<code>mdat</code> 這些 atom，播放器需要先解析出 <code>mdat</code> 區段的資料，再透過一份 license 以及 Google 的演算法，把裡頭的資料解密回來。</p>
+<p>一個受到 Widevine 保護串流中，會在 MPD 當中，每一段 <code>AdaptationSet</code> 中，包含一段 <strong>PSSH</strong>（Protection System Specific Header）資訊。我們可以看一個<a href="https://wowzaec2demo.streamlock.net/live/bigbuckbunny-enc-wv.stream/manifest_mvtime.mpd">來自 Wowza 的 MPD</a>，就可以看到這段：</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;AdaptationSet</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">group=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">mimeType=</span><span class="s">&quot;video/mp4&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;512&quot;</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;288&quot;</span><span class="w"> </span><span class="na">par=</span><span class="s">&quot;16:9&quot;</span><span class="w"> </span><span class="na">frameRate=</span><span class="s">&quot;30&quot;</span><span class="w"> </span><span class="na">segmentAlignment=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">startWithSAP=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">subsegmentAlignment=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">subsegmentStartsWithSAP=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&lt;ContentProtection</span><span class="w"> </span><span class="na">schemeIdUri=</span><span class="s">&quot;urn:mpeg:dash:mp4protection:2011&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;cenc&quot;</span><span class="w"> </span><span class="na">cenc:default_KID=</span><span class="s">&quot;0294B959-9D75-5DE2-BBF0-FDCA3FA5EAB7&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&lt;ContentProtection</span><span class="w"> </span><span class="na">schemeIdUri=</span><span class="s">&quot;urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Widevine&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="nt">&lt;cenc:pssh&gt;</span>AAAAW3Bzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAADsIARIQApS5WZ11XeK78P3KP6XqtxoNd2lkZXZpbmVfdGVzdCIQZmtqM2xqYVNkZmFsa3IzaioCU0QyAA==<span class="nt">&lt;/cenc:pssh&gt;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&lt;/ContentProtection&gt;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&lt;SegmentTemplate</span><span class="w"> </span><span class="err">....</span><span class="nt">&gt;</span><span class="w"> </span>...<span class="w"> </span><span class="nt">&lt;/SegmentTemplate&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&lt;Representation</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;p0va0br676240&quot;</span><span class="w"> </span><span class="na">codecs=</span><span class="s">&quot;avc1.42c015&quot;</span><span class="w"> </span><span class="na">sar=</span><span class="s">&quot;1:1&quot;</span><span class="w"> </span><span class="na">bandwidth=</span><span class="s">&quot;676240&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nt">&lt;/AdaptationSet&gt;</span>
+</span></code></pre></div>
+<p>在 <code>&lt;cenc:pssh&gt;</code> 欄位中，就是我們所要的 PSSH 資訊，PSSH 接近我們在 HLS 裡頭用到的 Asset ID—在 HLS 裡頭，我們用 Asset ID 與蘋果簽發的 certificate 產生 SPC，在 Widevine 裡頭，我們也用 PSSH 與 <strong>CDM</strong> 產生出來的資訊，產生授權需求，上傳到 server 上產生、取得解密用的 license。</p>
+<p>CDM 全名 Content Decryption Module，在行動平台上，CDM 是一套用 C++ 寫成的 library，在每種平台上 CDM 的專屬軟體叫做 CDM host，Google 只有給第三方廠商編譯好的 binary 以及 certificate。</p>
+<p>我們首先用一些基本的裝置資訊，對 CDM host 進行初始話，然後，在抓到 PSSH 之後，我們把 PSSH 送到 CDM host 上，CDM host 再 callback 回來，回傳 CDM 組合好的憑證需求的資料，CDM 會把這段資料，送到我們的一段代理人程式－術語是發送（send）一段訊息（message）—我們就可以把這段資料傳到 Google 的 License Proxy 主機上（像 <code>https://license.widevine.com/getlicense/&lt;provider&gt;</code> 這樣的網址，參見 <a href="https://support.google.com/widevine/answer/6048495?hl=en">Google 文件</a>），取得 license。</p>
+<p>Google 提供的流程圖如下，再知道一些專有名詞的意義後，會比較好懂。這一段是傳送 PSSH 取得 license 的流程</p>
+<p><img alt="Widevine 流程" src="widevine.png" /></p>
+<p>在 Android 上，ExoPlayer 支援 Widevine DRM，詳情可以參考 ExoPlayer 的文件 <a href="https://exoplayer.dev/drm.html">Digital rights management</a>，主要是透過 Android 本身的 <a href="https://developer.android.com/reference/android/media/MediaDrm.html">MediaDrm</a> API 管理 DRM。</p>
+<p>在 iOS 上，拿到 license 之後，就可以為播放器準備 HLS 格式的串流：</p>
+<p><img alt="Widevine 加上 HLS 串流的流程" src="widevine_hls.png" /></p>
+<p>Web 上，這整套取得 license 的流程，被包在 EME 裡頭，Google 有一篇文件專門介紹 EME：<a href="https://developers.google.com/web/fundamentals/media/eme">What is EME?</a>。至於播放軟體方面，Google 也一樣推薦用 Shaka Player 播放 Winevine 保護的 Dash 串流。</p>
+<h3 id="_1">離線下載</h3>
+<p>Widevine 也支援離線播放。基本上，要下載一個 DASH 格式的串流，就是先打開 MPD、解析裡頭的內容，然後根據 <code>SegmentTemplate</code> 或 <code>SegmentList</code> 找到對應的檔案，把所有檔案以及 MPD 全部下載回來，然後在本地端維持相同的目錄結構即可。</p>
+<p>在播放離線檔案之前，一樣要一份 license，取得 license 的流程與線上播放的流程一模一樣，不過，需要額外跟告訴 CDM 我們要的是離線用的 license。取得 license 之後要自己在本機存放起來，並且注意這份 license 的期限是否過期—CDM 中有相關的 function，可以檢查 license 的到期時間，不過用戶似乎可以把系統時間改到過去，這點我們還沒有研究得很深。</p>
+<h3 id="ios-widevine-dash">在 iOS 上播放 Widevine 保護的 DASH 串流</h3>
+<p>前面提到，在 iOS 上播放 Dash 時，會在中間透過 UDT 轉換成 HLS 播放，而如果用 Widevine 的 iOS SDK 播放，轉換出的 HLS，會另外重新加密。iOS 版本的 Widevine DRM 裡頭也有一份 UDT，但這份 UDT 跟開放原始碼版本的 UDT 不同，中間加上了重新加密這段，而且 Google 也只有提供我們 binary 版本。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2022 and onwards © Weizhong Yang a.k.a zonble
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zonble" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/zonble" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.instant", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
