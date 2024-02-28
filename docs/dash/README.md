@@ -99,7 +99,7 @@ MPD 的格式與 `.m3u8` 有些不同， `.m3u8` 檔案是一行一行寫下來�
 
 ![YouTube 的 MPD](youtube_mpd.png)
 
-我們於是可以找到：首先，這部影片有一段資料格式是 `audio/mp4` 的 `AdaptationSet`，代表 YouTub 幫我們把影片的圖片跟音軌拆開來了，這邊有一段獨立的音軌，URL 也是位在 `https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...` 下方：
+我們於是可以找到：首先，這部影片有一段資料格式是 `audio/mp4` 的 `AdaptationSet`，代表 YouTube 幫我們把影片的圖片跟音軌拆開來了，這邊有一段獨立的音軌，URL 也是位在 `https://r5---sn-ipoxu-un5k.googlevideo.com/videoplayback/expire/1584618105/...` 下方：
 
 然後是這兩段：
 
