@@ -56,10 +56,7 @@ jobs:
         shell: bash
         run: |
           pip install pillow==9.0.0 cairosvg
-          pip install mkdocs
-          pip install mkdocs-material
-          pip install pillow cairosvg
-          pip install mkdocs-with-pdf
+          pip install -r requirements.txt
 
       - name: Build Book and Deploy
         shell: bash
