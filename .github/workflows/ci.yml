@@ -1,44 +1,105 @@
 name: build
+
 on:
   push:
-    branches:
-      - main
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-      - uses: actions/cache@v2
+          python-version: 3.8
+
+      - uses: actions/cache@v4
         with:
           key: ${{ github.ref }}
           path: .cache
-      - name: SetLocale
+
+      - name: Set Locale
+        shell: bash
         run: |
-          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
-          sudo localectl set-locale LANG="zh_TW.UTF-8"
-          export LANG="zh_TW.UTF-8"
-          sudo update-locale
-          locale -a
-          locale
-          locale -c -k LC_NUMERIC
-          localectl status
-      - name: Install Dependencies
+          sudo apt-get update
+          sudo apt-get install -y tzdata locales
+          sudo locale-gen zh_TW.UTF-8
+          sudo update-locale LANG=zh_TW.UTF-8
+          export LANG=zh_TW.UTF-8
+          locale -a || true
+          locale || true
+          locale -c -k LC_NUMERIC || true
+
+      - name: Install Fonts and Tools
+        shell: bash
         run: |
-          sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
-          sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
-          sudo apt-get install pandoc
+          sudo apt-get install -y \
+            fonts-arphic-ukai fonts-arphic-uming \
+            fonts-moe-standard-song fonts-moe-standard-kai \
+            fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra \
+            weasyprint pandoc curl ghostscript
           sudo fc-cache -f -v
+
       - name: Install Python Packages
+        shell: bash
         run: |
+          pip install pillow==9.0.0 cairosvg
           pip install mkdocs
           pip install mkdocs-material
           pip install pillow cairosvg
           pip install mkdocs-with-pdf
-          # pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
-      - name: Build Book
+
+      - name: Build Book and Deploy
+        shell: bash
         run: |
-          # sh gendoc.sh
-          mkdocs gh-deploy --force --clean --verbose
+          sh gendoc.sh
+          mkdocs build --clean --verbose
+          sh indexnow.sh
+
+      - name: Compress and Embed Fonts into PDF
+        shell: bash
+        run: |
+          gs -sDEVICE=pdfwrite \
+             -dCompatibilityLevel=1.4 \
+             -dPDFSETTINGS=/ebook \
+             -dEmbedAllFonts=true \
+             -dSubsetFonts=false \
+             -dCompressFonts=true \
+             -dNOPAUSE -dQUIET -dBATCH \
+             -sOutputFile=site/understanding_audio_files.tmp.pdf site/understanding_audio_files.pdf && \
+          mv site/understanding_audio_files.tmp.pdf site/understanding_audio_files.pdf
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Upload Final PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: ./site/zk3.pdf
+          if-no-files-found: error
+        if: always()
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
