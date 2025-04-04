@@ -26,6 +26,10 @@
 
 這本手冊使用 MIT License 釋出。
 
+## 補充
+
+我過去另外寫過一些跟 iOS/macOS 的音檔相關的文件，請參考 [KKBOX iOS/Mac OS X 基礎開發教材](https://kkbox.github.io/kkbox-ios-dev/) 的 [Audio API](https://kkbox.github.io/kkbox-ios-dev/audio_apis/) 章節。
+
 ## 連結
 
 - 這本手冊位在 <https://zonble.github.io/understanding_audio_files/>

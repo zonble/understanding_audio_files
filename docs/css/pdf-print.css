@@ -12,6 +12,11 @@
     font-size: 12pt;
   }
 
+  pre {
+    font-family: monospace;
+    font-size: 10pt;
+  }
+
   p {
     font-family: serif;
     font-size: 12pt;
