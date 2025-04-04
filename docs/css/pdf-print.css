@@ -14,18 +14,18 @@
 
   pre,
   code {
-    font-family: monospace;
-    font-size: 10pt;
+    font-family: monospace !important;
+    font-size: 10pt !important;
   }
 
   p {
-    font-family: serif;
-    font-size: 12pt;
+    font-family: serif !important;
+    font-size: 12pt !important;
   }
 
   li {
-    font-family: serif;
-    font-size: 12pt;
+    font-family: serif !important;
+    font-size: 12pt !important;
   }
 
   h1,
