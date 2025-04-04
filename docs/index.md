@@ -28,7 +28,8 @@
 
 ## 補充
 
-我過去另外寫過一些跟 iOS/macOS 的音檔相關的文件，請參考 [KKBOX iOS/Mac OS X 基礎開發教材](https://kkbox.github.io/kkbox-ios-dev/) 的 [Audio API](https://kkbox.github.io/kkbox-ios-dev/audio_apis/) 章節。
+- 我過去另外寫過一些跟 iOS/macOS 的音檔相關的文件，請參考 [KKBOX iOS/Mac OS X 基礎開發教材](https://kkbox.github.io/kkbox-ios-dev/) 的 [Audio API](https://kkbox.github.io/kkbox-ios-dev/audio_apis/) 章節。
+- 有一些朋友問：還有一些流行而且重要的格式，像是 Ogg Vorbis、Opus… 等等，為什麼沒有提到？最大的原因是，在我過去的工作經驗中，我真的沒有處理過這些格式，所以是在我的經驗與能力之外。
 
 ## 連結
 

@@ -82,3 +82,4 @@ nav:
       - "misc/id3_parser.md"
       - "misc/flac_streaminfo.md"
       - "misc/version.md"
+  - "PDF 版本": "https://zonble.github.io/understanding_audio_files/understanding_audio_files.pdf"
