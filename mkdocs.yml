@@ -59,7 +59,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/zonble
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/zonble
+      link: https://x.com/zonble
   analytics:
     provider: google
     property: G-HDVV7L35X0
@@ -69,6 +69,7 @@ extra:
 nav:
   - "關於《認識音檔》": "index.md"
   - "pcm/README.md"
+  - "wav/README.md"
   - "mp3/README.md"
   - "aac/README.md"
   - "flac/README.md"
