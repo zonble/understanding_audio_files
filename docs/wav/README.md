@@ -105,7 +105,7 @@ struct data_chunk {
 
 請注意這邊的數字都是 little endian 的格式，
 
-## 讀取 WAV 檔案的格式
+## 讀取 WAV 檔案
 
 在各種語言與框架中，其實都已經有許多處理 WAV 檔案的函式庫了，甚至直接內建，像是 Python 的 [wave](https://docs.python.org/3/library/wave.html) 模組、Java 的 [javax.sound.sampled](https://docs.oracle.com/javase/8/docs/api/javax/sound/sampled/package-summary.html) 套件…等等。
 
@@ -144,6 +144,38 @@ with wave.open("example.wav", "rb") as wav_file:
         print("非 16-bit 單聲道 WAV，這邊要改 decode 方式")
 
 ```
+
+## 不能只看副檔名
+
+我從 2020 年到 2024 年期間，在另外一家外商軟體公司服務。這家公司有完整的語音助理相關的技術，包括 ASR（Automatic Speech Recognition，語音識別，也就是語音轉文字）、TTS（Text to Speech，文字轉語音等）…在這家公司的 QA 流程中，往往會拿自己內部工具產生的 TTS 音檔，來測試 ASR 的準確度。由於內部工具有好幾套，所以有時候，一些 QA 人員會遇到一些問題—明明測試工具需要的輸入是 WAV 檔案，然後某一套 TTS 工具產生出來的檔案，副檔名也是 .wav，但是這個測試工具卻偏偏無法開啟這些檔案。
+
+原因出在，這些檔案雖然副檔名是 .wav，但是如果用 Hex Editor 打開的時候，卻發現這些檔案的開頭並不是 "RIFF"，而是一堆純文字。如果使用 macOS 與 Linux 底下的 `file` 命令檢查檔案，則會說，這是 NIST Sphere 格式的檔案。NIST Sphere 是美國國家標準技術研究院（NIST）為語音研究所設計的一種音訊檔案格式，主要應用在一些語言研究的資料庫中，副檔名也是 .wav 或是 .snd，在一般個人電腦的應用場合，像是平常錄音、或是音樂播放上，幾乎完全看不到，但是在研究單位，或是在語音相關的商業公司中，還是會遇到這樣的格式。
+
+NIST Sphere 格式的檔案開頭大概如下：
+
+```
+NIST_1A
+   1024
+```
+
+這兩行是固定的：
+
+- NIST_1A：表示這是 NIST Sphere 格式
+- 1024：表示 header 區塊的總長度（通常就是 1024 bytes）
+
+後面可能是這樣
+
+```
+database_id -s5 TIMIT
+sample_count -i 40000
+sample_rate -i 16000
+channel_count -i 1
+sample_n_bytes -i 2
+sample_byte_format -s2 01
+sample_coding -s7 pcm
+```
+
+大概就是一些像是採樣率、聲道數、採樣數量等資訊。如果要將這個檔案轉換成 WAV 檔案，可以使用 [sox](http://sox.sourceforge.net/) 這個工具。而最重要的是，一個檔案到底是不是 WAV，不只是看副檔名，而是要看實際的內容，在處理與音檔有關的工作時，時時都要準備好要用 Hex Editor 打開檔案，檢查內容。
 
 ## AIFF：蘋果的古老格式
 
