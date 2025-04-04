@@ -144,3 +144,13 @@ with wave.open("example.wav", "rb") as wav_file:
         print("非 16-bit 單聲道 WAV，這邊要改 decode 方式")
 
 ```
+
+## AIFF：蘋果的古老格式
+
+既然說到 WAV，在微軟與 IBM 定義的 RIFF 檔案格式之前，蘋果電腦在 1988 年就已經定義了 AIFF 檔案格式。AIFF 的全名是 Audio Interchange File Format，副檔名通常是 `.aiff` 或 `.aif`，這個檔案格式的結構與 RIFF 類似，只是它的 chunk ID 是大寫的 A、I、F、F，然後裡頭的數字不像 WAV 是 little endian，而是 big endian。再晚一點，1991 年時，蘋果又定義了一個 AIFF-C 格式（或 AIFC 格式），這個格式的結構與 AIFF 類似，只是它的 chunk ID 是大寫的 A、I、F、C，然後裡頭的內容做了一些壓縮。
+
+在 macOS 7 到 macOS 9 的年代，系統中的錄音程式叫做 SimpleSound，直接放在桌面的蘋果選單中，而蘋果系統中有名的提示聲，像是 Quack、Sosumi 等等，也都是這個格式的音檔。
+
+![Mac OS 8 當中的 SimpleSound](simple_sound.png)
+
+在 OSX 以及後來的 macOS 中，AIFF 的使用就愈來愈少，但還是可以在一些地方看到蘋果使用 AIFF，像是，系統中內建了一個語音合成命令 "say"，如果我們將 say 的輸出結果存檔，像是 `say "hi" -o hi.aiff`，就會產生一個 AIFF 檔案（其實是 AIFC）。但由於會處理這個格式的機會實在太少，在此不贅述。

@@ -12,7 +12,8 @@
     font-size: 12pt;
   }
 
-  pre {
+  pre,
+  code {
     font-family: monospace;
     font-size: 10pt;
   }
