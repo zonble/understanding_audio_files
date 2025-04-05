@@ -32,7 +32,7 @@ plugins:
   - search:
       lang: en
   - social:
-      cards_font: Noto Sans CJK TC
+      cards_font: Noto Sans TC
   - with-pdf:
       copyright: 2022 and onwards © 楊維中 a.k.a zonble
       author: 楊維中 a.k.a zonble
