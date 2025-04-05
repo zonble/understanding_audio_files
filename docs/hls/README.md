@@ -8,7 +8,7 @@ HLS 在 21 世紀第一個十年快要結束的時候推出，最大的意義就
 
 HLS 改變 client/server 之間建立 socket 連線的架構，從 HLS 的名稱就可以看出，利用 HTTP 技術解決人數上限問題。在直播訊源與眾多觀看直播的 client 之間，多了幾個步驟：首先直播訊源會將資料編碼成 fMP4 （我們在下一章討論）格式之後，送到一台主機上，這台主機會把每隔一段時間（比方說，每隔 5 秒、10 秒…）的影片，轉成一個小檔案—這種將連續的資料變成一個個資料切片的程式，我們叫做 segmenter，每個被切出來的小檔案叫做 ts（[MPEG Transport Stream](https://zh.wikipedia.org/wiki/MPEG2-TS)，也是一種封裝格式，因為我們不太會去解析這套格式，就不解釋了），這些被切出來的小檔案會被佈署到 **[CDN](https://zh.wikipedia.org/wiki/%E5%85%A7%E5%AE%B9%E5%82%B3%E9%81%9E%E7%B6%B2%E8%B7%AF)** 上，另外產生一個文字檔，附檔名是 `.m3u8`，是這些小檔案的 playlist，指示 client 如何播放這些 ts，而當有新的 ts 被產生、佈署，這個 `.m3u8` 檔案也會隨之更新。
 
-在 HLS 規格中，除了 TS 之外，[HLS 的切片也支援使用 fMP4 封裝](https://datatracker.ietf.org/doc/html/rfc8216#section-3.3)。但使用 fMP4 檔案封裝的 HLS 流，在多數平台都不被支援，[蘋果平台也僅在 macOS 10.12, iOS 10, tvOS 10 之後的版本才支援播放](https://developer.apple.com/documentation/http_live_streaming/about_the_ext-x-version_tag)。本章節後續均基於 TS 切片描述，[fMP4 檔將在 MPEG-DASH 章節介紹](../dash/#fmp4)。
+在 HLS 規格中，除了 TS 之外，[HLS 的切片也支援使用 fMP4 封裝](https://datatracker.ietf.org/doc/html/rfc8216#section-3.3)。[蘋果平台在 macOS 10.12, iOS 10, tvOS 10 之後的版本開始支援播放](https://developer.apple.com/documentation/http_live_streaming/about_the_ext-x-version_tag)。本章節後續均基於 TS 切片描述，[fMP4 檔將在 MPEG-DASH 章節介紹](../dash/#fmp4)。
 
 以下圖片來自蘋果的 [HLS 技術官方頁面](https://developer.apple.com/documentation/http_live_streaming)：
 
@@ -32,7 +32,9 @@ HLS 雖然最早用在直播，但之後也陸續應用在影片以及音檔的�
 - 播放端 client 抓取 ts 檔案，到有足夠數量的 packet 可以播放的時間，這段時間也視用戶的頻寬品質而有所不同
 - 因為 HTTP proxy 的 cache，用戶也可能抓到比較舊的檔案
 
-所以，從事件發生，到用戶實際觀看到，往往會有大概 15 秒到半分鐘左右的延遲。蘋果在 2019 年 WWDC 時推出新的 [Low Latency HLS 規格](https://developer.apple.com/documentation/http_live_streaming/protocol_extension_for_low-latency_hls_preliminary_specification)，這個新規格用了一些技巧，想辦法減少直播過程當中的延遲，大概就是讓用戶盡可能去抓取最新的 ts，然後在 `.m3u8` 檔案中加上時間相關資訊，在抓到 ts 之後直接跳到最新的指定秒數，並且盡量不要被 proxy cache 所影響，可以參考 [WWDC 2019 年的說明](https://developer.apple.com/videos/play/wwdc2019/502/)。但這樣的 HLS server 的實作在現在（2020 年初）還不普及，播放端也需要最新的作業系統與播放軟體支援，要等到普及，相信還要花上一段時間。
+所以，從事件發生，到用戶實際觀看到，往往會有大概 15 秒到半分鐘左右的延遲。
+
+蘋果在 2019 年 WWDC 時推出新的 [Low Latency HLS 規格](https://developer.apple.com/documentation/http_live_streaming/protocol_extension_for_low-latency_hls_preliminary_specification)，這個規格用了一些技巧，想辦法減少直播過程當中的延遲，大概就是讓用戶盡可能去抓取最新的 ts，然後在 `.m3u8` 檔案中加上時間相關資訊，在抓到 ts 之後直接跳到最新的指定秒數，並且盡量不要被 proxy cache 所影響，還有就是用 HTTP/2 主動推送，可以參考 [WWDC 2019 年的說明](https://developer.apple.com/videos/play/wwdc2019/502/)。不過，後來這個規格被放棄，在 [WWDC 2000](https://developer.apple.com/videos/play/wwdc2020/10228/) 時，改成用 EXT-X-PART / EXT-X-PRELOAD-HINT 等 tag 來達成低延遲的目的。2022 年以後，主流 CDN 如 Akamai、CloudFront、Mux 等平台，以及播放器如 hls.js、Shaka Player 也都能播放 LL-HLS。
 
 ## .m3u8 檔案
 
@@ -146,7 +148,7 @@ SPC 全名叫做 Server Playback Context，簡單來說，就是用兩種來源�
 
 換句話說，一個完整的 FairPlay server 應該要有兩個 API end point：1. 下載 certificate、2. 驗證 SPC 並回傳 CKC。
 
-## FairPlay Streaming 近年的演變
+## FairPlay Streaming 的演變
 
 蘋果在 2015 年釋出公開版本的 FPS 時，只提供在播放的過程中抓取 CKC 的流程，之後，蘋果也陸續擴充 FPS，在每年的 WWDC 公布更多 FPS 的新功能。這些新功能都在 ios/macOS 的 app 端，在 Web 上，
 
@@ -167,9 +169,9 @@ Content Key Session 獨立於播放元件之外，可以讓第三方廠商，可
 
 跟 Content Key Session 有關的部分，也可以參見 WWDC 2018 的 [AVContentKeySession Best Practices](https://developer.apple.com/videos/play/wwdc2018/507)
 
-### WWDC 2019 - Low Latency HLS
+### WWDC 2019 之後
 
-如前所述，蘋果推出 Low Latency HLS 規格，嘗試降低 HLS 的延遲時間。
+如前所述，蘋果的重點就在 Low Latency HLS 規格，嘗試降低 HLS 的延遲時間，另外就是 HLS Steering 技術。我們就不在 FairPlay 的部分多做說明。
 
 ## 使用 HLS/FairPlay Streaming 的優缺點
 

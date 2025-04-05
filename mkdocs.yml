@@ -32,9 +32,9 @@ plugins:
   - search:
       lang: en
   - social:
-      cards_font: Noto Sans TC
+      cards_font: Noto Sans CJK TC
   - with-pdf:
-      copyright: 2022 © 楊維中 a.k.a zonble
+      copyright: 2022 and onwards © 楊維中 a.k.a zonble
       author: 楊維中 a.k.a zonble
       cover_subtitle: 一本關於音檔格式的技術小冊子
       toc_title: 目錄
